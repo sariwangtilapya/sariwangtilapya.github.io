@@ -1,8 +1,12 @@
-<var> ob : "Herbe"
+---
+ob: 6
+---
 
-<form>
-<output = ob>
-</form>
+<!doctype html>
+<html>
+  <head><title>{{ page.ob }}</title></head>
+<body>
+{{ page.ob }}
 
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
@@ -10,7 +14,7 @@
   =<output name="x" for="a b"></output>
 </form>
 
-<script>
+
 let ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
 
 <h3>Objets de soin</h3>
@@ -22,8 +26,12 @@ let ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
 <!--comment-->
 ob[0,0]
 </table>
-</script>
+
+</body>
+</html>
+
 ## Welcome to GitHub Pages
+mais c'est quoi ce bordel ! rien ne fucking marche !
 
 You can use the [editor on GitHub](https://github.com/sariwangtilapya/sariwangtilapya.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
