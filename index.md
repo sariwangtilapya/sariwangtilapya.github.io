@@ -1,6 +1,7 @@
 ---
 ob: "Herbe"
 fty: 40
+col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
 ---
 
@@ -29,14 +30,19 @@ obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressusci
 ob[0,0]
 </table>
 
-<table><tr><td>Nom</td><td>Effet</td></tr>
+<table><tr>
+
+{% for col in page.col %}
+<td>{{ page.col}}</td>
+{% endfor %}
+</tr>
 
 
 {% assign i = 0 %}
 {% assign j = 0 %}
 {% for i in page.obffv%}
 <tr>
-{% for j in page.obffv%}
+{% for j in page.col%}
 <td>{{ page.obffv[i][j] }} </td>
 {% assign j = j | plus:1 %}
 {% endfor %}
