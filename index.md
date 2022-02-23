@@ -31,10 +31,12 @@ ob[0,0]
 
 <table><tr><td>Nom</td></tr>
 {% for lobffv in page.lobffv%}
-<tr><td>{{ page.lobffv }}</td></tr>
+<tr><td>{{ page.lobffv[0] }}</td></tr>
 {% endfor %} </table>
 </body>
 </html>
+
+putain ! je veux juste un i++ c'est quoi cette espèce de for loop de connerie
 
 ## Welcome to GitHub Pages
 mais c'est quoi ce bordel ! rien ne fucking marche !
