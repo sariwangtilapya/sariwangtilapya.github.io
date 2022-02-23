@@ -31,7 +31,7 @@ ob[0,0]
 
 <table><tr><td>Nom</td></tr>
 {% for lobffv in page.lobffv%}
-<tr><td>{{ page.lobffv[0] }}</td></tr>
+<tr><td>{{ page.lobffv[lobffv] }}</td></tr>
 {% endfor %} </table>
 </body>
 </html>
