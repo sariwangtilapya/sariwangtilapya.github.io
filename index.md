@@ -1,7 +1,5 @@
 ---
 ob: "Herbe"
-a: 2
-b: 1
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
@@ -11,8 +9,6 @@ obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressusci
   <head><title>{{ page.ob }}</title></head>
 <body>
 {{ page.obffv[2][0]}}
-
-{{ page.obffv[page.a][page.b]}}
 
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
@@ -41,15 +37,16 @@ ob[0,0]
 </tr>
 
 {% assign i = 0 %}
-
+{% assign j = 0 %}
 {% for item in page.obffv%}
 <tr>
 {% for item in page.col%}
-<td>{{ page.obffv[forloop.index0][page.i] }} </td>
-{% assign i = i | plus:1 %}
+<td>{{ page.obffv[page.i][page.j] }} </td>
+{% assign j = j | plus:1 %}
 {% endfor %}
 </tr>
-{% assign i = 0 %}
+{% assign j = 0 %}
+{% assign i = i | plus:1 %}
 {% endfor %}
 
 </table>
