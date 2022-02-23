@@ -30,8 +30,10 @@ ob[0,0]
 </table>
 
 <table><tr><td>Nom</td></tr>
+{% assign i = 0 %}
 {% for lobffv in page.lobffv%}
-<tr><td>{{ page.lobffv[{{lobffv}}] }}</td></tr>
+    {% assign i = i | plus:1 %}
+<tr><td>{{ page.lobffv[{{i}}] }}</td></tr>
 {% endfor %} </table>
 </body>
 </html>
