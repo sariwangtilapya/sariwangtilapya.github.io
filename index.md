@@ -33,7 +33,7 @@ ob[0,0]
 {% assign i = 0 %}
 {% for lobffv in page.lobffv%}
     {% assign i = i | plus:1 %}
-<tr><td>{{ page.lobffv[{{i}}] }}</td></tr>
+<tr><td>{{ page.lobffv[i] }}</td></tr>
 {% endfor %} </table>
 </body>
 </html>
