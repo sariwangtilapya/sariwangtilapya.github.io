@@ -34,8 +34,9 @@ ob[0,0]
 <table><tr><td>Nom</td><td>Effet</td>
 </tr>
 {% for lobffv in page.lobffv%}
-<tr><td>{{ page.lobffv[forloop.index0] }}</td>
 {% for dobffv in page.lobffv%}
+<tr><td>{{ page.lobffv[forloop.index0] }}</td>
+
 <td>{{ page.dobffv[forloop.index0] }}</td>
 </tr>
 {% endfor %}
