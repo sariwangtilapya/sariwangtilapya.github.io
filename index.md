@@ -1,7 +1,7 @@
 ---
 ob: "Herbe"
 a: 2
-b: 0
+b: 1
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
@@ -12,7 +12,7 @@ obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressusci
 <body>
 {{ page.obffv[2][0]}}
 
-{{ page.obffv[a][b]}}
+{{ page.obffv[page.a][page.b]}}
 
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
