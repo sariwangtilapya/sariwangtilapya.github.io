@@ -9,7 +9,7 @@ obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressusci
 <html>
   <head><title>{{ page.ob }}</title></head>
 <body>
-{{ page.ob }}
+{{ page.obffv[2][0]}}
 
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
