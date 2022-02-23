@@ -30,10 +30,9 @@ ob[0,0]
 </table>
 
 <table><tr><td>Nom</td></tr>
-{% assign i = 0 %}
 {% for lobffv in page.lobffv%}
-
-<tr><td>{{ page.lobffv[i] }}</td></tr>
+{% assign i = 0 %}
+<tr><td>{{ page.lobffv[forloop.index0] }}</td></tr>
     {% assign i = i | plus:1 %}
 
 {% endfor %} {% endfor %} 
