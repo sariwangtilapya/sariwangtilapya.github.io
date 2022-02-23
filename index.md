@@ -1,5 +1,5 @@
 ---
-ob: 6
+ob: "Herbe"
 fty: 40
 ---
 
@@ -16,14 +16,14 @@ fty: 40
 </form>
 
 
-let ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
+[['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
 
 <h3>Objets de soin</h3>
 
 <table><tr><td>Nom</td><td>Description</td><td>Notes</td></tr>
 <tr><td>Herbe</td><td>Description</td><td>40 HP</td></tr>
 <tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
-<tr><td>ob [0,0]</td><td>Description</td><td>{{ page.fty }}</td></tr>
+<tr><td>{{ page.ob }}</td><td>Description</td><td>{{ page.fty }}</td></tr>
 <!--comment-->
 ob[0,0]
 </table>
