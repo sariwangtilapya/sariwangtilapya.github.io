@@ -55,6 +55,26 @@ ob[0,0]
 </body>
 </html>
 
+Si quelqu'un lis ceci. ça fait vraiment chier déjà. l'idée c'est :
+l'ensemble se comprend des ensembles se comprenant deux éléments
+table
+for i =0 i>nombre d'éléments d'ensemble
+tr
+for j = idem
+td ensemble [i][j] /td
+j++
+end for
+/tr
+i++
+j=0
+end for
+/table
+
+mais putain ça n'accepte même pas du tout des variables dans des brackets
+sans être enregistré dans --- --- ça n'accepte même non plus que ces variables soit reassigné
+tellement what the fuck. cest quoi cette langue de merde ? connerie.
+
+
 putain ! je veux juste un i++ c'est quoi cette espèce de for loop de connerie
 
 ## Welcome to GitHub Pages
