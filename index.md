@@ -1,5 +1,6 @@
 ---
 ob: 6
+fty: 40
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ let ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
 <table><tr><td>Nom</td><td>Description</td><td>Notes</td></tr>
 <tr><td>Herbe</td><td>Description</td><td>40 HP</td></tr>
 <tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
-<tr><td>ob [0,0]</td><td>Description</td><td>Notes</td></tr>
+<tr><td>ob [0,0]</td><td>Description</td><td>{{ page.fty }}</td></tr>
 <!--comment-->
 ob[0,0]
 </table>
