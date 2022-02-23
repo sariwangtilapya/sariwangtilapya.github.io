@@ -1,11 +1,12 @@
 ---
 ob: "Herbe"
+a: 2
+b: 0
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
 ---
 
-<!doctype html>
 <html>
   <head><title>{{ page.ob }}</title></head>
 <body>
