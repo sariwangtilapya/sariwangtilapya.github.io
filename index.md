@@ -42,7 +42,7 @@ ob[0,0]
 {% for obffv in page.obffv%}
 <tr>
 {% for col in page.col%}
-<td>{{ page.obffv[content.i][content.j] }} </td>
+<td>{{ page.obffv[layout.i][layout.j] }} </td>
 
 {% assign j = j | plus:1 %}
 {% endfor %}
