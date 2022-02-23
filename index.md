@@ -1,6 +1,7 @@
 ---
 ob: "Herbe"
 fty: 40
+lobffv: ["Potion", "Potion +", "Queue de Phénix"]
 ---
 
 <!doctype html>
@@ -28,6 +29,10 @@ fty: 40
 ob[0,0]
 </table>
 
+<table><tr><td>Nom</td></tr>
+{% for lobffv in page.lobffv%}
+<tr><td>{{ page.lobffv[0] }}</td></tr>
+{% endfor %} </table>
 </body>
 </html>
 
