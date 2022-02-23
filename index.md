@@ -43,7 +43,7 @@ ob[0,0]
 {% for i in page.obffv%}
 <tr>
 {% for j in page.col%}
-<td>{{ page.obffv[i][j] }} </td>
+<td>{{ page.obffv[{{i}}][{{j}}] }} </td>
 {% assign j = j | plus:1 %}
 {% endfor %}
 </tr>
