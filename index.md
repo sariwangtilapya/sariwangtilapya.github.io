@@ -40,16 +40,16 @@ ob[0,0]
 {% endfor %}
 </tr>
 
+{% assign i = 0 %}
 
-
-{% for i in page.obffv%}
+{% for item in page.obffv%}
 <tr>
-{% for j in page.col%}
-<td>{{ page.obffv[forloop.index0][forloop.index0] }} </td>
-
+{% for item in page.col%}
+<td>{{ page.obffv[forloop.index0][page.i] }} </td>
+{% assign i = i | plus:1 %}
 {% endfor %}
 </tr>
-
+{% assign i = 0 %}
 {% endfor %}
 
 </table>
