@@ -1,5 +1,7 @@
 ---
 ob: "Herbe"
+i: 0
+j: 0
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
