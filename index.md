@@ -1,8 +1,17 @@
+<var> ob : "Herbe"
 
-configure + tard
---sauvegarde de securité--
+<form>
+<output = ob>
+</form>
+
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" id="a" value="50">
+  +<input type="number" id="b" value="25">
+  =<output name="x" for="a b"></output>
+</form>
+
 <script>
-const ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
+let ob = [['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
 
 <h3>Objets de soin</h3>
 
