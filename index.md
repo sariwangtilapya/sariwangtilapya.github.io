@@ -1,7 +1,9 @@
 ---
 ob: "Herbe"
 fty: 40
+obffv:
 lobffv: ["Potion", "Potion +", "Queue de Phénix"]
+dobffv: ["Rend", "Rend", "Ressuscite"]
 ---
 
 <!doctype html>
@@ -29,10 +31,14 @@ lobffv: ["Potion", "Potion +", "Queue de Phénix"]
 ob[0,0]
 </table>
 
-<table><tr><td>Nom</td></tr>
+<table><tr><td>Nom</td><td>Effet</td>
+</tr>
 {% for lobffv in page.lobffv%}
-<tr><td>{{ page.lobffv[forloop.index0] }}</td></tr>
-
+<tr><td>{{ page.lobffv[forloop.index0] }}</td>
+{% for dobffv in page.lobffv%}
+<td>{{ page.dobffv[forloop.index0] }}</td>
+</tr>
+{% endfor %}
 {% endfor %}
 </table>
 </body>
