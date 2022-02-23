@@ -33,9 +33,9 @@ ob[0,0]
 {% assign i = 0 %}
 {% for lobffv in page.lobffv%}
 
-<tr><td>{{ page.lobffv[i] }}
+<tr><td>{{ page.lobffv[i] }}</td></tr>
     {% assign i = i | plus:1 %}
-</td></tr>
+
 {% endfor %} {% endfor %} 
 </table>
 </body>
