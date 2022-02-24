@@ -53,20 +53,18 @@ ob[0,0]
 {% assign i = i | plus:1 %}
 {% endfor %}
 
-</table>
-
-{% for col in page.col %}
-<td>{{ page.col[forloop.index0]}}</td>
-{% endfor %}
+</table><br>
 
 <table><tr>
-
+{% for col in page.col %}
 <td>{{ page.col[forloop.index0]}}</td>
 {% endfor %}
 </tr>
 {% for obffv in page.obffv%}
 <tr><td>{{ page.nomob[forloop.index] }}</td>
-<td>{{ page.desob[forloop.index] }}</td></table>
+<td>{{ page.desob[forloop.index] }}</td></tr>
+{% endfor %}
+</table>
 </body>
 </html>
 
