@@ -4,6 +4,8 @@ ob: "Herbe"
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
+nomob: [Potion", "Potion +", "Queue de Phénix"]
+desob: ["Rend", "Rend", "Ressuscite]
 ---
 
 <html>
@@ -42,7 +44,7 @@ ob[0,0]
 {% for obffv in page.obffv%}
 <tr>
 {% for col in page.col%}
-<td>{{ page.obffv[layout.i][layout.j] }} </td>
+<td>{{ page.obffv[assign.i][assign.j] }} </td>
 
 {% assign j = j | plus:1 %}
 {% endfor %}
@@ -52,6 +54,19 @@ ob[0,0]
 {% endfor %}
 
 </table>
+
+{% for col in page.col %}
+<td>{{ page.col[forloop.index0]}}</td>
+{% endfor %}
+
+<table><tr>
+
+<td>{{ page.col[forloop.index0]}}</td>
+{% endfor %}
+</tr>
+{% for obffv in page.obffv%}
+<tr><td>{{ page.nomob[forloop.index] }}</td>
+<td>{{ page.desob[forloop.index] }}</td></table>
 </body>
 </html>
 
