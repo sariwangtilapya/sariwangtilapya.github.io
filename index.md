@@ -1,6 +1,5 @@
 ---
 ob: "Herbe"
-
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
@@ -20,9 +19,6 @@ desob: ["Rend", "Rend", "Ressuscite]
   =<output name="x" for="a b"></output>
 </form>
 
-
-[['Herbe','Rend des HP','40 HP'], ['Pomme','Rend des HP','50 HP]]
-
 <h3>Objets de soin</h3>
 
 <table><tr><td>Nom</td><td>Description</td><td>Notes</td></tr>
@@ -30,7 +26,6 @@ desob: ["Rend", "Rend", "Ressuscite]
 <tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
 <tr><td>{{ page.ob }}</td><td>Description</td><td>{{ page.fty }}</td></tr>
 <!--comment-->
-ob[0,0]
 </table>
 
 <table><tr>
@@ -53,7 +48,7 @@ ob[0,0]
 {% assign i = i | plus:1 %}
 {% endfor %}
 
-</table><br>
+</table>
 
 <table><tr>
 {% for col in page.col %}
@@ -61,10 +56,11 @@ ob[0,0]
 {% endfor %}
 </tr>
 {% for obffv in page.obffv%}
-<tr><td>{{ page.nomob[forloop.index] }}</td>
-<td>{{ page.desob[forloop.index] }}</td></tr>
+<tr><td>{{ page.nomob[forloop.index0] }}</td>
+<td>{{ page.desob[forloop.index0] }}</td></tr>
 {% endfor %}
 </table>
+
 </body>
 </html>
 
