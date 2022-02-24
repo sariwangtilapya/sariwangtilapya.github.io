@@ -3,8 +3,8 @@ ob: "Herbe"
 fty: 40
 col: ["Nom", "Effet"]
 obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
-nomob: [Potion", "Potion +", "Queue de Phénix"]
-desob: ["Rend", "Rend", "Ressuscite]
+nomob: ["Potion", "Potion +", "Queue de Phénix"]
+desob: ["Rend", "Rend", "Ressuscite"]
 ---
 
 <html>
