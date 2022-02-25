@@ -1,18 +1,11 @@
----
-ob: "Herbe"
-fty: 40
-col: ["Nom", "Effet"]
-obffv: [["Potion", "Rend"], ["Potion +", "Rend"], ["Queue de Phénix", "Ressuscite"]]
-nomob: ["Potion", "Potion +", "Queue de Phénix"]
-desob: ["Rend", "Rend", "Ressuscite"]
----
-
 <html>
-  <head><title>{{ page.ob }}</title></head>
+  <head><title>table à for</title></head>
 <body>
-{{ page.obffv[2][0]}}
-{% assign a = 1 %}
-{{ page.col[page.a] }}
+<script>
+var tete = ['Nom', 'Effet']
+var obffv = ['Potion', 'Potion +', 'Queue de Phénix']
+
+Ceci n'a aucun rapport avec quoi que ce soit.<br>
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
   +<input type="number" id="b" value="25">
@@ -24,41 +17,26 @@ desob: ["Rend", "Rend", "Ressuscite"]
 <table><tr><td>Nom</td><td>Description</td><td>Notes</td></tr>
 <tr><td>Herbe</td><td>Description</td><td>40 HP</td></tr>
 <tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
-<tr><td>{{ page.ob }}</td><td>Description</td><td>{{ page.fty }}</td></tr>
+<tr><td></td><td>Description</td><td></td></tr>
 <!--comment-->
 </table>
 
 <table><tr>
-
-{% for col in page.col %}
-<td>{{ page.col[forloop.index0]}}</td>
-{% endfor %}
+<td>
+for (i=0; i>2; i++) {
+document.write (tete [i])</td>}
 </tr>
-{% assign i = 0 %}
-{% assign j = 0 %}
-{% for obffv in page.obffv%}
+
+for (i=0; i>2; i++) {
+
+for (j=0; j>2; j++) {
 <tr>
-{% for col in page.col%}
-<td>{{ page.obffv[assign.i][assign.j] }} </td>
 
-{% assign j = j | plus:1 %}
-{% endfor %}
-</tr>
-{% assign j = 0 %}
-{% assign i = i | plus:1 %}
-{% endfor %}
+<td>document.write (obffv[i][j] </td>}
 
-</table>
+</tr>}
 
-<table><tr>
-{% for col in page.col %}
-<td>{{ page.col[forloop.index0]}}</td>
-{% endfor %}
-</tr>
-{% for obffv in page.obffv%}
-<tr><td>{{ page.nomob[forloop.index0] }}</td>
-<td>{{ page.desob[forloop.index0] }}</td></tr>
-{% endfor %}
+
 </table>
 
 </body>
