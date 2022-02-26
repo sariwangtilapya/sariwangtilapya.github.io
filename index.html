@@ -3,11 +3,8 @@
 <html>
   <head><title>table à for</title></head>
 <body>
-<script>
-var tete = ['Nom', 'Effet']
-var obffv = ['Potion', 'Potion +', 'Queue de Phénix']
 
-Ceci n'a aucun rapport avec quoi que ce soit.<br>
+Ça n'a rien à voir avec quoi que ce soit.<br>
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
   +<input type="number" id="b" value="25">
@@ -21,30 +18,41 @@ Ceci n'a aucun rapport avec quoi que ce soit.<br>
 <tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
 <tr><td></td><td>Description</td><td></td></tr>
 <!--comment-->
-</table>
+</table><br>
+<table id="liste"></table>
+<script>
+const objffv = [["Potion", "Rend des HP"], ["Potion +", "Rend des HP"], ["Queue de Phénix", "Ressuscite un allié K.-O."],["Antidote", "Guérit l'altération d'état Poison"]];
+const teste = ["Nom", "Effet", "Notes"];
 
-<table><tr>
-<td>
-for (i=0; i>2; i++) {
-document.write (tete [i])</td>}
-</tr>
+let tableau = "<tr>";
+for (let i = 0; i < teste.length; i++) {
+tableau += "<th>" + teste[i] + "</th>";}
+tableau += "</tr>";
+for (let i = 0; i < objffv.length; i++) {
+tableau += "<tr>";
+for (let j = 0; j < objffv[j].length; j++) {
+tableau += "<td>" + objffv[i][j] + "</td>";
+} tableau +="</tr>";}
 
-for (i=0; i>2; i++) {
-
-for (j=0; j>2; j++) {
-<tr>
-
-<td>document.write (obffv[i][j] </td>}
-
-</tr>}
-
-
-</table>
+document.getElementById("liste").innerHTML = tableau;
 </script>
+
 </body>
 </html>
 
-Si quelqu'un lis ceci. ça fait vraiment chier déjà. l'idée c'est :
+
+
+Retrouvons-nous sur shenandorawombatharness.github.io
+
+
+À reconstruire tous ça.
+
+
+
+
+
+Enfin je l'ai trouvé. Mais je peux juste changer l'extension en html. Quand même !
+Ça fait vraiment chier déjà. l'idée c'est :
 l'ensemble se comprend des ensembles se comprenant deux éléments
 table
 for i =0 i>nombre d'éléments d'ensemble
