@@ -39,6 +39,8 @@ for (let i=1; i<3; i++){
 if (choix[(jIndex+i)%3] === ordi){
 score [i%2] +=1;
 vict=i;}}
+joueurAff.innerHTML = score[0]+' ' + joueur;
+ordiAff.innerHTML =score[1]+ ' ' + ordi;
 switch (vict){
 case 0: resultatAff.innerHTML = "ÉGALITÉ !";
 break;
