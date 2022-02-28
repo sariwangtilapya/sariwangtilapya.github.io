@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
 <html>
-  <head><title>table à for</title></head>
+  <head><title>rien à voir ici</title></head>
 <body>
 
 Ça n'a rien à voir avec quoi que ce soit.<br>
@@ -20,22 +20,7 @@
 <!--comment-->
 </table><br>
 <table id="liste"></table>
-<script>
-const objffv = [["Potion", "Rend des HP"], ["Potion +", "Rend des HP"], ["Queue de Phénix", "Ressuscite un allié K.-O."],["Antidote", "Guérit l'altération d'état Poison"]];
-const teste = ["Nom", "Effet", "Notes"];
 
-let tableau = "<tr>";
-for (let i = 0; i < teste.length; i++) {
-tableau += "<th>" + teste[i] + "</th>";}
-tableau += "</tr>";
-for (let i = 0; i < objffv.length; i++) {
-tableau += "<tr>";
-for (let j = 0; j < objffv[j].length; j++) {
-tableau += "<td>" + objffv[i][j] + "</td>";
-} tableau +="</tr>";}
-
-document.getElementById("liste").innerHTML = tableau;
-</script>
 <p>
 
 Retrouvons-nous sur shenandorawombatharness.github.io
@@ -44,7 +29,12 @@ Retrouvons-nous sur shenandorawombatharness.github.io
 À reconstruire tous ça.
 
 
+<h1>Vous : <span id="vous"></span> </h1>
+ 
+<h1>Ordi : <span id="ordi"></span> </h1>
+    <div id="jeu"></div>
 
+ 
 
 
 Enfin je l'ai trouvé. Mais je peux juste changer l'extension en html. Quand même !
@@ -65,5 +55,22 @@ sans être enregistré dans --- --- ça n'accepte même non plus que ces variabl
 tellement what the fuck. cest quoi cette langue de merde ? connerie.
 putain ! je veux juste un i++ c'est quoi cette espèce de for loop de connerie
 </p>
+script>
+const objffv = [["Potion", "Rend des HP"], ["Potion +", "Rend des HP"], ["Queue de Phénix", "Ressuscite un allié K.-O."],["Antidote", "Guérit l'altération d'état Poison"]];
+const teste = ["Nom", "Effet", "Notes"];
+
+let tableau = "<tr>";
+for (let i = 0; i < teste.length; i++) {
+tableau += "<th>" + teste[i] + "</th>";}
+tableau += "</tr>";
+for (let i = 0; i < objffv.length; i++) {
+tableau += "<tr>";
+for (let j = 0; j < objffv[j].length; j++) {
+tableau += "<td>" + objffv[i][j] + "</td>";
+} tableau +="</tr>";}
+
+document.getElementById("liste").innerHTML = tableau;
+</script>
+<script src="chifoumi.js"></script>
 </body>
 </html>
