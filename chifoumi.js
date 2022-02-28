@@ -3,7 +3,7 @@ const ordiAff = document.getElementById('ordi');
 const resultatAff = document.createElement('h3');
 const scoreAff = document.createElement('h3');
 const jeuAff = document.getElementById('jeu');
-jeuAff.append(resultatAff,scoreAff);
+jeuAff.append(resultatAff);
 
 const choix = ['Pierre', 'Papier', 'Ciseaux'];
 let joueur;
@@ -30,7 +30,7 @@ boutonsAff.innerHTML = choix[i];
   jeuAff.appendChild(boutonsAff);
 }
 
-scoreAff = () => {
+scoreDas = () => {
 let jIndex = choix.indexOf (joueur);
 let vict=0;
 for (let i=1; i<3; i++){
