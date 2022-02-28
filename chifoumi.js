@@ -22,7 +22,7 @@ const ordiDas = () => {
   ordi = alea;
 }
 
-for (let i= 0; i < choix.length; i++) {
+for (let i = 0; i < choix.length; i++) {
   const boutonsAff = document.createElement('button');
 boutonsAff.id = choix [i];
 boutonsAff.innerHTML = choix[i];
@@ -37,13 +37,17 @@ for (let i=1; i<3; i++){
 if (choix[(jIndex+i)%3] === ordi){
 score [i%2] +=1;
 vict=i;}}
-joueurAff.innerHTML = score[0]+' ' + joueur;
-ordiAff.innerHTML =score[1]+ ' ' + ordi;
+  joueurAff.innerHTML= score[0]+ " " + joueur;
+  ordiAff.innerHTML = score[1]+ " " + ordi;
 switch (vict){
-case 0: resultatAff.innerHTML = "ÉGALITÉ !";
+case 0: 
+    resultatAff.innerHTML = "ÉGALITÉ !";
+    break;
+case 1:
+    resultatAff.innerHTML = "PERDU !";
+    break;
+case 2: 
+    resultatAff.innerHTML = "GAGNÉ !";
 break;
-case 1: resultatAff.innerHTML = "PERDU !";
-break;
-case 2: resultatAff.innerHTML = "GAGNÉ !";
-break;}
+}
 }
