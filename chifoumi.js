@@ -13,7 +13,6 @@ let score=[0,0];
 
 const handleClick = (e) => {
   joueur = e.target.id;
-joueurAff.innerHTML = score[0]+' ' + joueur;
   ordiDas()
   scoreDas()
 }
@@ -21,10 +20,9 @@ joueurAff.innerHTML = score[0]+' ' + joueur;
 const ordiDas = () => {
   const alea = choix[Math.floor(Math.random() * choix.length)];
   ordi = alea;
-ordiAff.innerHTML =score[1]+ ' ' + ordi;
 }
 
-for (let i = 0; i < choix.length; i++) {
+for (let i= 0; i < choix.length; i++) {
   const boutonsAff = document.createElement('button');
 boutonsAff.id = choix [i];
 boutonsAff.innerHTML = choix[i];
