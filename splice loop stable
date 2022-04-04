@@ -1,0 +1,11 @@
+const a=["az","ae","azz","ez","za"];
+const b=["a","z"];
+let k=0; let p=false;
+for (i=0; i<a.length; i++){
+for (j=0; j<a[i].length; j++){
+ if (p===true){i--;}
+ if (b.includes(a[i].charAt(j))===false){j=3;
+  a.splice(i,1); p=true;}
+else{p=false;}}
+}
+console.log(a);
