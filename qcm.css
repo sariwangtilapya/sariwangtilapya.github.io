@@ -1,0 +1,10 @@
+p {text-align:center;}
+
+#boutonsHako{display:flex;
+ justify-content:space-around;
+ align-items:stretch;
+ flex-basis:33.33%;
+ }
+#boutonsHako:nth-child(3n){
+   line-break: after;    
+}
