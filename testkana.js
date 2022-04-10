@@ -32,6 +32,7 @@ function clicSuru(innerText){
 résultatDas=réponse.indexOf(innerText)===questionUchi?"🔴":"❌";
 résultatAff.innerText=résultatDas;
 question=[]; réponse=[];
+questionUchi=PENA(question.length);
  QeRConf();
 boutonsAff.innerHTML="";
  boutonsConf();
