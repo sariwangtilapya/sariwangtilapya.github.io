@@ -26,7 +26,7 @@ const réponseAff=document.createElement("button");
 réponseAff.innerText=v;
 réponseAff.setAttribute("onClick", "clicSuru(this.innerText)");
 boutonsAff.appendChild(réponseAff);
-if (i=2){boutonsAff.innerHTML+="<br>";}}
+if (i===2){boutonsAff.innerHTML+="<br>";}}
 } boutonsConf();
 
 function clicSuru(innerText){
