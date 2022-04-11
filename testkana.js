@@ -23,18 +23,18 @@ questionAff.innerText=question[questionUchi];
 function boutonsConf(){let s=0;
 for (v of réponse){
 const réponseAff=document.createElement("button");
+const brAff=document.createElement("br");
 réponseAff.innerText=v;
 réponseAff.setAttribute("onClick", "clicSuru(this.innerText)");
 boutonsAff.appendChild(réponseAff);
-if (s===2){boutonsAff.innerHTML+="<br>";}}
+if (s===2){boutonsAff.appendChild(brAff);}}
 } boutonsConf();
 
 function clicSuru(innerText){
 résultatDas=réponse.indexOf(innerText)===questionUchi?"🔴":"❌";
 résultatAff.innerText=résultatDas;
-question=[]; réponse=[];
+question=[]; réponse=[]; QeRConf();
 questionUchi=PENA(question.length);
- QeRConf();
 boutonsAff.innerHTML="";
  boutonsConf();
 questionAff.innerText=question[questionUchi];}
