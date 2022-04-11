@@ -20,12 +20,13 @@ const boutonsAff=document.getElementById("boutonsHako");
 const questionAff=document.getElementById("questionHako");
 questionAff.innerText=question[questionUchi];
 
-function boutonsConf(){
+function boutonsConf(){i=0;
 for (v of réponse){
 const réponseAff=document.createElement("button");
 réponseAff.innerText=v;
 réponseAff.setAttribute("onClick", "clicSuru(this.innerText)");
-boutonsAff.appendChild(réponseAff);}
+boutonsAff.appendChild(réponseAff);
+if (i=2){boutonsAff.innerHTML+="<br>";}}
 } boutonsConf();
 
 function clicSuru(innerText){
