@@ -1,73 +1,20 @@
 
 <!DOCTYPE HTML>
 <html>
-  <head><title>rien à voir ici</title></head>
+  <head><title><h1>Bienvenue sur notre repositoire !</title></head>
 <body>
-
-Ça n'a rien à voir avec quoi que ce soit.<br>
+Profitez-vous des quiz afin de vous entraîner.
 <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
   <input type="range" id="a" value="50">
   +<input type="number" id="b" value="25">
   =<output name="x" for="a b"></output>
 </form>
 
-<h3>Objets de soin</h3>
-
-<table><tr><td>Nom</td><td>Description</td><td>Notes</td></tr>
-<tr><td>Herbe</td><td>Description</td><td>40 HP</td></tr>
-<tr><td>Pomme</td><td>Description</td><td>50 HP</td></tr>
-<tr><td></td><td>Description</td><td></td></tr>
-<!--comment-->
-</table><br>
-<table id="liste"></table>
-
-
-<p>
-Retrouvons-nous sur <a href="https://shenandorawombatharness.github.io">shenandorawombatharness.github.io</a>
-<br>À reconstruire tous ça.</p>
 <a href="chifoumi.html">じゃんけんぽん</a>
 <h1>Vous : <span id="vous"></span> </h1>
  
 <h1>Ordi : <span id="ordi"></span> </h1>
     <div id="jeu"></div>
-
- 
-
-<p>
-Enfin je l'ai trouvé. Mais je peux juste changer l'extension en html. Quand même !
-Ça fait vraiment chier déjà. l'idée c'est :
-l'ensemble se comprend des ensembles se comprenant deux éléments
-table
-for i =0 i>nombre d'éléments d'ensemble
-tr
-for j = idem
-td ensemble [i][j] /td
-j++
-/tr
-i++
-j=0
-/table
-mais putain ça n'accepte même pas du tout des variables dans des brackets
-sans être enregistré dans --- --- ça n'accepte même non plus que ces variables soit reassigné
-tellement what the fuck. cest quoi cette langue de merde ? connerie.
-putain ! je veux juste un i++ c'est quoi cette espèce de for loop de connerie
-</p>
-<script src="chifoumi.js"></script>
-<script>
-const objffv = [["Potion", "Rend des HP"], ["Potion +", "Rend des HP"], ["Queue de Phénix", "Ressuscite un allié K.-O."],["Antidote", "Guérit l'altération d'état Poison"]];
-const teste = ["Nom", "Effet", "Notes"];
-
-let tableau = "<tr>";
-for (let i = 0; i < teste.length; i++) {
-tableau += "<th>" + teste[i] + "</th>";}
-tableau += "</tr>";
-for (let i = 0; i < objffv.length; i++) {
-tableau += "<tr>";
-for (let j = 0; j < objffv[j].length; j++) {
-tableau += "<td>" + objffv[i][j] + "</td>";
-} tableau +="</tr>";}
-
-document.getElementById("liste").innerHTML = tableau;
-</script>
+<a href="testkana.html">Test de hiragana/katakana</a>
 </body>
 </html>
