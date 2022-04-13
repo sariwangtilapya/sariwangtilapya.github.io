@@ -1,8 +1,1 @@
-objffv
-objbof
-mblaffv
-mnoiffv
-mbluffv
-danffv
-chaffv
-magbof
+x=3; y=3;
