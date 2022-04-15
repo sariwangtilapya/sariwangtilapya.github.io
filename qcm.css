@@ -1,24 +1,24 @@
 * {
-  margin: auto;
-  padding: auto;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
 #univHako{position:relative;
-height:100%;
+height:auto;
 }
-p {text-align:center; height:25%;}
+p {text-align:center; height:20%;}
 
-#boutonsHako{display:flex;
+#boutonsHako{display:flex; position:center;
  justify-content:space-around;
  align-items:stretch;
- flex-basis:100%; flex-wrap:wrap; height:50%%;
+ flex-basis:100%; flex-wrap:wrap; height:50%;
  }
 #boutonsHako:nth-child(3){
    line-break: after;    
 }
 #boutonsHako>button{flex-basis:28%;
-height:32vh;
+height:20vh;
 padding:0%;
 margin:2%;
 } 
