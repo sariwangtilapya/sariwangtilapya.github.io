@@ -17,8 +17,8 @@ line-height:100%; margin: 0 auto;}
  flex-basis:100%; flex-wrap:wrap; height:50vh;
  }
 /*#boutonsHako:nth-child(3){
-   line-break: after;    */
-}
+   line-break: after;
+}*/
 #boutonsHako>button{flex-basis:28%;
 height:20vh;
 padding:0%;
