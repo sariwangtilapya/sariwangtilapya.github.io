@@ -5,13 +5,12 @@ const romajigojuon=["a" ,"i" ,"u" ,"e" ,"o" ,"ka" ,"ki" ,"ku" ,"ke" ,"ko" ,"sa" 
 let questionEns=hiraganagojuon; let réponseEns=réponsegojuon;
 let question=[]; let réponse=[];
 
-function PENA(limite){
-return Math.floor(Math.random()*limite);}
+function PENA(limite){return Math.floor(Math.random()*limite);}
 
 function QeRConf(){
 for (i=0; i<6; i++){function randomiser(){
 let réponseAléa=PENA(réponseEns.length);
-if (réponse.includes(réponseEnd[réponseAléa])){randomiser();}
+if (réponse.includes(réponseEns[réponseAléa])){randomiser();}
 else {réponse.push(réponseEns[réponseAléa]);
 question.push(questionEns[réponseAléa]);}}
 randomiser();}} QeRConf();
