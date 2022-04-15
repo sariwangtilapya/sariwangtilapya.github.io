@@ -2,13 +2,13 @@
   margin: auto;
   padding: 0px;
   box-sizing: border-box;
-font-size:24px;
+font-size:72px;
 }
 
 #univHako{position:relative;
 height:auto;
 }
-p {text-align:center; height:20%;}
+p {text-align:center; height:20%; margin: 0 auto;}
 
 #boutonsHako{display:flex; position:center;
  justify-content:space-around;
