@@ -7,7 +7,7 @@ let kanjiEns=kyouikuKanjiN1;
 for (i=0; i<kanjiEns.length; i++){
 leKanjiMême.push(kanjiEns[i][1]);
 lectureOnyomi.push(kanjiEns[i][4]);
-lectureKunyomi.push(kanjiEns[i][5]);
+lectureKunyomi.push(kanjiEns[i][5]);}
 
 let questionEns=leKanjiMême; let réponseEns=lectureOnyomi;
 let question=[]; let réponse=[];
@@ -22,14 +22,13 @@ else {réponse.push(réponseEns[réponseAléa]);
 question.push(questionEns[réponseAléa]);}}
 randomiser();}} QeRConf();
 
-const résultatAff=document.getElementById("résultatHako")
+const résultatAff=document.getElementById("résultatHako");
 let questionUchi=PENA(question.length);
 const boutonsAff=document.getElementById("boutonsHako");
 const questionAff=document.getElementById("questionHako");
 questionAff.innerText=question[questionUchi];
 
-function boutonsConf(){let s=0;
-for (v of réponse){
+function boutonsConf(){let s=0; for (v of réponse){
 const réponseAff=document.createElement("button");
 const brAff=document.createElement("br");
 réponseAff.innerText=v;
