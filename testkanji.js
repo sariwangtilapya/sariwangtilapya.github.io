@@ -2,7 +2,7 @@
 Réécrivez plus tard.*/
 
 const leKanjiMême=[]; const lectureOnyomi=[]; const lectureKunyomi=[];
-kanjiEns=kyouikuKanjiN1;
+let kanjiEns=kyouikuKanjiN1;
 
 for (i=0; i<kanjiEns.length; i++){
 leKanjiMême.push(kanjiEns[i][1]);
