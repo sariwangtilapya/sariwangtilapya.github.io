@@ -5,9 +5,9 @@ const leKanjiMême=[]; const lectureOnyomi=[]; const lectureKunyomi=[];
 kanjiEns=kyouikuKanjiN1;
 
 for (i=0; i<kanjiEns.length; i++){
-leKanjiMême.push(kanjiEns[1]);
-lectureOnyomi.push(kanjiEns[4]);
-lectureKunyomi.push(kanjiEns[5]);
+leKanjiMême.push(kanjiEns[i][1]);
+lectureOnyomi.push(kanjiEns[i][4]);
+lectureKunyomi.push(kanjiEns[i][5]);
 
 let questionEns=leKanjiMême; let réponseEns=lectureOnyomi;
 let question=[]; let réponse=[];
