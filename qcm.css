@@ -9,16 +9,19 @@
   #univHako{position:relative;
   height:auto;
   }
-  p {text-align:center; height:20vh;
+  p {text-align:right; height:20vh;
   line-height:20vh; margin: 0 auto;
     }
   
-  #boutonsHako{display:flex; position:center;
+  #boutonsHako{
+   display:flex;
+   position:center;
+   position:fixed;
    justify-content:space-around;
    align-items:stretch;
-   flex-basis:100%; flex-wrap:wrap; height:50vh;
-  background: cyan;
-  /*padding:0; margin:5%; padding:white;*/
+   flex-basis:100%; flex-wrap:wrap;
+   width:100vw; height: 60%;
+   background: cyan;
               }
   #boutonsHako>button{flex-basis:28%;
   height:20vh;
