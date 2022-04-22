@@ -1,6 +1,6 @@
 let leKanjiMême=[]; let lectureOnyomi=[]; let lectureKunyomi=[];
 const kyouikuKanjiNiveaux=[kyouikuKanjiN1,kyouikuKanjiN2,kyouikuKanjiN3,kyouikuKanjiN4,kyouikuKanjiN5,kyouikuKanjiN6,kyouikuKanjiPréfectures];
-let kanjiEns=kyouikuKanjiNiveaux[0]; let infoPage=0;
+let kanjiEns=kyouikuKanjiNiveaux[0]; let infoPageNo=1;
 
 for (i=0; i<kanjiEns.length; i++){leKanjiMême.push(kanjiEns[i][1]);
 lectureOnyomi.push(kanjiEns[i][4]); lectureKunyomi.push(kanjiEns[i][5]);}
@@ -38,7 +38,7 @@ boutonsAff.appendChild(réponseAff);
 if (s===2){const brAff=document.createElement("br"); boutonsAff.appendChild(brAff);}
 s++;}} choixRéponseConf();
 
-function réglagesClic(id){
+function réglagesClic(id){function reinitialiser(){
 kanjiEns=kyouikuKanjiNiveaux[parseInt(id)]; lectureKunyomi=[]; lectureOnyomi=[]; leKanjiMême=[];
 for (i=0; i<kanjiEns.length; i++){leKanjiMême.push(kanjiEns[i][1]);
 lectureOnyomi.push(kanjiEns[i][4]); lectureKunyomi.push(kanjiEns[i][5]);}
@@ -46,13 +46,24 @@ questionEns=leKanjiMême; réponseEns=lectureKunyomi;
 question=[]; réponse=[]; QeRConf();
 questionUchi=PENA(question.length);
 boutonsAff.innerHTML=""; choixRéponseConf();
-questionAff.innerText=question[questionUchi];}
+questionAff.innerText=question[questionUchi];}reinitialiser();}
+
+let dernièreBonneRéponse="Bonne réponse : "
+function pageBonneRéponse(){infosAff.innerText=dernièreBonneRéponse;  infoPageNo=2;}
+function pageEnsembleDeKanjis(){infosAff.innerText=""; boutonsRéglagesConf(); reinitialiser(); infoPageNo=1}
 
 function choixRéponseClic(innerText){
 résultatDas=réponse.indexOf(innerText)===questionUchi?"⭕️":"❌";
-résultatAff.innerText=résultatDas; infoPage=1;
-infosAff.innerText=réponse[questionUchi];
-question=[]; réponse=[]; QeRConf();
+résultatAff.innerText=résultatDas; dernièreBonneRéponse=question[questionUchi]+" - "+réponse[questionUchi];
+pageBonneRéponse(); question=[]; réponse=[]; QeRConf();
 questionUchi=PENA(question.length);
 boutonsAff.innerHTML=""; choixRéponseConf();
 questionAff.innerText=question[questionUchi];}
+
+function pageÀPropos(){infosAff.innerText="Mets des instructions ici."; infoPageNo=0;}
+function pageSource(){infosAff.innerText="Mets les sources ici."; infoPageNo=3;}
+
+const infoPage=[pageÀPropos, pageEnsembleDeKanjis, pageBonneRéponse, pageSource];
+
+function déroule(value){if (value==="↑"){infoPageNo=(infoPageNo+infoPage.length-1)%infoPage.length;}
+else if (value==="↓"){infoPageNo=(infoPageNo+1)%infoPage.length;} infoPage[infoPageNo]();}
