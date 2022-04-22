@@ -1,33 +1,71 @@
 * {
-    margin: auto;
-    padding: 0px;
-    box-sizing: border-box;
-  font-size:9vmax;
-  background:darkslateblue
+  margin: auto;
+  padding: 0px;
+  box-sizing: border-box;
+font-size:9vmax;
+background:blue
+}
+#infosHako{position: fixed;
+  top: 0; left: 0;
+ /*display:flex;*/
+ margin: 0 auto; width:80vw;
+ height:40vh;
+}
+#infosHako>button{
+ font-size:50%;
+}
+#flèchesHako{
+ display:flex;
+ flex-direction:column;
+ justify-content:space-around;
+ position:fixed;
+ height:40vh;
+ float:right;
+ right:20vw;
+ top:0vw;
+ /*margin:15 auto;
+ padding:0 auto;*/
+ vertical-align:middle;
+ }
+#flèchesHako>input{
+ display:flex;
+ height:25%;
+ width:5vmin;
+ text-align:center;
+ background-color:gray;
+}
+[value]{
+ font-size:36;
+ box-sizing:border-box;
+ margin:auto;
+}
+#QeRHako{
+ position:fixed;
+ right:0;
+ top:0;
+ width:20vw;
+}
+ 
+p {text-align:right; height:20vh;
+line-height:20vh; margin: 0 auto;
+   background:darkslateblue
   }
-  
-  #univHako{position:relative;
-  height:auto;
-  }
-  p {text-align:right; height:20vh;
-  line-height:20vh; margin: 0 auto;
-    }
-  
-  #boutonsHako{
-   display:flex;
-   position:center;
-   position:fixed;
-   justify-content:space-around;
-   align-items:stretch;
-   flex-basis:100%; flex-wrap:wrap;
-   width:100vw; height: 60%;
-   background: cyan;
-              }
-  #boutonsHako>button{flex-basis:28%;
-  height:20vh;
-  padding:2;
-  margin:auto;
- background:teal;
-  font-size:52%;
- /* text-wrap:jsais pas css lol;*/
-  }
+
+#boutonsHako{
+ display:flex;
+ position:fixed;
+ bottom:0;
+ justify-content:space-around;
+ align-items:stretch;
+ flex-basis:100%; flex-wrap:wrap;
+ width:100vw; height: 60vh;
+ background: cyan;
+            }
+#boutonsHako>button{flex-basis:28%;
+height:20vh;
+padding:0;
+margin:auto;
+background:teal;
+font-size:52%;
+/* text-wrap:jsais pas css lol;*/
+}
