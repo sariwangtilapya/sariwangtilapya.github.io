@@ -69,4 +69,4 @@ else if (event.code==="IntlBackslash"){infosAff.innerText=tradDeb[questionUchi];
 else if (eventCodes[4].includes(event.code)){kanjiEns=kyouikuKanjiNiveaux[eventCodes[4].indexOf(event.code)]; viderLesTableaux(); viderQeR(); tableauKanjiConf(); QeRConf(); questionDas(); choixRéponseDas();}
 else if (eventCodes[3].includes(event.code)){réponseBtn=document.querySelectorAll("#boutonsHako>button");
 if (event.code==="KeyK"){yomiChoisieBan=0;} else {yomiChoisieBan=1;}
-for (i=0; i<réponseBtn.length; i++){réponseBtn[i].innerText=réponse[yomiChoisieBan][i];}}});
+for (i=0; i<réponseBtn.length; i++){réponseBtn[i].innerText=réponse[yomiChoisieBan][i];}}})
