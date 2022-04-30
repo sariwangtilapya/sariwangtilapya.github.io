@@ -5,7 +5,8 @@ const infosAff=document.getElementById("infosHako");
 
 const kyouikuKanjiNiveaux=[kyouikuKanjiN1,kyouikuKanjiN2,kyouikuKanjiN3,kyouikuKanjiN4,kyouikuKanjiN5,kyouikuKanjiN6,kyouikuKanjiPréfectures];
 let kanjiEns=kyouikuKanjiNiveaux[0]; let infoPageNo=1; let yomiChoisieBan=0;
-const infoPage=[pageÀPropos, pageEnsembleDeKanjis, pageBonneRéponse, pageSource];
+const infoPage=[pageÀPropos, pageEnsembleDeKanjis, pageBonneRéponse, pageLectureAlt];
+let dernièresBonnesRéponses=[];
 
 let leKanjiMême=[]; let traduction=[]; let lecturesKanji=[[],[]];
 
@@ -14,7 +15,6 @@ let questionUchi=0; let réponseAléa=0;
 
 function PENA(limite){return Math.floor(Math.random()*limite);}
 function pageÀPropos(){infosAff.innerText="Mets des instructions ici."; infoPageNo=0;}
-function pageSource(){infosAff.innerText="Mets les sources ici."; infoPageNo=3;}
 
 function viderLesTableaux(){leKanjiMême=[]; lecturesKanji[0]=[]; lecturesKanji[1]=[]; traduction=[];}
 function viderQeR(){question=[]; réponse[0]=[]; réponse[1]=[]; tradDeb=[];}
@@ -42,17 +42,20 @@ réglagesAff.setAttribute("id", i); infosAff.appendChild(réglagesAff);}}
 tableauKanjiConf(); QeRConf();
 questionDas(); choixRéponseDas(); boutonsRéglagesDas();
 
-function réglagesClic(id){kanjiEns=kyouikuKanjiNiveaux[id];}
+function réglagesClic(id){kanjiEns=kyouikuKanjiNiveaux[parseInt(id)]; viderLesTableaux();}
 
-let dernièreBonneRéponse="Bonne réponse : "
+let dernièreBonneRéponse="Bonne réponse : "; let dernièreQuestions=[];
 function pageBonneRéponse(){infosAff.innerText=dernièreBonneRéponse; infoPageNo=2;}
 function pageEnsembleDeKanjis(){infosAff.innerText=""; boutonsRéglagesDas(); infoPageNo=1;}
 let réponseBtn=document.querySelectorAll("#boutonsHako>button");
 
 function réponseIre(vérificateur){résultatAff.innerText=vérificateur===questionUchi?"⭕️":"❌";
 dernièreBonneRéponse=question[questionUchi]+" - "+réponse[yomiChoisieBan][questionUchi];
+dernièreBonneRéponseAlt=question[questionUchi]+" - "+réponse[(yomiChoisieBan+1)%2][questionUchi];
 pageBonneRéponse(); viderQeR(); tableauKanjiConf(); QeRConf(); questionDas(); choixRéponseDas();}
 function choixRéponseClic(id){réponseIre(parseInt(id));}
+
+function pageLectureAlt(){infosAff.innerHTML=dernièreBonneRéponseAlt; infoPageNo=3;}
 
 function déroule(value){if (value==="↑"){infoPageNo=(infoPageNo+infoPage.length-1)%infoPage.length;}
 else if (value==="↓"){infoPageNo=(infoPageNo+1)%infoPage.length;} infoPage[infoPageNo]();}
@@ -66,7 +69,7 @@ else {infoPageNo=(infoPageNo+1)%infoPage.length;} infoPage[infoPageNo]();}
 else if (eventCodes[1].includes(event.code)){réponseIre(eventCodes[1].indexOf(event.code));}
 else if (eventCodes[2].includes(event.code)){réponseIre(eventCodes[2].indexOf(event.code));}
 else if (event.code==="IntlBackslash"){infosAff.innerText=tradDeb[questionUchi];}
-else if (eventCodes[4].includes(event.code)){kanjiEns=kyouikuKanjiNiveaux[eventCodes[4].indexOf(event.code)]; viderLesTableaux(); viderQeR(); tableauKanjiConf(); QeRConf(); questionDas(); choixRéponseDas();}
+else if (eventCodes[4].includes(event.code)){kanjiEns=kyouikuKanjiNiveaux[eventCodes[4].indexOf(event.code)]; viderLesTableaux();}
 else if (eventCodes[3].includes(event.code)){réponseBtn=document.querySelectorAll("#boutonsHako>button");
 if (event.code==="KeyK"){yomiChoisieBan=0;} else {yomiChoisieBan=1;}
 for (i=0; i<réponseBtn.length; i++){réponseBtn[i].innerText=réponse[yomiChoisieBan][i];}}})
