@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<p>Appuyez sur entree pour convertir à hiragana<br>Appuyez sur ² pour aller à la question suivante (le bouton à la gauche de 1)
+<br>le convertisseur accepte « ti, ty(V), di, dy(V), si, sy(V), tu, du » « chi, ch(V), shi, sh(V), tsu, dzu » les deux systemes de romanisation.<br>
+« x » sera auromatiquement emplacé par « ĵ » pour faire distinction entre じ et ぢ. Ou bien, on peut tout simplement taper « di ».<br><hr><hr></p>
+    <div id="questionHako"></div>
+    <div id="réponseHako"></div>
+    <div id="entréeHako"></div>
+    <script src="jlpttousvocab.js"></script>
+    <script>
+    //converteur de kana
+const voyelles=["a","i","u","e","o"]; const consonnes=["","k","g","s","z","t","d","n","h","b","p","m","y","r","w"];
+const katakanaTab=[["ア", "イ", "ウ", "エ", "オ"], ["カ", "キ", "ク", "ケ", "コ"], ["ガ", "ギ", "グ", "ゲ", "ゴ"], ["サ", "シ", "ス", "セ", "ソ"], ["ザ", "ジ", "ズ", "ゼ", "ゾ"], ["タ", "チ", "ツ", "テ", "ト"], ["ダ", "ヂ", "ヅ", "デ", "ド"], ["ナ", "ニ", "ヌ", "ネ", "ノ"], ["ハ", "ヒ", "フ", "ヘ", "ホ"], ["バ", "ビ", "ブ", "ベ", "ボ"], ["パ", "ピ", "プ", "ペ", "ポ"], ["マ", "ミ", "ム", "メ", "モ"], ["ヤ", "イ", "ユ", "イェ", "ヨ"], ["ラ", "リ", "ル", "レ", "ロ"], ["ワ", "ウィ", "ウ", "ウェ", "ヲ"], ["ン"]];
+const katakanaTabPetit=[["ャ","ィ","ュ","ェ","ョ"], ["ァ","ィ","ゥ","ェ","ォ"], ["ッ"]];
+const hiraganaTab=[["あ", "い", "う", "え", "お"],["か", "き", "く", "け", "こ"], ["が", "ぎ", "ぐ", "げ", "ご"], ["さ", "し", "す", "せ", "そ"], ["ざ", "じ", "ず", "ぜ", "ぞ"], ["た", "ち", "つ", "て", "と"], ["だ", "ぢ", "づ", "で", "ど"], ["な", "に", "ぬ", "ね", "の"], ["は", "ひ", "ふ", "へ", "ほ"], ["ば", "び", "ぶ", "べ", "ぼ"], ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"], ["ま", "み", "む", "め", "も"], ["や", "い", "ゆ", "いぇ", "よ"], ["ら", "り", "る", "れ", "ろ"], ["わ", "うぃ","う","うぇ", "を"], ["ん"]];
+const hiraganaTabPetit=[["ゃ","ぃ","ゅ","ぇ","ょ"], ["ぁ","ぃ","ぅ","ぇ","ぉ"],["っ"]];
+const zoneDeTexteÉlem=document.createElement("input"); zoneDeTexteÉlem.setAttribute("type", "text");
+zoneDeTexteÉlem.setAttribute("id", "p");
+let zoneDeTexteAff=document.getElementById("p");
+
+const vocHira=[...jlpt5VocQueHira,...jlpt4VocQueHira,...jlpt3VocQueHira,...jlpt2VocQueHira,...jlpt1VocQueHira];
+
+const questionAff=document.getElementById("questionHako");
+const réponseAff=document.getElementById("réponseHako");
+const entréeAff=document.getElementById("entréeHako");
+
+let questionUchi=0;
+
+function PENA(limite){return Math.floor(Math.random()*limite);}
+
+function questionDas (){questionUchi=PENA(vocHira.length);
+questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][2]} [${questionUchi}]`;}
+
+function àHiragana(ÀH){let nouvelleChaine=""; for (i=0; i<ÀH.length; i++){
+if (voyelles.includes(ÀH[i])){nouvelleChaine+=hiraganaTab[0][voyelles.indexOf(ÀH[i])];}
+else if (ÀH[i]===" "){nouvelleChaine=nouvelleChaine;}else if (ÀH[i]==="-"){nouvelleChaine+="ー";}else if (ÀH.startsWith("n'",i)){nouvelleChaine+=hiraganaTab[15]; i++;}
+else if (ÀH.startsWith("sh",i)&&voyelles.includes(ÀH[i+2])){nouvelleChaine+=hiraganaTab[3][1]; if (ÀH[i+2]!="i"){nouvelleChaine+=hiraganaTabPetit[0][voyelles.indexOf(ÀH[i+2])];}i+=2;}
+else if (ÀH.startsWith("j",i)&&voyelles.includes(ÀH[i+1])){nouvelleChaine+=hiraganaTab[4][1]; if (ÀH[i+1]!="i"){nouvelleChaine+=hiraganaTabPetit[0][voyelles.indexOf(ÀH[i+1])];}i++;}
+else if (ÀH.startsWith("ch",i)&&voyelles.includes(ÀH[i+2])){nouvelleChaine+=hiraganaTab[5][1]; if (ÀH[i+2]!="i"){nouvelleChaine+=hiraganaTabPetit[0][voyelles.indexOf(ÀH[i+2])];}i+=2;}
+else if (ÀH.startsWith("ts",i)&&voyelles.includes(ÀH[i+2])){nouvelleChaine+=hiraganaTab[5][2]; if (ÀH[i+2]!="u"){nouvelleChaine+=hiraganaTabPetit[1][voyelles.indexOf(ÀH[i+2])];}i+=2;}
+else if (ÀH.startsWith("ĵ",i)&&voyelles.includes(ÀH[i+1])){nouvelleChaine+=hiraganaTab[6][1]; if (ÀH[i+1]!="i"){nouvelleChaine+=hiraganaTabPetit[0][voyelles.indexOf(ÀH[i+1])];}i++;}
+else if (ÀH.startsWith("dzu",i)){nouvelleChaine+=hiraganaTab[6][2]; i+=2;}
+else if (ÀH.startsWith("tch",i)||ÀH.startsWith("dj",i)||ÀH.startsWith("dĵ",i)||ÀH.startsWith("jj",i)||ÀH.startsWith("ĵĵ",i)||ÀH.startsWith("cch",i)||ÀH.startsWith("ff",i)){nouvelleChaine+=hiraganaTabPetit[2];}
+else if (ÀH.startsWith("f",i)&&voyelles.includes(ÀH[i+1])){nouvelleChaine+=hiraganaTab[8][2]; if (ÀH[i+1]!="u"){nouvelleChaine+=hiraganaTabPetit[1][voyelles.indexOf(ÀH[i+1])];}i++;}
+else if (ÀH.startsWith("l",i)&&voyelles.includes(ÀH[i+1])){nouvelleChaine+=hiraganaTabPetit[1][voyelles.indexOf(ÀH[i+1])]; i++;}
+else if (ÀH.startsWith("ltu",i)){nouvelleChaine+=hiraganaTabPetit[2]; i+=2;}
+else if (ÀH.startsWith("ltsu",i)){nouvelleChaine+=hiraganaTabPetit[2]; i+=3;}
+else if (ÀH.startsWith("ly",i)&&voyelles.includes(ÀH[i+2])){nouvelleChaine+=hiraganaTabPetit[1][voyelles.indexOf(ÀH[i+2])]; i+=2;}
+else if (consonnes.includes(ÀH[i])){if (ÀH[i]==="n"&&voyelles.includes(ÀH[i+1])===false){nouvelleChaine+=hiraganaTab[15];}
+else if (ÀH[i+1]==="y"&&voyelles.includes(ÀH[i+2])){nouvelleChaine+=hiraganaTab[consonnes.indexOf(ÀH[i])][1]+hiraganaTabPetit[0][voyelles.indexOf(ÀH[i+2])]; i+=2;}
+else if (ÀH[i+1]===ÀH[i]){nouvelleChaine+=hiraganaTabPetit[2];}
+else if (voyelles.includes(ÀH[i+1])){nouvelleChaine+=hiraganaTab[consonnes.indexOf(ÀH[i])][voyelles.indexOf(ÀH[i+1])]; i++;}
+else {nouvelleChaine+=ÀH[i];}}else {nouvelleChaine+=ÀH[i];} 
+}return nouvelleChaine;}
+
+questionDas();
+//C+y+V
+//CC
+//shV ; jV ; chV ; tsu ; ĵV ; dzu ; 
+zoneDeTexteÉlem.addEventListener('keydown', (event) => {if (event.code==="Enter"){
+   //let z=àHiragana(zoneDeTexteÉlem.value);
+entréeAff.innerHTML=àHiragana(zoneDeTexteÉlem.value);}
+
+});
+zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.code==="KeyX"){
+    zoneDeTexteÉlem.value=(`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`);}
+    if (event.code==="Backquote"){questionDas();
+    zoneDeTexteÉlem.value=(``);}
+    })
+document.body.appendChild(zoneDeTexteÉlem);
+
+//deha/dewa ; sorede(ha/wa) les «ha» qui se prononce «wa» doit-on le séparée de ha en général
+//le petit tsu à la fin - peut-être remplacer par !
+//di et ses digraphes
+    </script>
+</body>
+</html>
