@@ -73,11 +73,9 @@ zoneDeTexteÉlem.addEventListener('keydown', (event) => {if (event.code==="Enter
 entréeAff.innerHTML=àHiragana(zoneDeTexteÉlem.value);}
 
 });
-zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.code==="KeyX"){
-    zoneDeTexteÉlem.value=(`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`);}
-    if (event.code==="ShiftRight"){questionDas();
-    zoneDeTexteÉlem.value=(``);}
-    if (event.code==="Backquote"){questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][3]} [${questionUchi}] -[EN :] ${vocHira[questionUchi][2]}`;}
+zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.code==="KeyX"){zoneDeTexteÉlem.value=(`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`);}
+else if (event.code==="ShiftRight"){questionDas(); zoneDeTexteÉlem.value=(``);}
+else if (event.code==="Backquote"){questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][3]} [${questionUchi}] -[EN :] ${vocHira[questionUchi][2]}`; zoneDeTexteÉlem.value=(`${zoneDeTexteÉlem.value.slice(0, -1)}`);}
     })
 document.body.appendChild(zoneDeTexteÉlem).focus();
 
