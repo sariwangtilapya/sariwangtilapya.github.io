@@ -24,7 +24,7 @@ const katakanaTab=[["ア", "イ", "ウ", "エ", "オ"], ["カ", "キ", "ク", "�
 const katakanaTabPetit=[["ャ","ィ","ュ","ェ","ョ"], ["ァ","ィ","ゥ","ェ","ォ"], ["ッ"]];
 const hiraganaTab=[["あ", "い", "う", "え", "お"],["か", "き", "く", "け", "こ"], ["が", "ぎ", "ぐ", "げ", "ご"], ["さ", "し", "す", "せ", "そ"], ["ざ", "じ", "ず", "ぜ", "ぞ"], ["た", "ち", "つ", "て", "と"], ["だ", "ぢ", "づ", "で", "ど"], ["な", "に", "ぬ", "ね", "の"], ["は", "ひ", "ふ", "へ", "ほ"], ["ば", "び", "ぶ", "べ", "ぼ"], ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"], ["ま", "み", "む", "め", "も"], ["や", "い", "ゆ", "いぇ", "よ"], ["ら", "り", "る", "れ", "ろ"], ["わ", "うぃ","う","うぇ", "を"], ["ん"]];
 const hiraganaTabPetit=[["ゃ","ぃ","ゅ","ぇ","ょ"], ["ぁ","ぃ","ぅ","ぇ","ぉ"],["っ"]];
-const zoneDeTexteÉlem=document.createElement("input"); zoneDeTexteÉlem.setAttribute("type", "text");
+const zoneDeTexteÉlem=document.createElement("input"); zoneDeTexteÉlem.setAttribute("type", "text"); 
 zoneDeTexteÉlem.setAttribute("id", "p");
 let zoneDeTexteAff=document.getElementById("p");
 
@@ -39,7 +39,7 @@ let questionUchi=0;
 function PENA(limite){return Math.floor(Math.random()*limite);}
 
 function questionDas (){questionUchi=PENA(vocHira.length);
-questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][2]} [${questionUchi}]`;}
+questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][3]} [${questionUchi}]`;}
 
 function àHiragana(ÀH){let nouvelleChaine=""; for (i=0; i<ÀH.length; i++){
 if (voyelles.includes(ÀH[i])){nouvelleChaine+=hiraganaTab[0][voyelles.indexOf(ÀH[i])];}
@@ -74,8 +74,9 @@ entréeAff.innerHTML=àHiragana(zoneDeTexteÉlem.value);}
 });
 zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.code==="KeyX"){
     zoneDeTexteÉlem.value=(`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`);}
-    if (event.code==="Backquote"){questionDas();
+    if (event.code==="ShiftRight"){questionDas();
     zoneDeTexteÉlem.value=(``);}
+    if (event.code==="Backquote"){questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][3]} [${questionUchi}] -[EN :] ${vocHira[questionUchi][2]}`;}
     })
 document.body.appendChild(zoneDeTexteÉlem).focus();
 
