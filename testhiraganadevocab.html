@@ -78,7 +78,7 @@ if (MajTenu===false){vér=àHiragana(zoneDeTexteÉlem.value)===vocHira[questionU
 else {questionDas(); zoneDeTexteÉlem.value=(``);} }
 
 });
-zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.code==="KeyA"){zoneDeTexteÉlem.value=`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`;}
+zoneDeTexteÉlem.addEventListener('keyup', (event) => {if (event.key==="KeyQ"){zoneDeTexteÉlem.value=`${zoneDeTexteÉlem.value.slice(0, -1)}ĵ`;}
 else if (event.code==="KeyX"){zoneDeTexteÉlem.value=`${zoneDeTexteÉlem.value.slice(0, -1)}ȟ`;}
 else if (event.code==="ShiftRight"){MajTenu=false;}
 else if (event.code==="Backquote"){questionAff.innerText=`${vocHira[questionUchi][1]} - ${vocHira[questionUchi][3]} [${questionUchi}] - [EN :] ${vocHira[questionUchi][2]}`; zoneDeTexteÉlem.value=`${zoneDeTexteÉlem.value.slice(0, -1)}`;}
