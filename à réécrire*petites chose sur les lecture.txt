@@ -1,0 +1,32 @@
+kunyomi
+
+ん est un ajout récent au tableau de kana. il ne se trouve presque jamais dans les kunyomi.
+exception(s) : よん (anciennement よ) - quatre
+
+onyomi
+
+lecture chinoise, une langue dans laquelle une caractère se prononce en une seule syllabe.
+Au max, l'onyomi d'un kanji ne comprend que trois kanas.
+
+Un onyomi peut comprend :
+A. Un seul mora :
+1. Un seule kana
+五　ご　cinq
+2. Un kana composé
+旅
+B. une voyelle allongée ou diphthonguée ou une consonne finale emulée
+3. 1 ou 2, la voyelle allongée
+十　じゅう
+4. diphthonguées
+回
+恋
+5. ン
+三
+tout les kanjis de 新幹線　しん、かん、せん　shin kan sen
+6. terminant en シ ou チ
+一
+7. terminant en kana de ligne ウ sauf ヅ、ヌ、フ、ブ、プ、ム、ユ ou ル
+六
+
+よん est kunyomi. Et en contrast avec les autres numéros prononcés en onyomi, ne change jamais la prononciation du compteur qui le suit.
+ex. 三本→さんぼん　ｖｓ　四本→よんほん
