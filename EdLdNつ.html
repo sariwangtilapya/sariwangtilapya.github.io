@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サリワン・ティラピャ</title>
+</head>
+<body>
+<h1>Entraînement de lecture des nombres avec le compteur つ</h1>
+<p>Appuyez sur n'importe quelle touche ou cliquez le bouton pour afficher la lecture et aller au suivant.</p>
+<div id="numéro"></div><div id="lecture"></div>
+<button id="suivant" onclick="suivant()">Afficher la lecture/Aller au suivant</button>
+<script>
+const numéro=document.getElementById("numéro"); const lecture=document.getElementById("lecture");
+const button=document.getElementById("suivant");
+
+function PENA(limite){return Math.floor(Math.random()*limite);}
+
+const lectureTab=["ひちつ","ふたつ","みっつ","よっつ","いつつ","むっつ","ななつ","やっつ","ここのつ","とお","はたち"];
+
+function configurer(){let aléaTsu=PENA(11);
+if (aléaTsu==10){numéro.innerText="20ち";} else if (aléaTsu==9){numéro.innerText="10";} else{numéro.innerText=`${aléaTsu+1}つ`;}
+lecture.innerText=lectureTab[aléaTsu]; lecture.style.visibility="hidden";}
+
+configurer();
+
+let eventBan=0;
+
+function suivant(){if (eventBan==0){lecture.style.visibility="visible"; eventBan=1;} else if (eventBan==1){configurer(); eventBan=0;}}
+
+document.addEventListener('keydown', (event) => {suivant()});
+</script>
+</body>
+</html>
