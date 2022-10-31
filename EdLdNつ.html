@@ -17,7 +17,7 @@ const button=document.getElementById("suivant");
 
 function PENA(limite){return Math.floor(Math.random()*limite);}
 
-const lectureTab=["ひちつ","ふたつ","みっつ","よっつ","いつつ","むっつ","ななつ","やっつ","ここのつ","とお","はたち"];
+const lectureTab=["ひとつ","ふたつ","みっつ","よっつ","いつつ","むっつ","ななつ","やっつ","ここのつ","とお","はたち"];
 
 function configurer(){let aléaTsu=PENA(11);
 if (aléaTsu==10){numéro.innerText="20ち";} else if (aléaTsu==9){numéro.innerText="10";} else{numéro.innerText=`${aléaTsu+1}つ`;}
