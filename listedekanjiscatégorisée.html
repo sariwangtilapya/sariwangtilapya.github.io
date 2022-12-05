@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  background-color: blue;
+  color: gray;
+}
+
+a:active {
+  text-decoration: underline;
+}
+    </style>
+</head>
+<body><div id="classement">Classement : 
+    <input type="radio" id="tousLesKanjis"   name="classement" onclick="tousLesKanjis()" checked>Tous
+    <input type="radio" id="nvSc"   name="classement" onclick="nvSc()">Nv. Scolaire
+    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">Nv. JLPT
+    <input type="radio" id="traits" name="classement" onclick="traits()">Traits
+    <input type="radio" id="SKIP"   name="classement" onclick="SKIP()">SKIP
+    </div>
+    <div id="étage2"></div>
+    <div id="ordre">Ordre : 
+    </div>
+
+<div id="compteHako"></div><hr><hr>
+<div id="kanjiHako"></div>
+<script src="kanjidic_english.js"></script>
+<script>
+
+const systèmesDOrdination=["kanji_in_context","heisig6","freq","tutt_cards","heisig","gakken","deroo","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","henshall","jf_cards","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2"];
+
+for (v of systèmesDOrdination){
+c=document.createElement("INPUT");
+c.setAttribute("type","radio"); c.setAttribute("name","ordre"); c.setAttribute("id",`${v}`);
+c.setAttribute("onClick","réordonner(this.id)");
+document.getElementById("ordre").appendChild(c); if (v=="kanji_in_context"){c.setAttribute("checked",1)}
+l=document.createElement("LABEL");
+l.setAttribute("for",`${v}`); l.innerHTML=`${v}`;
+document.getElementById("ordre").appendChild(l);
+}
+
+function nvSc(){document.getElementById("étage2").innerText="";
+for (i=1; i<=10; i++){
+c=document.createElement("INPUT");
+c.setAttribute("type","radio"); c.setAttribute("name","nvSc"); c.setAttribute("id",`nvSc${i}`);
+document.getElementById("étage2").appendChild(c); if (i==1){c.setAttribute("checked",1)}
+l=document.createElement("LABEL");
+l.setAttribute("for",`nvSc${i}`); l.innerHTML=`${i}`;
+document.getElementById("étage2").appendChild(l);
+if (i==6){i++;}
+}
+}
+
+function nvJLPT(){document.getElementById("étage2").innerText="";
+for (i=5; i>0; i--){
+c=document.createElement("INPUT");
+c.setAttribute("type","radio"); c.setAttribute("name","nvJLPT"); c.setAttribute("id",`nvJLPT${i}`);
+document.getElementById("étage2").appendChild(c); if (i==5){c.setAttribute("checked",1)}
+l=document.createElement("LABEL");
+l.setAttribute("for",`nvJLPT${i}`); l.innerHTML=`${i}`;
+document.getElementById("étage2").appendChild(l);
+}
+}
+
+function traits(){
+étage2.innerHTML=`<input type="checkbox" name="Niveau Solaire" onclick="nvS1()">1<input type="checkbox" name="Niveau Solaire" onclick="nvS2()">2`
+}
+if (document.getElementById("nvSc").checked==1){nvSc();}
+
+function SKIP(){document.getElementById("étage2").innerText="";
+for (i=1; i<=4; i++){
+c=document.createElement("INPUT");
+c.setAttribute("type","radio"); c.setAttribute("name","SKIP"); c.setAttribute("id",`SKIP${i}`);
+document.getElementById("étage2").appendChild(c); if (i==5){c.setAttribute("checked",1)}
+l=document.createElement("LABEL");
+l.setAttribute("for",`SKIP${i}`); l.innerHTML=`${i}`;
+document.getElementById("étage2").appendChild(l);
+}
+}
+
+//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","jis208","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
+let SdO="kanji_in_context";
+function pOrd(SdO){
+    document.getElementById("kanjiHako").innerText="";
+//0-kanji,1-onyomi,2-kunyomi,3-joyo,4-trad anglaise,5-objet
+let sorter=[]; let uSorter=[];
+for (v of kanjidic_english){if (eval(`v[5].${SdO}`)!=undefined){sorter.push(v);} else {uSorter.push(v);}}
+
+sorter.sort(function(a,b) {
+    return parseInt(eval(`a[5].${SdO}`),10)-parseInt(eval(`b[5].${SdO}`),10);
+});
+
+kanjidic_english=sorter.concat(uSorter);
+
+let wxw=""; let compteDeKanjis=0;
+for(v of kanjidic_english){//if (v[3]=="freq"){
+    wxw+=`<a href="https://fr.wiktionary.org/wiki/${v[0]}" target="_blank" rel="noopener noreferrer">${v[0]}</a>　`;
+    compteDeKanjis++;}//}
+  //  wxw+=`${eval("v[5]."+SdO)}　`; compteDeKanjis++;}//}
+document.getElementById("kanjiHako").innerHTML=wxw; document.getElementById("compteHako").innerText=`Il y a ${compteDeKanjis} kanjis dans cette liste.`;}
+
+pOrd("kanji_in_context");
+
+function réordonner(id){//Sd0=id;
+    pOrd(id);}
+    </script>
+</body>
+</html>
