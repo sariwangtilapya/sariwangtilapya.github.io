@@ -56,16 +56,27 @@ l.setAttribute("for",`${v}`); l.innerHTML=`${v}`;
 document.getElementById("ordre").appendChild(l);
 }
 
-function nvSc(){document.getElementById("étage2").innerText="";
+function nvSc(){let groupements=[];
+document.getElementById("étage2").innerText="";
 for (i=1; i<=10; i++){
 c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","nvSc"); c.setAttribute("id",`nvSc${i}`);
+c.setAttribute("type","radio"); c.setAttribute("name","nvSc"); c.setAttribute("id",`nvSc${i}`); c.setAttribute("value",`${i}`);
+//c.setAttribute("onClick","nvSc_ii(this.value)");
 document.getElementById("étage2").appendChild(c); if (i==1){c.setAttribute("checked",1)}
 l=document.createElement("LABEL");
 l.setAttribute("for",`nvSc${i}`); l.innerHTML=`${i}`;
 document.getElementById("étage2").appendChild(l);
-if (i==6){i++;}
-}
+if (i==6){i++;}}
+//poopo
+for (v of kanjidic_english){if (groupements[parseInt(v[5].grade-1)]==undefined){groupements[parseInt(v[5].grade-1)]=new Array;}
+groupements[parseInt(v[5].grade-1)].push(v)}
+
+wxw="";
+
+for (v of groupements){if (v!=undefined){
+for (w of v){wxw+=w[0]+"　";}
+}wxw+="\n";}
+document.getElementById("kanjiHako").innerText=wxw;
 }
 
 function nvJLPT(){document.getElementById("étage2").innerText="";
@@ -95,7 +106,7 @@ document.getElementById("étage2").appendChild(l);
 }
 }
 
-//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
+//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","jis208","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
 let SdO="kanji_in_context";
 function pOrd(SdO){
     document.getElementById("kanjiHako").innerText="";
