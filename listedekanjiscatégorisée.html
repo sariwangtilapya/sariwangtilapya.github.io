@@ -18,7 +18,7 @@ a:visited {
 
 a:hover {
   background-color: blue;
-  color: gray;
+  color: red;
 }
 
 a:active {
@@ -26,7 +26,9 @@ a:active {
 }
     </style>
 </head>
-<body><div id="classement">Classement : 
+<body>
+    <p>Les lectures s'afficheront en passant la souris sur le kanji. Cliquer le kanji ouvre la page fr.wikipedia sur le même kanji.</p>
+    <div id="classement">Classement : 
     <input type="radio" id="tousLesKanjis"   name="classement" onclick="tousLesKanjis()" checked>Tous
     <input type="radio" id="nvSc"   name="classement" onclick="nvSc()">Nv. Scolaire
     <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">Nv. JLPT
@@ -93,7 +95,7 @@ document.getElementById("étage2").appendChild(l);
 }
 }
 
-//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","jis208","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
+//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
 let SdO="kanji_in_context";
 function pOrd(SdO){
     document.getElementById("kanjiHako").innerText="";
@@ -108,11 +110,15 @@ sorter.sort(function(a,b) {
 kanjidic_english=sorter.concat(uSorter);
 
 let wxw=""; let compteDeKanjis=0;
-for(v of kanjidic_english){//if (v[3]=="freq"){
-    wxw+=`<a href="https://fr.wiktionary.org/wiki/${v[0]}" target="_blank" rel="noopener noreferrer">${v[0]}</a>　`;
+for(v of sorter){
+    
+    document.getElementById("kanjiHako").innerHTML+="　";
+    wxw+=`<a href="https://fr.wiktionary.org/wiki/${v[0]}" target="_blank" rel="noopener noreferrer" title="${eval("v[5]."+SdO)}\n${v[1]}\n${v[2]}">${v[0]}</a>　`;
     compteDeKanjis++;}//}
   //  wxw+=`${eval("v[5]."+SdO)}　`; compteDeKanjis++;}//}
 document.getElementById("kanjiHako").innerHTML=wxw; document.getElementById("compteHako").innerText=`Il y a ${compteDeKanjis} kanjis dans cette liste.`;}
+
+
 
 pOrd("kanji_in_context");
 
