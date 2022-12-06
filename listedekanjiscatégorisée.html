@@ -68,8 +68,8 @@ l.setAttribute("for",`nvSc${i}`); l.innerHTML=`${i}`;
 document.getElementById("étage2").appendChild(l);
 if (i==6){i++;}}
 //poopo
-for (v of kanjidic_english){if (groupements[parseInt(v[5].grade-1)]==undefined){groupements[parseInt(v[5].grade-1)]=new Array;}
-groupements[parseInt(v[5].grade-1)].push(v)}
+for (v of kanjidic_english){if (groupements[parseInt(v[5].grade)-1]==undefined){groupements[parseInt(v[5].grade)-1]=new Array;}
+groupements[parseInt(v[5].grade)-1].push(v)}
 
 wxw="";
 
@@ -100,12 +100,23 @@ wxw+="\n";}
 document.getElementById("kanjiHako").innerText=wxw;
 }
 
-function traits(){
+function traits(){let groupements=[];
 étage2.innerHTML=`<input type="checkbox" name="Niveau Solaire" onclick="nvS1()">1<input type="checkbox" name="Niveau Solaire" onclick="nvS2()">2`
+
+for (v of kanjidic_english){if (groupements[parseInt(v[5].strokes)-1]==undefined){groupements[parseInt(v[5].strokes)-1]=new Array;}
+groupements[parseInt(v[5].strokes)-1].push(v)}
+
+wxw="";
+
+for (v of groupements){if (v!=undefined){
+for (w of v){wxw+=w[0]+"　";}
+}wxw+="\n";}
+document.getElementById("kanjiHako").innerText=wxw;
 }
 if (document.getElementById("nvSc").checked==1){nvSc();}
 
-function SKIP(){document.getElementById("étage2").innerText="";
+function SKIP(){let groupements=[];
+document.getElementById("étage2").innerText="";
 for (i=1; i<=4; i++){
 c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","SKIP"); c.setAttribute("id",`SKIP${i}`);
@@ -114,6 +125,15 @@ l=document.createElement("LABEL");
 l.setAttribute("for",`SKIP${i}`); l.innerHTML=`${i}`;
 document.getElementById("étage2").appendChild(l);
 }
+for (v of kanjidic_english){if (groupements[parseInt(v[5].skip)-1]==undefined){groupements[parseInt(v[5].skip)-1]=new Array;}
+groupements[parseInt(v[5].skip)-1].push(v)}
+
+wxw="";
+
+for (v of groupements){if (v!=undefined){
+for (w of v){wxw+=w[0]+"　";}
+}wxw+="\n";}
+document.getElementById("kanjiHako").innerText=wxw;
 }
 
 //"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","jis208","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
