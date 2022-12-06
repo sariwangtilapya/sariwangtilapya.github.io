@@ -79,15 +79,25 @@ for (w of v){wxw+=w[0]+"　";}
 document.getElementById("kanjiHako").innerText=wxw;
 }
 
-function nvJLPT(){document.getElementById("étage2").innerText="";
-for (i=5; i>0; i--){
+function nvJLPT(){let groupements=[];
+document.getElementById("étage2").innerText="";
+for (i=4; i>0; i--){
 c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","nvJLPT"); c.setAttribute("id",`nvJLPT${i}`);
-document.getElementById("étage2").appendChild(c); if (i==5){c.setAttribute("checked",1)}
+document.getElementById("étage2").appendChild(c); if (i==4){c.setAttribute("checked",1)}
 l=document.createElement("LABEL");
 l.setAttribute("for",`nvJLPT${i}`); l.innerHTML=`${i}`;
 document.getElementById("étage2").appendChild(l);
 }
+for (v of kanjidic_english){if (groupements[parseInt(v[5].jlpt)]==undefined){groupements[parseInt(v[5].jlpt)]=new Array;}
+groupements[parseInt(v[5].jlpt)].push(v)}
+
+wxw="";
+
+for (i=4; i>0; i--){
+for (w of groupements[i]){wxw+=w[0]+"　";}
+wxw+="\n";}
+document.getElementById("kanjiHako").innerText=wxw;
 }
 
 function traits(){
