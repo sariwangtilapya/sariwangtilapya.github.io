@@ -6,31 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        a:link {
+body {
+background-color: #002b36;;
+color: #586e75;
+font-family: roboto, sans-serif;
+margin: 10;
+}
+a:link {
   text-decoration: none;
-  color: black;
+  color: #2aa198;
   font-size: 20px;
 }
 
 a:visited {
   text-decoration: none;
-  color: black;
+  color: #586e75;
 }
 
 a:hover {
   background-color: blue;
-  color: red;
+  color: #32c1b6;
   font-size: 20px;
   font-weight: 100;
 }
 
 a:active {
   text-decoration: underline;
+  color: #32c1b6;
 }
 #barreInf {
     bottom: 0%;
     position: fixed;
-    background-color: blue;
+    background-color: #073642;
     width: 100%;
     left: 0px;
     padding: 5px;
@@ -44,11 +51,13 @@ a:active {
     position: fixed;
     right: 5px;
     top:   5px;
-    background-color: gray;
+    background-color: #32c1b6;
+    color: #002b36;
 }
 #ins {
     position: fixed;
-    background-color: blue;
+    background-color: #073642;
+    color: #2aa198;
     right: 5px;
     top:   5px;
 }
@@ -71,8 +80,10 @@ a:active {
 
 <div id="compteHako"></div><hr><hr>
 <div id="kanjiHako"></div>
-<div id="barreInf"><span>Faire un don nous nous permet maintenir et améliorer ce site. Merci !</span>
-    <span style="background-color: lightblue;">BTC : <textarea name="" id="" rows="1">19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi</textarea></span>
+<div id="barreInf"><span>Faire un don nous permet maintenir et améliorer ce site. Merci !</span>
+    <span style="background-color: #32c1b6; color: #002b36;">BTC : 
+        <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
+        <button onclick="copierLAd()">Copier</button></span>
     <button onclick="fermerB()">X</button>
 </div>
 <script src="kanjidic_english.js"></script>
@@ -195,6 +206,12 @@ function fermerB(){
 }
 function fermerI(){
     document.getElementById("ins").remove();
+}
+function copierLAd() {var copyText = document.getElementById("btcAd");
+copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + copyText.value);
 }
     </script>
 </body>
