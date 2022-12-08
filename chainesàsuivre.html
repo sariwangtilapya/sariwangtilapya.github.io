@@ -5,94 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaînes à suivre</title>
+<style>
+    body{
+        background-color: #002b36;;
+        color: #586e75;
+        font-family: roboto, sans-serif;
+        margin: 10px;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    #grandeBoîte{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .bExNom{
+        width: 27%;
+    }
+    .bInNom{
+        background-color: #073642;
+        border: 1pt;
+        border-color: aquamarine;
+        color: #32c1b6;
+        text-align: center;
+    }
+    .bExLi{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    .Youtube{
+        background-color: red;
+        color: white;
+    }
+    .Facebook{
+        background-color: blue;
+        color: white;
+    }
+    .Instagram{
+        background-color: rosybrown;
+        color: gray;
+    }
+    .Twitch{
+        background-color: greenyellow;
+        color: rgba(126, 128, 0, 0.747);
+    }
+    .Twitch>a{
+        color: rgba(126, 128, 0, 0.747);
+    }
+    #barreInf {
+    bottom: 0%;
+    position: fixed;
+    background-color: #073642;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+}
+#barreInf>button {
+    position: fixed;
+    right:  5px;
+    bottom: 5px;
+}
+</style>
 </head>
 <body>
-<br>Première publication : 15 Mai 2022
+    <div id="barreInf"><span>Vos dons nous permet de maintenir et améliorer le site. Merci !</span>
+        <span style="background-color: #32c1b6; color: #002b36;">BTC : 
+            <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
+            <button onclick="copierLAd()">Copier</button></span>
+        <button onclick="fermerB()">X</button>
+    </div>
+Première publication : 15 Mai 2022
 <br>Dernier mis à jour : 17 Nov 2022
 <hr><hr>
-Chaines youtube à suivre/regarder afin d'apprendre le japonais
-<br>(Seulement les chaines ayant pour but l'apprentissage)
-<br>*Chaînes non-francophones ne sont pas inclues
+Chaines youtube à suivre afin d'apprendre le japonais (Seulement les chaines enseignant le japonais — pas d'immersion)
+<br>*Chaînes seulement francophones
 <hr><hr>
-Sophie // Cours de japonais<br>
-<a href="https://www.youtube.com/c/SophieCoursdejaponais" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://www.instagram.com/coursdejaponaiscom/" target="_blank" rel="noopener noreferrer">Instagram</a> || Twitch
-<br><br>
-Juudaichi - Le Japonais en Animés<br>
-<a href="https://www.youtube.com/c/JuudaichiLeJaponaisenAnim%C3%A9s" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://www.instagram.com/juudaichi/" target="_blank" rel="noopener noreferrer">Instagram</a> || 
-<a href="https://www.twitch.tv/juudaichi" target="_blank" rel="noopener noreferrer">Twitch</a> || 
-<a href="https://www.facebook.com/JuudaichiYT/ " target="_blank" rel="noopener noreferrer">Facebook</a> || 
-<a href="https://discord.gg/pRuUJ98Xxa" target="_blank" rel="noopener noreferrer">Discord</a> || 
-<br><br>
-Apprendre le Japonais avec Mizuki Sensee<br>
-<a href="https://www.youtube.com/channel/UCeU4bKoaIB1-1idpFXaO6mA" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Mini cours de japonais<br>
-<a href="https://www.youtube.com/channel/UCCWQCSKngX3_w3np-gTbEVw" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Digischool [playlist spécifique]<br>
-<a href="https://www.youtube.com/playlist?list=PLxWYUus9YBzVM0lY3378egRmBzmFDYcAH" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Japan Doki Doki - cours de japonais<br>
-<a href="https://www.youtube.com/channel/UCb3WOVZkIQ0zt-eK7V86e5A" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-KANJI - Link<br>
-<a href="https://www.youtube.com/c/KANJILink" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Cours de japonais<br>
-<a href="https://www.youtube.com/channel/UCSoNEXGR_Px0EBL-HIjAh1A" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-OKAERI France<br>
-<a href="https://www.youtube.com/c/OKAERIFRANCE" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://www.instagram.com/okaeri_france/" target="_blank" rel="noopener noreferrer">Instagram</a>
-<br><br>
-Tous au japonais<br>
-<a href="https://www.youtube.com/c/Tousaujaponais" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://www.instagram.com/tousaujaponais/" target="_blank" rel="noopener noreferrer">Instagram</a>
-<br><br>
-TOKIMEKI<br>
-<a href="https://www.youtube.com/c/TOKIMEKIchannel" target="_blank" rel="noopener noreferrer">Youtube</a> || Twitch
-<br><br>
-ACEKID [playlists spécifiques]<br>
-<a href="https://www.youtube.com/c/ACEKIDprod" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://www.instagram.com/acekidprod/" target="_blank" rel="noopener noreferrer">Instagram</a> || Twitter
-<br><br>
-Cours de japonais !<br>
-<a href="https://www.youtube.com/c/CoursdejaponaisFR" target="_blank" rel="noopener noreferrer">Youtube</a> || Instagram || Twitter
-<br><br>
-Gokaido<br>
-<a href="https://www.youtube.com/channel/UCJT53XxbZMM1pnE11ftm_MA" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<a href="https://twitter.com/_Gokaido" target="_blank" rel="noopener noreferrer">Twitter</a>
-<br><br>
-Zero to Japan avec Léïna<br>
-<a href="https://www.youtube.com/@zerotojapanavecleina" target="_blank" rel="noopener noreferrer">Youtube</a> ||
-<a href="https://www.instagram.com/zerotojapan/" target="_blank" rel="noopener noreferrer">Instagram</a> ||
-<br><br>
-Jonihongo<br>
-<a href="https://www.youtube.com/user/MrLitldevil" target="_blank" rel="noopener noreferrer">Youtube</a> ||
-<a href="https://www.instagram.com/jo.nihongo/" target="_blank" rel="noopener noreferrer">Instagram</a> ||
-<br><br>
-Japanistar<br>
-<a href="https://www.youtube.com/user/japaniistar" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Japaniste : Apprendre le japonais<br>
-<a href="https://www.youtube.com/channel/UCgeWYygS_GYibgS0_W0tj7g" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-apprendlejaponais - Machiko<br>
-<a href="https://www.youtube.com/c/apprendrelejaponaisMachikoetLaurent" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-SENSEI : J'apprends le japonais en ligne<br>
-<a href="https://www.youtube.com/channel/UCv8skMVwwI4l7IbVDGYQrMA" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Apprend le japonais avec Lois Lin<br>
-<a href="https://www.youtube.com/c/ApprendrelejaponaisavecLoisLin" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Le Japon fou fou fou<br>
-<a href="https://www.youtube.com/c/LeJaponfoufoufou" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
-Pont de japon<br>
-<a href="https://www.youtube.com/channel/UCQLsRbgyEFuiXogqMawBfMQ" target="_blank" rel="noopener noreferrer">Youtube</a> || 
-<br><br>
+<div id="grandeBoîte"></div>
+<hr><hr>
+Si vous souhaitez ajouter une chaîne, votre ou à quelqu'un d'autre, contactez-nous sur :
+<script>
+const càS=[["Sophie /\/ Cours de japonais",{Youtube: "https://www.youtube.com/c/SophieCoursdejaponais", Instagram: "https://www.instagram.com/coursdejaponaiscom/"}], ["Juudaichi - Le Japonais en Animés",{Youtube: "https://www.youtube.com/c/JuudaichiLeJaponaisenAnim%C3%A9s", Instagram: "https://www.instagram.com/juudaichi/", Twitch: "https://www.twitch.tv/juudaichi", Facebook: "https://www.facebook.com/JuudaichiYoutube/", Discord: "https://discord.gg/pRuUJ98Xxa"}], ["Apprendre le Japonais avec Mizuki Sensee",{Youtube: "https://www.youtube.com/channel/UCeU4bKoaIB1-1idpFXaO6mA"}], ["Mini cours de japonais",{Youtube: "https://www.youtube.com/channel/UCCWQCSKngX3_w3np-gTbEVw"}], ["Digischool [playlist spécifique]",{Youtube: "https://www.youtube.com/playlist?list=PLxWYUus9YBzVM0lY3378egRmBzmFDYcAH"}], ["Japan Doki Doki - cours de japonais",{Youtube: "https://www.youtube.com/channel/UCb3WOVZkIQ0zt-eK7V86e5A"}], ["KANJI - Link",{Youtube: "https://www.youtube.com/c/KANJILink"}], ["Cours de japonais",{Youtube: "https://www.youtube.com/channel/UCSoNEXGR_Px0EBL-HIjAh1A"}], ["OKAERI France",{Youtube: "https://www.youtube.com/c/OKAERIFRANCE", Instagram: "https://www.instagram.com/okaeri_france/"}], ["Tous au japonais",{Youtube: "https://www.youtube.com/c/Tousaujaponais", Instagram: "https://www.instagram.com/tousaujaponais/"}], ["TOKIMEKI",{Youtube: "https://www.youtube.com/c/TOKIMEKIchannel"}], ["ACEKID [playlists spécifiques]",{Youtube: "https://www.youtube.com/c/ACEKIDprod", Instagram: "https://www.instagram.com/acekidprod/"}], ["Cours de japonais !",{Youtube: "https://www.youtube.com/c/CoursdejaponaisFR"}], ["Gokaido",{Youtube: "https://www.youtube.com/channel/UCJT53XxbZMM1pnE11ftm_MA", Instagram: "https://twitter.com/_Gokaido"}], ["Zero to Japan avec Léïna",{Youtube: "https://www.youtube.com/@zerotojapanavecleina", Instagram: "https://www.instagram.com/zerotojapan/"}], ["Jonihongo",{Youtube: "https://www.youtube.com/user/MrLitldevil", Instagram: "https://www.instagram.com/jo.nihongo/"}], ["Japanistar",{Youtube: "https://www.youtube.com/user/japaniistar"}], ["Japaniste : Apprendre le japonais",{Youtube: "https://www.youtube.com/channel/UCgeWYygS_GYibgS0_W0tj7g"}], ["apprendlejaponais - Machiko",{Youtube: "https://www.youtube.com/c/apprendrelejaponaisMachikoetLaurent"}], ["SENSEI : J'apprends le japonais en ligne",{Youtube: "https://www.youtube.com/channel/UCv8skMVwwI4l7IbVDGYQrMA"}], ["Apprend le japonais avec Lois Lin",{Youtube: "https://www.youtube.com/c/ApprendrelejaponaisavecLoisLin"}], ["Le Japon fou fou fou",{Youtube: "https://www.youtube.com/c/LeJaponfoufoufou"}], ["Pont de japon",{Youtube: "https://www.youtube.com/channel/UCQLsRbgyEFuiXogqMawBfMQ"}]];
+//target="_blank" rel="noopener noreferrer"
+
+for (i=0; i<càS.length; i++){let bExNom=document.createElement("div");
+bExNom.setAttribute("class", "bExNom"); bExNom.setAttribute("id", `bExNom${i}`);
+document.getElementById("grandeBoîte").appendChild(bExNom);
+let bInNom=document.createElement("div");
+bInNom.setAttribute("class", "bInNom"); bInNom.setAttribute("id", `bInNom${i}`);
+bExNom.appendChild(bInNom); bInNom.innerText=càS[i][0];
+let bExLi=document.createElement("div");
+bExLi.setAttribute("class", "bExLi"); bExLi.setAttribute("id", `bExLi${i}`);
+bExNom.appendChild(bExLi);
+for (j=0; j<Object.keys(càS[i][1]).length; j++){let bInLi=document.createElement("div");
+bInLi.setAttribute("class", `${Object.keys(càS[i][1])[j]}`); bInLi.setAttribute("id", `bInLi${Object.keys(càS[i][1])[j]}-${i}`);
+bExLi.appendChild(bInLi); bInLi.innerHTML=`<a href="${Object.values(càS[i][1])[j]}" target="_blank" rel="noopener noreferrer" title="${càS[i][0]}<br>${Object.keys(càS[i][1])[j]}">${Object.keys(càS[i][1])[j]}</a>`;
+
+}
+}
+function fermerB(){
+    document.getElementById("barreInf").remove();}
+function copierLAd() {var copyText = document.getElementById("btcAd");
+copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + copyText.value);
+}
+</script>
 </body>
 </html>
