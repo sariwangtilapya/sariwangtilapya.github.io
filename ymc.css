@@ -41,6 +41,7 @@
 }
 
 body {
+    position: relative;
     background-color: var(--sol-base03);
     color: var(--sol-base1);
     font-family: roboto, sans-serif;
