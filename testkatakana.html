@@ -1,14 +1,115 @@
-
-<html><head><link rel="stylesheet" href="qcm.css"></head>
-<body>
-
-<div id="infosHako"></div>
-<div id="flèchesHako"><input type="button" value="↑" onclick="déroule(this.value)"></input>
-<input type="button" value="↓" onclick="déroule(this.value)"></button></div>
-<div id="QeRHako">
-<p id="résultatHako" style="color:blue;">Résultat</p>
-<p id="questionHako"></p></div>
-<div id="boutonsHako"></div>
-<div class="ruban"></div>
-
-<script src="testkatakana.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="qcm.css">
+  <style>
+  body {
+  background-color: #002b36;
+  color: #586e75;
+  font-family: roboto, sans-serif;
+  margin: 10;
+  }
+  a:link {
+    text-decoration: none;
+    color: #2aa198;
+    font-size: 20px;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: #586e75;
+  }
+  
+  a:hover {
+    background-color: blue;
+    color: #32c1b6;
+    font-size: 20px;
+    font-weight: 100;
+  }
+  
+  a:active {
+    text-decoration: underline;
+    color: #32c1b6;
+  }
+  #barreInf {
+      bottom: 0%;
+      position: fixed;
+      background-color: #073642;
+      width: 100%;
+      left: 0px;
+      padding: 5px;
+      border: 1px solid #73AD21;
+  }
+  #barreInf>button {
+      position: fixed;
+      right:  5px;
+      bottom: 5px;
+  }
+  #ménuRoulante {
+      position: fixed;
+      right: 5px;
+      top:   5px;
+      background-color: #32c1b6;
+      color: #002b36;
+  }
+  #insBoî {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: medium;
+  }
+  #ins {
+      background-color: #073642;
+      color: #2aa198;
+      border: 3px solid seagreen;
+  }
+  #boutonFermer{
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      background-color: #73AD21;
+      justify-content: space-between;
+      color: black;
+      font-size: medium;
+  }
+  </style>
+  <title>Teste de kanji</title>
+    </head>
+  <body>
+  
+  <div class="inté" id="infosHako"></div>
+  <div class="inté" id="flèchesHako"><input type="button" value="↑" onclick="déroule(this.value)"></input>
+  <input type="button" value="↓" onclick="déroule(this.value)"></button></div>
+  <div class="inté" id="QeRHako">
+  <p class="inté" id="résultatHako">Résultat</p>
+  <p class="inté" id="questionHako"></p></div>
+  <div class="inté" id="boutonsHako"></div>
+  <div class="inté" id="ruban"></div>
+  
+ 
+  <script>
+  document.body.innerHTML+=`<div id="insBoî"><div id="ins"><div id="boutonFermer">Info<button onclick="fermerI()">×</button></div><h4>Raccourcis :</h4>Afin de choisir une réponse : (de supérieure gauche à inférieure droite)<br><h3>AZE QSD</h3> ou <h3>LMÙ ;:!</h3><p>Afin de choisir la lecture, appuyez sur<br>O - Onyomi ; K - Kunyomi<br>Pour tourner la page, appuyez sur<br>↑ - Pour afficher les boutons des niveaux scolaires<br>↓ - Pour afficher l'autre lecture<br>Afin de choisir les niveaux scolaires auxquel les kanjis sont appris「学年別漢字」, appuyez sur :<br>1 - N1… 6 - N6, 0- Kanji de préfectures<br>*Pas besoin de Maj ni Ver. Maj. Il est codé avec keycodes<br><br>Les réponses changent tout de suite après avoir choisi la lecture. Alors que choisir le niveau prend effet après avoir répondu.</p><p>Appuyer sur Échap pour fermer cette fenêtre.</p></div></div>`;
+  document.body.innerHTML+=`<div id="barreInf"><span>Vos dons nous permet de maintenir et améliorer le site. Merci !</span><span style="background-color: #32c1b6; color: #002b36;">BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd()">Copier</button></span><button onclick="fermerB()">×</button></div>`;
+  function fermerB(){
+      document.getElementById("barreInf").remove();
+  }
+  function fermerI(){
+      document.getElementById("insBoî").remove();
+  }
+  function copierLAd() {var copyText = document.getElementById("btcAd");
+  copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  navigator.clipboard.writeText(copyText.value);
+    alert("Copied the text: " + copyText.value);
+  }
+  document.addEventListener('keydown', (event) => {if (event.code==="Escape"){fermerI();}});
+</script>
+<script src="testkatakana.js"></script>
+  </body></html>
+  
