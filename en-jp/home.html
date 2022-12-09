@@ -1,64 +1,197 @@
-<!DOCTYPE HTML>
-<html>
-  <head><title>サリワン・ティレピャ</title></head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ymc.css">
+   <title>サリワン・ティラピア</title>
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+.tab {
+  position: fixed;
+  float: left;
+  border: 1px solid #073642;
+  background-color: #002b36;
+  width: 30%;
+  height: 100%;
+}
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #657b83;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tab button:hover {
+  background-color: #2aa198;
+}
+.tab button.active {
+  background-color: #32c1b6;
+}
+.tabcontent {
+  position: absolute;
+  float: left;
+  left: 30%;
+  padding: 0px 12px;
+  border: 1px solid #073642;
+  width: 70%;
+  border-left: none;
+  height: 100%;
+}
+#barreInf {
+    bottom: 0%;
+    position: fixed;
+    background-color: #073642;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+    border: 1px solid #73AD21;
+}
+#barreInf>button {
+    position: fixed;
+    right:  5px;
+    bottom: 5px;
+}
+</style>
+</head>
 <body>
-  <h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピャ</h1>
-  <p>You are on the page "Learn Japanese"</p>
-  <p>Click here to<a href="en-tl/accueil.html">Learn Filipino (Tagalog)</a></p>
-  <hr><hr>
-  You can follow us on <a href="https://www.youtube.com/channel/UC3E25B2WTjVv9apNbRFj52w" target="_blank" rel="noopener noreferrer">Youtube</a> || <a href="https://sariwangtilapya.wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a> || 
-  <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> || 
-  <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a><!--  || <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a> -->
-  <br>If you wish to support us:
-  <br><!-- <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
+<header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
+  <div id=navbar-links>FR-JP
+  <a href="en-jp/home.html">EN-JP</a>
+  <a href=/>FR-TL</a>
+  <a href=/>EN-TL</a></div></nav>
+</header>
+
+<h2>bla bla bla</h2>
+<p>bla bla bla</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Accueil</button>
+  <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
+  <button class="tablinks" onclick="onglets(event, 'Leçons et resources d_apprentissage')">Leçons et Resources d'apprentissage</button>
+  <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
+  <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
+</div>
+
+<div id="Accueil" class="tabcontent">
+  <h3>Welcome to Sariwang Tilapya !</h3>
+  <div><p>You are on the page « Learn japanese »</p></div>
+  <div>Vous pouvez nous suivre sur <a href="https://www.youtube.com/channel/UC3E25B2WTjVv9apNbRFj52w" target="_blank" rel="noopener noreferrer">Youtube</a> || <a href="https://sariwangtilapya.wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a> || 
+    <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> || 
+    <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a><!--  || <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a> -->
+  </div>
+    <br>You can support us through:
+    <br><!-- <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
   BTC : <br>
   19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi<br>
   USDT : <br>
   0x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB<br>
   BCH : <br>
   bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl
-  <hr><hr>
-  <a href="chainesàsuivre.html">Youtube channels to follow to learn japanese</a><br>
-  <hr><hr>
-  Kana tables (higarana and katakana) 平仮名と片仮名
-  <hr>
-  Lessons
-  <hr>
-  Kanji list (categories)
-  <!--<hr>
-  Particles pour les Nuls (La particule は et des cas grammaticaux)-->
-  <hr><hr>
-  <a href="testhiraganadevocab.html">Hiragana test using JLPT vocabulary</a><br>
-  <hr><hr>
-<h4>Shortcuts:</h4>
-To choose an answer (from top-left to lower-right)<br>
-<h3>QWE ASD</h3> or <h3>L;' ,./</h3>
-<a href="testhiragana.html">Hiragana test (Multiple choice)</a><br>
-<a href="testkatakana.html">Katakana test (Multiple choice)</a><br>
-<hr><hr>
-<a href="testkanjiponderé.html">Kanji reading test (Weighted random)</a><br>
-<a href="testkanji.html">Kanji reading test (Equal distribution)</a><br>
-<hr><hr>
-<hr>***For the kanji tests:<br><hr><hr>
-To choose reading, press:<br>
-O - Onyomi ; K - Kunyomi<br>
-To change page, press:<br>
-↑ - To show school level buttons<br>
-↓ - To show the opposite reading<br>
-To choose school level「学年別漢字」, press:<br>
-1 - N1… 6 - N6, 0- Prefecture kanji<br>
-Level changes after having answered.
-<br><br><hr><hr>
-  
-An error could occur while testing Prefecture kanji on weighted random<br>
-as there are only 20.<br>
-Please choose equal distribution if you wish to test prefecture kanji.<br><br>
-<hr><hr>
+</div>
+
+<div id="Tests" class="tabcontent">
+  <h3>Tests</h3>
+  <p><a href="../testhiragana.html">Hiragana Test (Multiple choice)</a><br>
+    <a href="../testkatakana.html">Katakana Test (Multiple choie)</a><br>
+    <hr><hr>
+    <a href="../testkanji.html">Kanji Reading Test (Equal distribution)</a><br>
+    <a href="../testkanjiponderé.html">Kanji Reading Test (Weighted random)</a><br>
+    <hr><hr>
+    <a href="testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br></p> 
+</div>
+
+<div id="Leçons et resources d_apprentissage" class="tabcontent">
+  <h3>Resources</h3>
+  <p>  <a href="chainesàsuivre.html">Youtube channels you can follow for learning japanese</a><br>
+    <hr><hr>
+    <a href="tableau des kanas.html">Higarana and Katakana Tables 平仮名と片仮名</a>
+    <hr>
+    Leçons
+    <hr>
+    <a href="listedekanjiscatégorisée.html">Kanji Regrouper</a><br>
+    <!--<hr>
+    Particles pour les Nuls (La particule は et des cas grammaticaux)-->
+    <a href="EdLdNつ.html">Counters Reading Training: つ counter</a></p>
+</div>
+
+<div id="Attributions" class="tabcontent">
+  <h3>Resources</h3>
+  <p>wikipedia</p>
+  <p>kanjidic</p>
+  <p>jmnedict</p>
+  <p>kireicake</p>
+</div>
+<div id="Eddy Malou" class="tabcontent">
+  <h3>Bonjour messieurs fidèles</h3>
+  Le nom de mon père c'est le nom du papa du savant de la République : Eddy Malou<br>
+  Renaissance Africaine comparée la Rénaque</p>
+  <p>(Vous vous appelez comment ?)</p>
+  <p>Eddy Malou, le premier savant de toute la république démocratique du Congo, Eddy Malou !<br>
+  E, double D, Y, M, A, L, O, U<br>
+  Hein c'est à dire...</p>
+  <p>Ça veut dire imposer la force vers L'Ovalium, c'est à dire l'estime du savoir. Les gens qui connaissent beaucoup de choses, incristaliser, imposer, iiiiiiiiiiintentionner ça dans toute la république démocratique du Congo pour que nous puissions avoir la congolexicomatisation des lois du marché propres aux congolais, je vous en prie<br>
+  (Monsieur Eddy, nous parlons d'un sujet sportif, est-ce que vous connaissez le roller ?)</p>
+  <p>Mais oui c'est clair ! Lorsqu'on parle de tout ces points de vues, c'est l'activisme vers ce qu'on appelle la dynamique des sports, c'est à dire mettre un accent sur les revenus aussi à voir hein, c'est un problème de TGO, théorie générale des organisations... Comment nous pouvons parvenir aussi à relever aussi le défi, parce que par exemple le Brésil à part les végétariens là, le végétalisme, hein, nous avons aussi cette même climatologie, le Brésil aussi le …</p>
+  <p>(Oui mais nous, nous parlons du roller)</p>
+  <p>Du relais comme pour... (roller, roller)<br>
+  Relais, c'est à dire, quand on parle de ces relais, on voit ce qu'on appelle, le système de la technicité informatisée, c'est à dire nous devons avoir cet, c'est systématique...</p>
+  <p>(Les rollers c'est pas dans les sports, c'est pas une discipline sportive ?)</p>
+  <p>Oui ça y fait allusion, parce que quand on parle des sports, on voit la nucléarité, c'est l'Homme qui va vers la dynamique, c'est l'Homme...</p>
+  <p>(Oui mais le sport, le roller, est-ce que vous le connaissez ?)</p>
+  <p>Oui, mais c'est clair ! C'est, ça fait allusion au re-dynamisme de l'Homme qui doit assurer ce qu'on appelle la systématique de l'orthodoxisation, c'est à dire la réflexologie, le reflex, tu sais ça</p>
+  <p>(Vous connaissez comment ça se pratique ?)</p>
+  <p>Oui mais maintenant à ces moments là, il y a la relaxation comme tel, quand on parle de relaxation c'est les cinq sens qui doivent tourner, nous avons même affaire à ce qu'on appelle à l'upansmie, ce qui doit être éventualiste sous cet angle là, c'est clair. Quand on parle de relais c'est faire allusion à informatiser le sens dynamiciel vers l'humanisme, je vous en prie.</p>
+  <p>(Merci beaucoup.)</p>
+  <p>Oui !</p>
   <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
     <input type="range" id="a" value="50">
     +<input type="number" id="b" value="25">
     =<output name="x" for="a b"></output>
   </form>
 <a href="chifoumi.html">じゃんけんぽん</a><hr>
+</div>
+<div id="barreInf"><span>Your donations will help us maintain and better the site. Thank you!</span>
+  <span style="background-color: #32c1b6; color: #002b36;">BTC : 
+      <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
+      <button onclick="copierLAd()">Copier</button></span>
+  <button onclick="fermerB()">X</button>
+</div>
+  <script>
+  function onglets(evt, ongletNom) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(ongletNom).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+
+function fermerB(){
+    document.getElementById("barreInf").remove();
+}
+function copierLAd() {var copyText = document.getElementById("btcAd");
+copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + copyText.value);
+}
+    </script>
+  </script>
 </body>
-</html>
