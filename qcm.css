@@ -1,78 +1,118 @@
-* {
+.inté {
   margin: auto;
   padding: 0px;
   box-sizing: border-box;
-font-size:9vmax;
-background:blue
+  font-size: 8vmax;
 }
-#infosHako{position: fixed;
-  bottom: 60vh; left: 0;
- margin: 0 auto; width:70vw;
- height:40vh;
-line-height: 40vh;
-font-size:0.65em           
+
+#RésultatHako {
+  color: #073642;
+  overflow: hidden;
+
 }
-#infosHako>button{
- /*display:flex;
- flex-basis:20%;*/
- font-size:50%;
- margin: 0 auto;
- justify-content:space-around;
- align-items:stretch;
- width:22vw;
- transform: translate(12%, 200%);
+
+#RésultatHako>p {
+  text-align: center;
+  height: 20vh;
+  line-height: 20vh;
+  margin: 0 auto;
+  background-color: darkslateblue;
+  font-size: 1em;
 }
-#flèchesHako{
- display:flex;
- flex-direction:column;
- justify-content:space-around;
- position:fixed;
- height:40vh;
- float:right;
- right:23vw;
- bottom:60vh;
- vertical-align:middle;
- }
-#flèchesHako>input{
- display:flex;
- height:25%;
- width:4vmin;
- text-align:center;
- background-color:gray;
+
+#infosHako {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 70%;
+  height: 40vh;
+  line-height: 40vh;
+  font-size: xx-large;
+  color: #32c1b6;
 }
-[value]{
+
+#infosHako>button {
+  color: #32c1b6;
+  font-size: xx-large;
+  margin: 0 0;
+  background-color: #002b36;
+  width: 22%;
+}
+
+#flèchesHako {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  height: 40vh;
+  float: right;
+  right: 23vw;
+  bottom: 60vh;
+  vertical-align: middle;
+}
+
+#flèchesHako>input {
+  display: flex;
+  height: 25%;
+  width: 4vmin;
+  text-align: center;
+  background-color: gray;
+  font-size: medium;
+}
+
+/*[value]{
  font-size:36;
  box-sizing:border-box;
  margin:auto;
+}*/
+#QeRHako {
+  background-color: darkslateblue;
+  color: black;
+  position: fixed;
+  right: 10%;
+  top: 0;
+  width: 13%;
+  text-align: center;
 }
-#QeRHako{
- position:fixed;
- right:10vw;
- bottom:60vh;
- width:13vw;
-}
- 
-p {text-align:center; height:20vh;
+
+/*p {text-align:center; height:20vh;
 line-height:20vh; margin: 0 auto;
    background:darkslateblue;
    font-size:1em;
-  }
+  }*/
 
-#boutonsHako{
- display:flex;
- position:fixed;
- bottom:0;
- justify-content:space-around;
- align-items:stretch;
- flex-basis:100%; flex-wrap:wrap;
- width:90vw; height: 60vh;
- background: cyan;
-            }
-#boutonsHako>button{flex-basis:28%;
-height:20vh;
-padding:0;
-margin:auto;
-background:teal;
-font-size:50%;
-font-size:0.3em;
+#boutonsHako {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 60vh;
+  background: cyan;
+}
+
+#boutonsHako>button {
+  flex-basis: 28%;
+  height: 20vh;
+  padding: 0;
+  margin: auto;
+  background: teal;
+  font-size: 0.3em;
+}
+
+#ruban {
+  position: fixed;
+  background-color: seagreen;
+  height: 100%;
+  width: 10%;
+  right: 0;
+  top: 0;
 }
