@@ -65,7 +65,7 @@ body {font-family: "Lato", sans-serif;}
 <body>
 <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
   <div id=navbar-links>EN-JP
-  <a href="en-jp/home.html">FR-JP</a>
+  <a href="../index.html">FR-JP</a>
   <a href=/>FR-TL</a>
   <a href=/>EN-TL</a></div></nav>
 </header>
@@ -88,14 +88,23 @@ body {font-family: "Lato", sans-serif;}
     <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> || 
     <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a><!--  || <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a> -->
   </div>
-    <br>You can support us through:
+      <hr><hr>
+  <h3>Things you can find on this site. </h3>
+  <hr><hr>
+  <a href="../testkanjiponderé.html">Kanji Reading Test (Zeighted random)</a><br>
+  <hr><hr>
+  <a href="../testhiraganadevocab.html">Hiragana Reading Training with JLPT Vocabulary</a><br>
+  <hr><hr>
+  <a href="../chainesàsuivre.html">Japanese-learning Youtube Channels you can Follow</a><br>
+  <hr><hr>
+  <a href="../listedekanjiscatégorisée.html">Categorised Kanji Lists</a>
+  <hr><hr>
+    Si ça vous interesse à valorisez notre travail, vous pouvez nous soutenir :
     <br><!-- <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
-  BTC : <br>
-  19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi<br>
-  USDT : <br>
-  0x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB<br>
-  BCH : <br>
-  bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl
+    BTC :<input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd('btcAd')">Copier</button></span><hr><hr><br>
+    BCH :<input type="text" value="bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl" id="bchAd" readonly><button onclick="copierLAd('bchAd')">Copier</button></span><hr><hr><br>
+    USDT :<input type="text" value="10x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB" id="usdtAd" readonly><button onclick="copierLAd('usdtAd')">Copier</button></span>
+
 </div>
 
 <div id="Tests" class="tabcontent">
@@ -186,12 +195,11 @@ body {font-family: "Lato", sans-serif;}
 function fermerB(){
     document.getElementById("barreInf").remove();
 }
-function copierLAd() {var copyText = document.getElementById("btcAd");
+function copierLAd(quelAd) {var copyText = document.getElementById(quelAd);
 copyText.select();
   copyText.setSelectionRange(0, 99999); // For mobile devices
 navigator.clipboard.writeText(copyText.value);
   alert("Copied the text: " + copyText.value);
 }
-    </script>
   </script>
 </body>
