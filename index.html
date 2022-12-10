@@ -88,14 +88,24 @@ body {font-family: "Lato", sans-serif;}
     <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> || 
     <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a><!--  || <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a> -->
   </div>
-    <br>Si ça vous interesse à valorisez notre travail, vous pouvez nous soutenir :
+  <hr><hr>
+  <h3>Des chose que vous pouvez trouver dans ce site. </h3>
+  <hr><hr>
+  <a href="testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
+  <hr><hr>
+  <a href="testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br>
+  <hr><hr>
+  <a href="chainesàsuivre.html">Chaines YouTube à suivre pour apprendre le japonais</a><br>
+  <hr><hr>
+  <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
+  <hr><hr>
+    Si ça vous interesse à valorisez notre travail, vous pouvez nous soutenir :
     <br><!-- <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
-    BTC : <br>
-    19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi
-    USDT : <br>
-  0x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB<br>
-  BCH : <br>
-  bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl
+    BTC :<input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd('btcAd')">Copier</button></span><hr><hr><br>
+    BCH :<input type="text" value="bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl" id="bchAd" readonly><button onclick="copierLAd('bchAd')">Copier</button></span><hr><hr><br>
+    USDT :<input type="text" value="10x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB" id="usdtAd" readonly><button onclick="copierLAd('usdtAd')">Copier</button></span>
+  
+ 
 </div>
 
 <div id="Tests" class="tabcontent">
@@ -186,7 +196,7 @@ body {font-family: "Lato", sans-serif;}
 function fermerB(){
     document.getElementById("barreInf").remove();
 }
-function copierLAd() {var copyText = document.getElementById("btcAd");
+function copierLAd(quelAd) {var copyText = document.getElementById(quelAd);
 copyText.select();
   copyText.setSelectionRange(0, 99999); // For mobile devices
 navigator.clipboard.writeText(copyText.value);
