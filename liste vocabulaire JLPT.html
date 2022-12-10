@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://sariwangtilapya.github.io/Liste%20de%20vocabulaire%20JLPT.png">
+    <title>JLPT語彙</title>
+    <style>
+body {
+background-color: #002b36;;
+color: #586e75;
+font-family: roboto, sans-serif;
+margin: 10;
+}
+/*#grandeBoîte {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto ;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.vocGBoî {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.tradBoî {
+  flex-wrap: wrap;
+}*/
+a:link {
+  text-decoration: none;
+  color: #2aa198;
+  font-size: 20px;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #586e75;
+}
+
+a:hover {
+  background-color: blue;
+  color: #32c1b6;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+a:active {
+  text-decoration: underline;
+  color: #32c1b6;
+}
+#barreInf {
+    bottom: 0%;
+    position: fixed;
+    background-color: #073642;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+    border: 1px solid #73AD21;
+}
+#barreInf>button {
+    position: fixed;
+    right:  5px;
+    bottom: 5px;
+}
+#ménuRoulante {
+    position: fixed;
+    right: 5px;
+    top:   5px;
+    background-color: #32c1b6;
+    color: #002b36;
+    visibility: hidden;
+}
+#insBoî {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ins {
+    background-color: #073642;
+    color: #2aa198;
+    border: 3px solid seagreen;
+}
+#boutonFermer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    background-color: #73AD21;
+    justify-content: space-between;
+    color: black;
+}
+    </style>
+
+</head>
+<body>
+    <div id="ménuRoulante">Ménu<br>Roulante</div>
+    <div id="insBoî">
+        <div id="ins">
+            <div id="boutonFermer">Info<button onclick="fermerI()">×</button></div>
+            <p>Les lectures s'affichent en passant la souris sur le kanji.
+            <br>Cliquer le kanji ouvre la page fr.wikipedia sur le même kanji.</p>
+        </div>
+    </div>
+    <div id="NvJLPT">
+        <input type="radio" id="JLPT5" name="JLPT" value="0" onclick="JLPT(this.value)" checked>JLPT5
+        <input type="radio" id="JLPT4" name="JLPT" value="1" onclick="JLPT(this.value)">JLPT4
+        <input type="radio" id="JLPT3" name="JLPT" value="2" onclick="JLPT(this.value)">JLPT3
+        <input type="radio" id="JLPT2" name="JLPT" value="3" onclick="JLPT(this.value)">JLPT2
+        <input type="radio" id="JLPT1" name="JLPT" value="4" onclick="JLPT(this.value)">JLPT1
+    </div>
+    <div id="composition">
+        <input type="radio" id="avecKanji" name="composition" value="0"   onclick="composition(this.value)" checked>avec kanji
+        <input type="radio" id="slHira"    name="composition" value="1"   onclick="composition(this.value)">juste en hiragana
+        <input type="radio" id="prKata"    name="composition" value="2"   onclick="composition(this.value)">katakana principalement
+    </div>
+    <div id="pageHako">
+
+    </div>
+    <div id="sousClassement">Sous-classement : 
+    <input type="radio" id="tousLesVoc"   name="sousClassement" value="0" onclick="tousLesVoc(this.value)" checked>Tous
+    <input type="radio" id="slChar"       name="sousClassement" value="1"     onclick="slChar(this.value)">1 seul caractère
+    <input type="radio" id="éDif"         name="sousClassement" value="2"       onclick="éDif(this.value)">différent écriture || Terminaison en
+    <input type="radio" id="termRU"       name="sousClassement" value="3"     onclick="termRU(this.value)">ru
+    <input type="radio" id="termI"        name="sousClassement" value="4"      onclick="termI(this.value)">i
+    <input type="radio" id="termU"        name="sousClassement" value="5"      onclick="termU(this.value)">ligne -u
+    </div>
+    <input type="text" value="Recherchez par ordre gojuon - hors service"></div>
+    </div>
+
+<div id="compteHako"></div><hr><hr>
+<div id="grandeBoîte"></div>
+<div id="barreInf"><span>Vos dons nous permet de maintenir et améliorer le site. Merci !</span>
+    <span style="background-color: #32c1b6; color: #002b36;">BTC : 
+        <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
+        <button onclick="copierLAd()">Copier</button></span>
+    <button onclick="fermerB()">×</button>
+</div>
+<script src="jlpttousvocab.js"></script>
+<script>
+//let étatActuel=[JLPT5,JLPT4,JLPT3,JLPT2,JLPT1];
+let étatActuel_i=[0,0,0]; let gridIter=0;
+const souCl=[tousLesVoc,slChar,éDif,termRU,termI,termU]; let grPro=[]; let colNo=5;
+const tabsTab=[[jlpt5Voc,jlpt5VocQueHira,jlpt5VocQueKata],[jlpt4Voc,jlpt4VocQueHira,jlpt4VocQueKata],[jlpt3Voc,jlpt3VocQueHira,jlpt3VocQueKata],[jlpt2Voc,jlpt2VocQueHira,jlpt2VocQueKata],[jlpt1Voc,jlpt1VocQueHira,jlpt1VocQueKata]];
+
+function imprimer(){document.getElementById("grandeBoîte").innerHTML="";
+    const body = document.getElementById("grandeBoîte");
+        tbl = document.createElement('table');
+  tbl.style.width = '100vw';
+  tbl.style.color = 'black';
+  tbl.style.background = 'white';
+  tbl.style.border = '1px solid black';
+
+  for (let i = 0; i < grPro.length; i++) {
+    const tr = tbl.insertRow();
+    for (let j = 0; j < 3; j++) {
+
+        const td = tr.insertCell();
+        td.appendChild(document.createTextNode(`${grPro[i][j]}`));
+        td.style.border = '1px solid black';
+      
+    }
+  }
+  body.appendChild(tbl);
+document.getElementById("compteHako").innerText="Il y a "+grPro.length+" mots dans cette liste."; 
+}
+    //gridIter=0; document.getElementById("grandeBoîte").innerHTML="";
+    //for (v of grPro){
+    //    document.getElementById("grandeBoîte").innerHTML+=`
+    //<div class="vocGBoî" id="vocGBoî${gridIter}">
+    //<div class="knjBoî" id="knjBoî${gridIter}">${grPro[gridIter][0]}</div>
+    //<div class="lecBoî" id="lecBoî${gridIter}">${grPro[gridIter][1]}</div>
+    //<div class="tradBoî" id="tradBoî${gridIter}">${grPro[gridIter][2]}</div>
+    //</div>`; gridIter++;}
+    //}
+
+function composition(vl1){étatActuel_i[1]=vl1; grPro=tabsTab[étatActuel_i[0]][étatActuel_i[1]]; imprimer();}
+
+function tousLesVoc(vl2){étatActuel_i[2]=vl2; grPro=tabsTab[étatActuel_i[0]][étatActuel_i[1]]; imprimer();}
+function slChar(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
+    if (v[0].length===1){grPro.push(v);}
+    imprimer();}}
+function éDif(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
+    if (v[0].search(" / ")!=-1){grPro.push(v);}
+    imprimer();}}
+function termRU(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
+    if (v[0][v[0].length-1]==="る"){grPro.push(v);}
+    imprimer();}}
+function termI(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
+    if (v[0][v[0].length-1]==="い"){grPro.push(v);}
+    imprimer();}}
+function termU(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
+    if (["う","く","ぐ","す","ず","つ","づ","ぬ","ふ","む","ゆ","る"].includes(v[0][v[0].length-1])){grPro.push(v);}
+    imprimer();}}
+
+function JLPT(vl0){étatActuel_i[0]=vl0; souCl[étatActuel_i[2]](étatActuel_i[2]);}
+
+souCl[étatActuel_i[2]](étatActuel_i[2]);
+
+function fermerB(){
+    document.getElementById("barreInf").remove();
+}
+function fermerI(){
+    document.getElementById("insBoî").remove();
+}
+function copierLAd() {var copyText = document.getElementById("btcAd");
+copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + copyText.value);
+}
+document.addEventListener('keydown', (event) => {
+if (event.code==="Escape"){fermerI();}
+});
+</script>
+</body>
+</html>
