@@ -146,9 +146,10 @@ a:active {
 let étatActuel_i=[0,0,0]; let gridIter=0;
 const souCl=[tousLesVoc,slChar,éDif,termRU,termI,termU]; let grPro=[]; let colNo=5;
 const tabsTab=[[jlpt5Voc,jlpt5VocQueHira,jlpt5VocQueKata],[jlpt4Voc,jlpt4VocQueHira,jlpt4VocQueKata],[jlpt3Voc,jlpt3VocQueHira,jlpt3VocQueKata],[jlpt2Voc,jlpt2VocQueHira,jlpt2VocQueKata],[jlpt1Voc,jlpt1VocQueHira,jlpt1VocQueKata]];
+let ouilsteur=0
 
 function imprimer(){gridIter=0; document.getElementById("grandeBoîte").innerHTML="";
-    for (v of grPro){
+    while (gridIter<grPro.length){
         document.getElementById("grandeBoîte").innerHTML+=`
     <div class="vocGBoî" id="vocGBoî${gridIter}">
     <div class="knjBoî" id="knjBoî${gridIter}">${grPro[gridIter][0]}</div>
@@ -160,20 +161,21 @@ function imprimer(){gridIter=0; document.getElementById("grandeBoîte").innerHTM
 function composition(vl1){étatActuel_i[1]=vl1; grPro=tabsTab[étatActuel_i[0]][étatActuel_i[1]]; imprimer();}
 
 function tousLesVoc(vl2){étatActuel_i[2]=vl2; grPro=tabsTab[étatActuel_i[0]][étatActuel_i[1]]; imprimer();}
-function slChar(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
-    if (v[0].length===1){grPro.push(v);}
+function slChar(vl2){étatActuel_i[2]=vl2; grPro=[]; ouilsteur=0; while (ouilsteur<tabsTab[étatActuel_i[0]][étatActuel_i[1]].length){
+    if (v[0].length===1){grPro.push(tabsTab[étatActuel_i[0]][étatActuel_i[1]][i]); ouilsteur++;}
     imprimer();}}
-function éDif(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
-    if (v[0].search("  / ")!=-1){grPro.push(v);}
+function éDif(vl2){étatActuel_i[2]=vl2; grPro=[]; ouilsteur=0; while (ouilsteur<tabsTab[étatActuel_i[0]][étatActuel_i[1]].length){
+    if (v[0].search("  / ")!=-1){grPro.push(tabsTab[étatActuel_i[0]][étatActuel_i[1]][i]); ouilsteur++;}
     imprimer();}}
-function termRU(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
-    if (v[0][v[0].length-1]==="る"){grPro.push(v);}
+function termRU(vl2){étatActuel_i[2]=vl2; grPro=[]; ouilsteur=0; while (ouilsteur<tabsTab[étatActuel_i[0]][étatActuel_i[1]].length){
+    if (v[0][v[0].length-1]==="る"){grPro.push(tabsTab[étatActuel_i[0]][étatActuel_i[1]][i]); ouilsteur++;}
     imprimer();}}
-function termI(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
-    if (v[0][v[0].length-1]==="い"){grPro.push(v);}
+function termI(vl2){étatActuel_i[2]=vl2; grPro=[]; ouilsteur=0; while (ouilsteur<tabsTab[étatActuel_i[0]][étatActuel_i[1]].length){
+    if (v[0][v[0].length-1]==="い"){grPro.push(tabsTab[étatActuel_i[0]][étatActuel_i[1]][i]); ouilsteur++;}
     imprimer();}}
-function termU(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActuel_i[0]][étatActuel_i[1]]){
-    if (["う","く","ぐ","す","ず","つ","づ","ぬ","ふ","む","ゆ","る"].includes(v[0][v[0].length-1])){grPro.push(v);}
+function termU(vl2){étatActuel_i[2]=vl2; grPro=[]; ouilsteur=0; while (ouilsteur<tabsTab[étatActuel_i[0]][étatActuel_i[1]].length){
+    if (["う","く","ぐ","す","ず","つ","づ","ぬ","ふ","む","ゆ","る"].includes(tabsTab[étatActuel_i[0]][étatActuel_i[1]][i][0][tabsTab[étatActuel_i[0]][étatActuel_i[1]][i][0].length-1])){
+      grPro.push(v); ouilsteur++;}
     imprimer();}}
 
 function JLPT(vl0){étatActuel_i[0]=vl0; souCl[étatActuel_i[2]](étatActuel_i[2]);}
