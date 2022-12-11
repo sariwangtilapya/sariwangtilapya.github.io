@@ -1,4 +1,4 @@
-if (localStorage.getItem("visité")==0){
+if (localStorage.getItem("visité")=="0"){
 document.body.innerHTML+=`<div id="barreInf"><span>Vos dons nous permet de maintenir et améliorer le site. Merci !</span>
 <span style="background-color: #32c1b6; color: #002b36;">BTC : 
     <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
