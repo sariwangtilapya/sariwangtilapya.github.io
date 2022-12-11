@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        if (typeof(localStorage.getItem("visité")!="string")){localStorage.setItem("visité", 0);}
+        if (typeof(localStorage.getItem("visité")!="string")){localStorage.setItem("visité", "0");}
         localStorage.setItem("visité", parseInt(localStorage.getItem("visité"))+1);
         document.body.innerText=localStorage.getItem("visité");
         console.log(localStorage.getItem("visité"));
