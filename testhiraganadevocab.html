@@ -1,10 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta property="og:image" content="https://sariwangtilapya.github.io/Liste%20de%20kanjis%20categoris%C3%A9e.png">
+    <title>漢字一覧表</title>
+    <style>
+body {
+background-color: #002b36;;
+color: #586e75;
+font-family: roboto, sans-serif;
+margin: 10;
+}
+a:link {
+  text-decoration: none;
+  color: #2aa198;
+  font-size: 20px;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #586e75;
+}
+
+a:hover {
+  background-color: blue;
+  color: #32c1b6;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+a:active {
+  text-decoration: underline;
+  color: #32c1b6;
+}
+#barreInf {
+    bottom: 0%;
+    position: fixed;
+    background-color: #073642;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+    border: 1px solid #73AD21;
+}
+#barreInf>button {
+    position: fixed;
+    right:  5px;
+    bottom: 5px;
+}
+#ménuRoulante {
+    position: fixed;
+    right: 5px;
+    top:   5px;
+    background-color: #32c1b6;
+    color: #002b36;
+}
+#insBoî {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ins {
+    background-color: #073642;
+    color: #2aa198;
+    border: 3px solid seagreen;
+}
+#boutonFermer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    background-color: #73AD21;
+    justify-content: space-between;
+    color: black;
+}
+    </style>
+
 </head>
 <body>
     <a href="index.html">Retouner à la page d'accueil</a>
@@ -18,6 +93,8 @@ Le convertisseur n'accepte point les voyelles accentuées « ā, ō, ū, â, �
     <div id="questionHako"></div>
     <div id="réponseHako"></div>
     <div id="entréeHako"></div>
+<script src="pagesvisitées.js"></script>    
+<script src="barresout.js"></script>
     <script src="jlpttousvocab.js"></script>
     <script>
     //converteur de kana
