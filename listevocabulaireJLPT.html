@@ -142,6 +142,8 @@ a:active {
         <button onclick="copierLAd()">Copier</button></span>
     <button onclick="fermerB()">×</button>
 </div>
+<script src="pagesvisitées.js"></script>    
+<script src="barresout.js"></script>
 <script src="jlpttousvocab.js"></script>
 <script>
 //let étatActuel=[JLPT5,JLPT4,JLPT3,JLPT2,JLPT1];
@@ -160,11 +162,9 @@ function imprimer(){document.getElementById("grandeBoîte").innerHTML="";
   for (let i = 0; i < grPro.length; i++) {
     const tr = tbl.insertRow();
     for (let j = 0; j < 3; j++) {
-
         const td = tr.insertCell();
         td.appendChild(document.createTextNode(`${grPro[i][j]}`));
         td.style.border = '1px solid black';
-      
     }
   }
   body.appendChild(tbl);
@@ -202,18 +202,8 @@ function termU(vl2){étatActuel_i[2]=vl2; grPro=[]; for (v of tabsTab[étatActue
 function JLPT(vl0){étatActuel_i[0]=vl0; souCl[étatActuel_i[2]](étatActuel_i[2]);}
 
 souCl[étatActuel_i[2]](étatActuel_i[2]);
-
-function fermerB(){
-    document.getElementById("barreInf").remove();
-}
 function fermerI(){
     document.getElementById("insBoî").remove();
-}
-function copierLAd() {var copyText = document.getElementById("btcAd");
-copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-navigator.clipboard.writeText(copyText.value);
-  alert("Copied the text: " + copyText.value);
 }
 document.addEventListener('keydown', (event) => {
 if (event.code==="Escape"){fermerI();}
