@@ -1,0 +1,1 @@
+jmdict_french2=;
