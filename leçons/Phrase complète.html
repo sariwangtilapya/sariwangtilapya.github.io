@@ -70,7 +70,8 @@ body {font-family: "Lato", sans-serif;}
 </header>
 
 <div class="tab">
-tyui</div>
+<a href"Résumé de cours.html">Table des Matières</a><br>
+</div>
 
 
 <div id="prédicatNV" class="contenu">
@@ -87,7 +88,11 @@ tyui</div>
     <p>Il s'agit d'adjectifs en い.</p>
     <p>Il se terminent toujours on i. Mais fait attention ! Pas tous les adjectifs qui se terminent en -i sont des adjectifs en い.</p>
 </div>
-  <script>
-
+ <script src="tabledesmatières.js"></script>
+ <script>
+  for (v of tabledesmatières){
+document.getElementById.innerHTML+=`<a href="${v}.html">${v}</a><br>`;
+}
+</script>
 </body>
 </html>
