@@ -244,6 +244,19 @@ kbd {
     z-index: 9998
 }
 
+#navbax {
+    align-items: center;
+    background-color: var(--sol-base02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-wrap: wrap;
+    left: 0;
+    padding: 1rem;
+    right: 0;
+    top: 0;
+    z-index: 9998
+}
+
 #navbar-brand {
     flex-grow: 1
 }
