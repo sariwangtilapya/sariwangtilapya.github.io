@@ -1,1 +1,1 @@
-tabledematières=["Phrase complète","Pronomesque","Particules de cas grammaticaux"];
+tabledesmatières=["Phrase complète","Pronomesque","Particules de cas grammaticaux"];
