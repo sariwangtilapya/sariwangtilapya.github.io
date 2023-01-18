@@ -6,46 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://sariwangtilapya.github.io/imagesm%C3%A9ta/tilapiafbtw.png">
     <link rel="stylesheet" href="/styling/ymc.css">
-   <title>Sariwang Tilapya</title>
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-.tableDeMatières {
-  position: fixed;
-  float: left;
-  border: 1px solid #073642;
-  background-color: #002b36;
-  width: 30%;
-  height: 100%;
-}
-.contenu {
-  position: absolute;
-  float: left;
-  left: 30%;
-  padding: 0px 12px;
-  border: 1px solid #073642;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-}
-#navbax {
-    align-items: center;
-    background-color: var(--sol-base02);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    display: flex;
-    flex-wrap: wrap;
-    left: 0;
-    padding: 1rem;
-    right: 0;
-    top: 0;
-    z-index: 9998
-}
-</style>
+    <link rel="stylesheet" href="/styling/onglets.css">
+    <title>Sariwang Tilapya</title>
 </head>
 <body>
 <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1></div>
   <div id=navbar-links>
-  <a href="../index.html">FR-JP</a>
+  <a href="/index.html">FR-JP</a>
   <a href="en-jp/home.html">EN-JP</a>
   <a href=/>FR-TL</a>
   EN-TL</div></nav>
@@ -53,15 +20,15 @@ body {font-family: "Lato", sans-serif;}
 
 <header><nav id=navbax><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1></div>
   <div id=navbar-links>
-  <a href="../index.html">FR-JP</a>
+  <a href="/index.html">FR-JP</a>
   <a href="en-jp/home.html">EN-JP</a>
   <a href=/>FR-TL</a>
   EN-TL</div></nav>
 </header>
 
-<div class="tableDeMatières"></div>
+<div id="tab" class="tab"></div>
 
-<div id="Accueil" class="contenu">
+<div id="contenu" class="tabcontent">
 <h3>The two noun genders</h3>
 
 <p>And no, it's not masculine and feminine.</p>
@@ -114,9 +81,7 @@ Situations such as:
   <li>Terms of endearment</li>
 </ul>
 </div>
-  <script>
-  localStorage.setItem("langue", "en");
-
-  </script>
+  <script>localStorage.setItem("langue", "en");</script>
+  <script src="tabledesmatières.js"></script>
 </body>
 </html>
