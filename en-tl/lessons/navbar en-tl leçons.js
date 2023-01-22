@@ -4,7 +4,7 @@ document.getElementById("tête").innerHTML=`
         <h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1>
     </div>
     <div id=navbar-links>
-        <a href="en-tl/home.html">Home</a></div></nav>
+        <a href="/en-tl/home.html">Home</a></div></nav>
     </div>
 </nav>
 
@@ -13,6 +13,6 @@ document.getElementById("tête").innerHTML=`
         <h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1>
     </div>
     <div id=navbar-links>
-        <a href="en-tl/home.html">Home</a></div></nav>
+        <a href="/en-tl/home.html">Home</a></div></nav>
     </div>
 </nav>`;
