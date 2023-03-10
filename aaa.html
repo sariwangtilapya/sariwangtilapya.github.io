@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="fr-jp/kanjidic_french/1.js"></script>
+<script>
+//kanjidic_french_kanji_bank_1
+i=0; j=0; a=""; b=[];
+while (i<kanjidic_french_kanji_bank_1.length)
+{if (kanjidic_french_kanji_bank_1[i][2].includes("っ")){a+=`${kanjidic_french_kanji_bank_1[i][0]}…${kanjidic_french_kanji_bank_1[i][2]}\n`; j++;}
+i++;}
+document.body.innerText=a+j;
+
+</script>
+</body>
+</html>
