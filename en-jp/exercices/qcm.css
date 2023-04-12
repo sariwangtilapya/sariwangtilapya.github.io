@@ -1,0 +1,118 @@
+.inté {
+  margin: auto;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 8vmax;
+}
+
+#RésultatHako {
+  color: #073642;
+  overflow: hidden;
+
+}
+
+#RésultatHako>p {
+  text-align: center;
+  height: 20vh;
+  line-height: 20vh;
+  margin: 0 auto;
+  background-color: darkslateblue;
+  font-size: 1em;
+}
+
+#infosHako {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 70%;
+  height: 40vh;
+  line-height: 40vh;
+  font-size: xx-large;
+  color: #32c1b6;
+}
+
+#infosHako>button {
+  color: #32c1b6;
+  font-size: xx-large;
+  margin: 0 0;
+  background-color: #002b36;
+  width: 22%;
+}
+
+#flèchesHako {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  height: 40vh;
+  float: right;
+  right: 23vw;
+  bottom: 60vh;
+  vertical-align: middle;
+}
+
+#flèchesHako>input {
+  display: flex;
+  height: 25%;
+  width: 4vmin;
+  text-align: center;
+  background-color: gray;
+  font-size: medium;
+}
+
+/*[value]{
+ font-size:36;
+ box-sizing:border-box;
+ margin:auto;
+}*/
+#QeRHako {
+  background-color: darkslateblue;
+  color: black;
+  position: fixed;
+  right: 10%;
+  top: 0;
+  width: 13%;
+  text-align: center;
+}
+
+/*p {text-align:center; height:20vh;
+line-height:20vh; margin: 0 auto;
+   background:darkslateblue;
+   font-size:1em;
+  }*/
+
+#boutonsHako {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 60vh;
+  background: cyan;
+}
+
+#boutonsHako>button {
+  flex-basis: 28%;
+  height: 20vh;
+  padding: 0;
+  margin: auto;
+  background: teal;
+  font-size: 0.3em;
+}
+
+#ruban {
+  position: fixed;
+  background-color: seagreen;
+  height: 100%;
+  width: 10%;
+  right: 0;
+  top: 0;
+}

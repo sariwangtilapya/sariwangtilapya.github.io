@@ -4,140 +4,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../ymc.css">
+    <meta property="og:image" content="https://sariwangtilapya.github.io/imagesm%C3%A9ta/tilapiafbtw.png">
+    <link rel="stylesheet" href="/styling/ymc.css">
+    <link rel="stylesheet" href="/styling/onglets.css">
    <title>サリワン・ティラピア</title>
-<style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-.tab {
-  position: fixed;
-  float: left;
-  border: 1px solid #073642;
-  background-color: #002b36;
-  width: 30%;
-  height: 100%;
-}
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: #657b83;
-  padding: 22px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 17px;
-}
-.tab button:hover {
-  background-color: #2aa198;
-}
-.tab button.active {
-  background-color: #32c1b6;
-}
-.tabcontent {
-  position: absolute;
-  float: left;
-  left: 30%;
-  padding: 0px 12px;
-  border: 1px solid #073642;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-}
-#barreInf {
-    bottom: 0%;
-    position: fixed;
-    background-color: #073642;
-    width: 100%;
-    left: 0px;
-    padding: 5px;
-    border: 1px solid #73AD21;
-}
-#barreInf>button {
-    position: fixed;
-    right:  5px;
-    bottom: 5px;
-}
-</style>
 </head>
 <body>
 <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
-  <div id=navbar-links>EN-JP
-  <a href="../index.html">FR-JP</a>
-  <a href=/>FR-TL</a>
-  <a href=/>EN-TL</a></div></nav>
+  <div id=navbar-links><a href="/index.html">FR-JP</a>
+  EN-JP
+  <a href="fr-tl/accueil.html">FR-TL</a>
+  <a href="en-tl/home.html">EN-TL</a></div></nav>
 </header>
-
-<h2>bla bla bla</h2>
-<p>bla bla bla</p>
+<header><nav id=navbax><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
+  <div id=navbar-links><a href="/index.html">FR-JP</a>
+    EN-JP
+  <a href="fr-tl/accueil.html">FR-TL</a>
+  <a href="en-tl/home.html">EN-TL</a></div></nav>
+</header>
 
 <div class="tab">
   <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Accueil</button>
   <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
-  <button class="tablinks" onclick="onglets(event, 'Leçons et resources d_apprentissage')">Leçons et Resources d'apprentissage</button>
+  <button class="tablinks" onclick="onglets(event, 'AteKan')">Atelier de kanjis</button>
+  <button class="tablinks" onclick="onglets(event, 'Ressources')">Ressources d'apprentissage</button>
+  <button class="tablinks" onclick="onglets(event, 'Ressources')">Cours de japonais</button>
   <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
+  <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button>
+  <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button>
   <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
 </div>
 
 <div id="Accueil" class="tabcontent">
-  <h3>Welcome to Sariwang Tilapya !</h3>
-  <div><p>You are on the page « Learn japanese »</p></div>
-  <div>Vous pouvez nous suivre sur <a href="https://www.youtube.com/channel/UC3E25B2WTjVv9apNbRFj52w" target="_blank" rel="noopener noreferrer">Youtube</a> || <a href="https://sariwangtilapya.wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a> || 
-    <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> || 
-    <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a><!--  || <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a> -->
+  <h3>Welcome to Sariwang Tilapya!</h3>
+  <div><p>You are on the page « apprendre le japonais »</p></div>
+  <div>You can follow us on<!-- <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a>
+  -->  ||<a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a>
+  <!--  || <a href="https://www.youtube.com/channel/UC3E25B2WTjVv9apNbRFj52w" target="_blank" rel="noopener noreferrer">Youtube</a> 
+  --> || <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> 
+    || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> 
+   <!-- || <a href="https://sariwangtilapya.wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a> 
+   -->
   </div>
-      <hr><hr>
-  <h3>Things you can find on this site. </h3>
   <hr><hr>
-  <a href="../testkanjiponderé.html">Kanji Reading Test (Zeighted random)</a><br>
+  <h3>What you can find on this site.</h3>
   <hr><hr>
-  <a href="../testhiraganadevocab.html">Hiragana Reading Training with JLPT Vocabulary</a><br>
+  <a href="exercices/testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br>
   <hr><hr>
-  <a href="../chainesàsuivre.html">Japanese-learning Youtube Channels you can Follow</a><br>
+  <a href="testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
   <hr><hr>
-  <a href="../listedekanjiscatégorisée.html">Categorised Kanji Lists</a>
+  <a href="chainesàsuivre.html">Chaines YouTube à suivre pour apprendre le japonais</a><br>
   <hr><hr>
-    Si ça vous interesse à valorisez notre travail, vous pouvez nous soutenir :
-    <br><!-- <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> -->
-    BTC :<input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd('btcAd')">Copier</button></span><hr><hr><br>
-    BCH :<input type="text" value="bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl" id="bchAd" readonly><button onclick="copierLAd('bchAd')">Copier</button></span><hr><hr><br>
+  <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
+  <hr><hr>
+  <a href="listevocabulaireJLPT.html">Listes de vocabulaire JLPT (catégorisées)</a>
+  <hr><hr>
+  <a href="exercices/EdLdNつ.html">Counter つ Reading</a></p>
+  <hr><hr>
+  <a href="exercices/EdLdN日.html">Counter 日 Reading</a></p>
+  <hr><hr>
+  <!--  Si ça vous interesse à valorisez notre travail, vous pouvez nous soutenir :
+    <br> <a href="https://www.patreon.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Patreon</a> || <a href="https://www.buymeacoffee.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Buy me a coffee</a>
+    BTC :<input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd('btcAd')">Copier</button></span>
+    BCH :<input type="text" value="bitcoincash:qq27ws2q8r4gufa0uw8xe20qsjptpf49jyzjzy4anl" id="bchAd" readonly><button onclick="copierLAd('bchAd')">Copier</button></span>
     USDT :<input type="text" value="10x038b69bbCDADa597E4430A7A6C7Dc7bC2c0711eB" id="usdtAd" readonly><button onclick="copierLAd('usdtAd')">Copier</button></span>
-
+  -->
+ 
 </div>
 
 <div id="Tests" class="tabcontent">
   <h3>Tests</h3>
-  <p><a href="../testhiragana.html">Hiragana Test (Multiple choice)</a><br>
-    <a href="../testkatakana.html">Katakana Test (Multiple choie)</a><br>
+  <p><a href="exercices/testhiragana.html">Test de hiragana QCM</a><br>
+    <a href="exercices/testkatakana.html">Test de katakana QCM</a><br>
     <hr><hr>
-    <a href="../testkanji.html">Kanji Reading Test (Equal distribution)</a><br>
-    <a href="../testkanjiponderé.html">Kanji Reading Test (Weighted random)</a><br>
+    <a href="exercices/testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
+    <a href="exercices/testkanji.html">Test de kanji kunyomi et onyomi (distribution égale)</a><br>
     <hr><hr>
-    <a href="testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br></p> 
+    <a href="exercices/testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br></p>
+  <a href="exercices/EdLdNつ.html">Entraînement de lecture des nombres : compteur つ</a></p>
+  <hr><hr>
+  <a href="exercices/EdLdN日.html">Entraînement de lecture des nombres : compteur 日</a></p>
 </div>
 
-<div id="Leçons et resources d_apprentissage" class="tabcontent">
-  <h3>Resources</h3>
-  <p>  <a href="chainesàsuivre.html">Youtube channels you can follow for learning japanese</a><br>
+<div id="Cours" class="tabcontent">
+  <h3>Cours de japonais</h3>
+  <p>Il est recommandé d'apprendre le hiragana et le katakana en apprenant quelque mots basiques avant de commencer le cours</p>
+  <hr>
+    <a href="tableau des kanas.html">Tableau des kanas (higarana et katakana) 平仮名と片仮名</a>
+  <hr>
+  <p>Cliquez <a href="leçons/Résumé de cours.html">ici</a> pour acceder au cours.<br>
     <hr><hr>
-    <a href="tableau des kanas.html">Higarana and Katakana Tables 平仮名と片仮名</a>
+    <a href="tableau des kanas.html">Tableau des kanas (higarana et katakana) 平仮名と片仮名</a>
     <hr>
-    Leçons
+    <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
     <hr>
-    <a href="listedekanjiscatégorisée.html">Kanji Regrouper</a><br>
-    <!--<hr>
-    Particles pour les Nuls (La particule は et des cas grammaticaux)-->
-    <a href="EdLdNつ.html">Counters Reading Training: つ counter</a></p>
+    <a href="listevocabulaireJLPT.html">Listes de vocabulaire JLPT (catégorisées)</a>
+    <hr>
+    Particles pour les Nuls (La particule は et des cas grammaticaux)
+    <hr>
+    Les compteurs
+</div>
+
+<div id="Ressources" class="tabcontent">
+  <h3>Ressources</h3>
+  <p>  <a href="chainesàsuivre.html">Chaines à suivre pour apprendre le japonais</a><br>
+    <hr><hr>
+    <a href="tableau des kanas.html">Tableau des kanas (higarana et katakana) 平仮名と片仮名</a>
+    <hr>
+    <a href="leçons/Résumé de cours.html">Leçons</a>
+    <hr>
+    <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
+    <hr>
+    <a href="listevocabulaireJLPT.html">Listes de vocabulaire JLPT (catégorisées)</a>
+    <hr>
+    Particles pour les Nuls (La particule は et des cas grammaticaux)
+    <hr>
+    Les compteurs
+</div>
+
+<div id="AteKan" class="tabcontent">
+  <h3>Atelier de kanjis</h3>
+  <a href="fr-jp">Écriture</a><br>
+  <a href="fr-jp">Lecture</a>
+  <h3>Irrégularité chez les kanjis</h3>
+  <H4>La façon d'écrire</H4>
+  <p>Les kanjis royaux / L'os de poisson</p>
+  <p>Le NA et le ME ナ、メ</p>
+  <p>par défaut ils s'écrivent comme NA mais voici les 24 exceptions :</p> 
+  <p>右 布 有 希 宏 怖 肴 侑 宥 祐 郁 囿 陏 唏 欷 淆 晞 稀 賄 諾 鮪 醢 鯑 髄</p>
+  <p>Néanmoins, aprés tous ces chaos, il y a 2 motifs où la certaineté est présente.</p>
+  <p>avec une partie 肴, il s'écrit toujours en ME</p>
+  <p>avec une pôle, toujours NA</p>
+  <p>Le NANA et le HI 七、ヒ</p>
+  <p>Les variations indépendantes et composantes</p>
 </div>
 
 <div id="Attributions" class="tabcontent">
-  <h3>Resources</h3>
+  <h3>Dictionnaires utilisés</h3>
   <p>wikipedia</p>
   <p>kanjidic</p>
   <p>jmnedict</p>
   <p>kireicake</p>
+</div>
+
+<div id="S-V_1" class="tabcontent">
+  <h3>Saviez-vous que</h3>
+  <p>っ ん sont deux ajouts récents dans la langue japonaise ?</p>
+  <p>Et puis, il n'existe que ¿ kanji avec ん et ¿ avec っ dans leurs lectures kunyomi, la lecture native.
+    <br>(compté d'apres le dictionnaire kanjidic)</p>
+
+  <h3>Auparavant, le kanji 日 se dit soit -ぅか soit ゆか.</h3>
+  <p>Et c'est la raison pour laquelle les lectures des dates font très bizarre (y inclut le 20).</p>
+
+  <h3>Que la lecture onyomi s'écrit en trois kana et se dit en 2 mora au max ?</h3>
+  <p>Parce que la lecture onyomi vient de chinois qui est une langue dont chac caractère
+    <br>se dit en un seul syllabe.
+  </p>
+  <p>Pourtant, en chinois, un caractère peut porter une consonne finale que n'en a pas le japonais.
+    <br>idem pour les diphthongues.
+  </p>
+  <h3>En passant toutes les colonnes de gojuon en consécution, à l'exception d'un choonpuu (ー)</h3>
+  <p>on peut former les noms <strong>AGOSTINO FUMIYA ROWAN</strong>
+  <br><strong>アゴスティーノ　フミヤ　ロワン</strong>
+  <br>qui lui-même est un astuce pour mémoriser l'ordre de kanas.</p>
+</div>
+
+<div id="cherDico" class="tabcontent">
+  <h3>Cherchez les dictionnaires</h3>
+  <p>JMDict(French)</p>
+  <p>Kirei Cake</p>
 </div>
 <div id="Eddy Malou" class="tabcontent">
   <h3>Bonjour messieurs fidèles</h3>
@@ -168,12 +203,6 @@ body {font-family: "Lato", sans-serif;}
   </form>
 <a href="chifoumi.html">じゃんけんぽん</a><hr>
 </div>
-<div id="barreInf"><span>Your donations will help us maintain and better the site. Thank you!</span>
-  <span style="background-color: #32c1b6; color: #002b36;">BTC : 
-      <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly>
-      <button onclick="copierLAd()">Copier</button></span>
-  <button onclick="fermerB()">X</button>
-</div>
   <script>
   function onglets(evt, ongletNom) {
     var i, tabcontent, tablinks;
@@ -188,18 +217,7 @@ body {font-family: "Lato", sans-serif;}
     document.getElementById(ongletNom).style.display = "block";
     evt.currentTarget.className += " active";
   }
-  
-  // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
-
-function fermerB(){
-    document.getElementById("barreInf").remove();
-}
-function copierLAd(quelAd) {var copyText = document.getElementById(quelAd);
-copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-navigator.clipboard.writeText(copyText.value);
-  alert("Copied the text: " + copyText.value);
-}
   </script>
 </body>
+</html>
