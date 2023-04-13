@@ -9,11 +9,30 @@
 <body>
  <input type="file"> 
  <button onclick="télch()">télécharger</button>  
- <div id="a">/div>
+ <div id="a"></div>
 <script>
-fetch ("input.txt")
-.then(response => response.text())
-.then(text => document.getElementById("a").innerText=text);
+fetch ("dictionaires/kanjidic_en.json")
+.then(response => response.json())
+.then(json =>
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("a").innerText=json[1]
+
+
+
+
+
+);
 </script>
 </body>
 </html>

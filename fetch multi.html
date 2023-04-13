@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    const txids = ['dfbe56bf1d3241dde0048e8f7794633246b06b8ff988467bd678e7f86450e6fb', 'c45e2ce2acd2633f9384ade585f54da4b39d0a83e5f5c2f07723853383841edc', '348bf43fb4b188c2090596fdea351e00a45c4969ea153379244de966b13c3278']; // liste d'ID de transaction
+
+const apiUrl = 'https://bitcoinblockexplorers.com/api/tx/';
+
+const requests = txids.map((txid) => {
+  const url = `${apiUrl}${txid}`;
+  return fetch(url).then(response => response.json());
+});
+
+Promise.all(requests)
+  .then(transactions => console.log(transactions))
+  .catch(error => console.error(error));
+
+</script>
+</body>
+</html>
