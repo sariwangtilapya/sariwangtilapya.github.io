@@ -11,24 +11,11 @@
  <button onclick="télch()">télécharger</button>  
  <div id="a"></div>
 <script>
-let a=[];
 fetch ("dictionaires/kanjidic_en.json")
 .then(response => response.json())
 .then(json => {
-let q=json.length, tous=0;
-while (tous<q){let idv=json[tous][1].length-1; while (idv>0){if ((json[tous][1][idv-1]!=" "||idv==1)&&json[tous][1][idv]!=" "){/*if (a.includes(json[tous][1][idv])==false)*/{a.push(tous); a.push(json[tous][1][idv]);}}idv--;}
-tous++;}
 
-
-
-
-
-
-
-
-
-
-document.getElementById("a").innerText=a;
+document.getElementById("a").innerText=json[8504];
 
 
 
