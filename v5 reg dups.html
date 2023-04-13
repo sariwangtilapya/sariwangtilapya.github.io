@@ -13,8 +13,11 @@ fetch ("jmdict.json")
 .then(json => {
 i=0; j=0; a=""; b=[];
 while (i<json.length)
-{if ((json[i][2].includes("vt")||json[i][2].includes("vi"))&&json[i][7].includes("P")&&json[i][0][json[i][0].length-1]=="る"){if (b.includes(json[i][0])==false){b.push(json[i][0]);
-a+=`${json[i][0]}    ${json[i][1]}     ${json[i][5]}\n-------\n`; j++}}
+{if (json[i][2].includes("v1")&&json[i][0][json[i][0].length-2]!=json[i][1][json[i][1].length-2]&&json[i][7].includes("io")==false&&json[i][1]!="")
+{//if (b.includes(json[i][0])==false){
+    b.push(json[i][0]);
+a+=`${json[i][0]}    ${json[i][1]}     ${json[i][5]}\n`; j++;//}
+}
 i++;}
 document.body.innerText=a+j;
 });
