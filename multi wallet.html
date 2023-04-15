@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+let wAds=["19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi","bc1qeyq2dhmkp0vcx8t39rak3l52n3ms02nc4y9kvj"];
+const apiUrlAd = 'https://bitcoinblockexplorers.com/api/address/';
+
+const requests = wAds.map((wAd) => {
+  const url = `${apiUrlAd}${wAd}`;
+  return fetch(url).then(response => response.json()); //json ou text
+});
+
+Promise.all(requests)
+  .then(wallets => {console.log(wallets);
+
+    let txids=[];//["1514942603216362c72aef27af2a749f6343464de162485e3757bfd4c09128aa","1fbe889febdd8b53f4590fe00071d6126847447ad6634a9eebb1bcdbb80eb605","b2f9dbca26c314122ef5a5f59cd6c6c54af665f177fc4ab1c804a00b87072b6b"];
+
+    for (v of wallets[0].transactions){if (wallets[1].transactions.includes(v)){txids.push(v);}} console.log(txids);
+    
+    /*const apiUrlID = 'https://bitcoinblockexplorers.com/api/tx/';
+
+    const requests = txids.map((txid) => {
+    const url = `${apiUrlID}${txid}`;
+    return fetch(url).then(response => response.json()); //json ou text
+    });
+
+    Promise.all(requests)
+    .then(transactions => {console.log(transactions)})
+    .catch(error => console.error(error));*/
+})
+  .catch(error => console.error(error));
+
+</script>
+</body>
+</html>

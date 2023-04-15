@@ -12,23 +12,24 @@
  <div id="a"></div>
 <script>
 let a=[];
-fetch ("dictionaires/kanjidic_en.json")
+fetch ("dictionaires/jmdict_fr.json")
 .then(response => response.json())
 .then(json => {
-let q=json.length, tous=0;
-while (tous<q){let idv=json[tous][1].length-1; while (idv>0){if ((json[tous][1][idv-1]!=" "||idv==1)&&json[tous][1][idv]!=" "){/*if (a.includes(json[tous][1][idv])==false)*/{a.push(tous); a.push(json[tous][1][idv]);}}idv--;}
+/*let q=json.length, tous=0;
+while (tous<q){let idv=1; while (idv<json[tous][1].length){if ((json[tous][1][idv]=="チ"&&(json[tous][1][idv-1]!=" "&&idv!=json[tous][1].length-1))||(json[tous][1][idv]=="チ"&&idv==json[tous][1].length-1&&json[tous][1][idv-1]!=" ")){a.push(json[tous]);} idv++;}
 tous++;}
+let g="";
+for (v of a){g+=v+"\n";}
+g+=a.length;*/
+let g=[];
+for (v of json){if (v[2].includes("adj-na")&&v[0][v[0].length-1]=="い"){g.push(v);}}
 
 
 
 
 
 
-
-
-
-
-document.getElementById("a").innerText=a;
+document.getElementById("a").innerText=g+g.length;
 
 
 

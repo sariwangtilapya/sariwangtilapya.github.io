@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Collez votre wallet address et validez pour activer votre niveau TILAPYA</div>
+    <div>
+        <input type="text" id="wAd">
+        <button onclick="entrer()">Valider</button>
+    </div>
+<div id="test"></div>
+<div id="instructions">
+<p><h3>Comment ça marche ?</h3>
+Il y a 5 niveau d'access pour les articles ou des exercises. Plus haut votre niveau, moin de temps à attendre pour les accéder, ou même instant.</p> 
+<p>Accès à niveau TILAPYA coût 0.00025BTC/3 jours (72 heures).</p>
+<p>Votre niveau TILAPYA dépend de combien de semaines (7 jours) il vous reste.</p>
+<p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd()">Copier</button></p>
+<p>Si vous n'avez pas un portefeuille Bitcoin. Vous pouvez en vous faire un <a href="">ici</a>.</p>
+
+</div>
+
+<script>
+let temps=new Date();
+let code="Manuel_Valls";
+let ass=undefined;
+//let tx="dfbe56bf1d3241dde0048e8f7794633246b06b8ff988467bd678e7f86450e6fb";
+let tx;
+//0.00022707
+let tv=0.00022607;
+
+function vérification (ver){
+    document.getElementById("test").innerText=`${(tv>=ver)}\n${ver}`;
+}
+function entrer(){tx=document.getElementById("wAd").value;
+
+document.getElementById("test").innerText="Veuillez attendre";
+fetch(`https://bitcoinblockexplorers.com/api/tx/${tx}`)
+      .then(response => response.json())
+      .then(json => {//ceci est le json qu'a retourné le site
+      document.getElementById("test").innerText=Object.keys(json.vout[0].scriptPubKey);
+      //vérification(json.vout[0].value)
+})
+.catch(error => {console.error(error)
+    document.getElementById("test").innerText="Une erreur s'est produite.\nVeuillez réessayer";});
+}
+</script>
+</body>
+</html>

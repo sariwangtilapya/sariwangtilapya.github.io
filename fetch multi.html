@@ -16,11 +16,11 @@ const apiUrl = 'https://bitcoinblockexplorers.com/api/tx/';
 
 const requests = txids.map((txid) => {
   const url = `${apiUrl}${txid}`;
-  return fetch(url).then(response => response.json());
+  return fetch(url).then(response => response.text()); //json ou text
 });
 
 Promise.all(requests)
-  .then(transactions => console.log(transactions))
+  .then(transactions => document.write(transactions))
   .catch(error => console.error(error));
 
 </script>
