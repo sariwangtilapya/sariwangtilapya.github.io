@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="a"></div>
+<script>
+let a=[];
+let fNames=["tgl_sentences","tatoeba tagalog collection"];
+const requests = fNames.map((fName) => {
+  const url = `${fName}.json`;
+  return fetch(url).then(response => response.json()); //json ou text
+});
+Promise.all(requests)
+.then(txt => {
+let g=[];
+// let tabTog=1;
+// let x, y, z;
+// const ch=["'",'"',".","?","(",")",",",";","!"];
+// let i= txt.search("	"), j=txt.length;
+// while (i<j){y= 0; z=0; if (tabTog==0&&txt[i]=="	"){x=i;}if (tabTog==1){if (txt[i]==" "||txt[i]=="\n"){
+//     if (ch.includes(txt[x+1])){y=1;}
+//     if (ch.includes(txt[i-1])){z=1;}
+//     if (ch.includes(txt[i-2])){z=2;}
+//     if (ch.includes(txt[i-3])){z=3;}
+//     if (g.includes(txt.slice(x+1+y,i-z))==false){g.push(txt.slice(x+1+y,i-z));} x=i;}}
+//     if (txt[i]=="	"){tabTog=(tabTog+1)%3;}
+//     i++;}
+// txt.sort();
+let a=0;
+g=[...txt[0],...txt[1]];
+g.sort();
+let q="";
+for (v of g) {if (v[v.length-1]=="n"){q+=`\n${v}`;a++;}}
+document.getElementById("a").innerText=q+a;
+
+
+
+
+
+});
+</script>
+</body>
+</html>
