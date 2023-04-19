@@ -34,8 +34,8 @@ let g=[];
 let a=0;
 g=[...txt[0],...txt[1]];
 g.sort();
-let q="";
-for (v of g) {if (v[v.length-1]=="n"){q+=`\n${v}`;a++;}}
+let q=""; const conson=["b","c","d","r","g","h","j","k","l","m","p","q","r","s","t","v","w","x","y","z"];
+for (v of g) {if (v[v.length-1]=="n"&&v[v.length-2]=="i"&&conson.includes(v[v.length-"3"])&&conson.includes(v[v.length-"4"])){q+=`\n${v}`;a++;}}
 document.getElementById("a").innerText=q+a;
 
 
