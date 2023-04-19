@@ -7,10 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+      <input type="text" id="adresse" style="width : 51ch">
+    <p>
+        <button type="button">Paste</button>
+      </p>
 <script>
     let a=new Date();
     document.write (a);
+    const pasteButton = document.querySelector('button');
+
+pasteButton.addEventListener('click', async () => {
+  try {
+    const text = await navigator.clipboard.readText()
+    document.getElementById('adresse').value = text;
+    console.log('Text pasted.');
+  } catch (error) {
+    console.log('Failed to read clipboard. Using execCommand instead.');
+    document.getElementById('adresse').focus();
+    const result = document.execCommand('paste')
+    console.log('document.execCommand result: ', result);
+  }
+});
 </script>
 </body>
 </html>
