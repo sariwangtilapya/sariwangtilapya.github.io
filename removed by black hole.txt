@@ -1,3 +1,5 @@
+an
+
 bilhan
 dalhan
 labhan
@@ -26,6 +28,11 @@ tsampan?
 hagdan?
 kagman?
 
+lost root
+kinalakhan
+kinagisnan
+sisidlan
+
 added n
 tutunan
 
@@ -37,3 +44,5 @@ dakpin
 kamtin
 dinggin ← dinigín
 dagsin?
+
+lost root
