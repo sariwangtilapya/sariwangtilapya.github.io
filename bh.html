@@ -11,14 +11,14 @@
 <script>
 let a=[];
 
-let fNames=[];//["tgl_sentences","tatoeba tagalog collection"];
-for (i=1; i<76; i++){fNames.push(i)}
+let fNames=["tatoeba tagalog collection"];//["tgl_sentences","tatoeba tagalog collection"];
+//for (i=1; i<76; i++){fNames.push(i)}
 const requests = fNames.map((fName) => {
-  const url = `dictionaires/jmnedict/term_bank_${fName}.json`;
+  const url = `${fName}.json`;
   return fetch(url).then(response => response.json()); //json ou text
 });
 Promise.all(requests)
-.then(txt => {
+.then(json => {
 let g=[];
 // let tabTog=1;
 // let x, y, z;
@@ -40,12 +40,19 @@ let g=[];
 // for (v of g) {if (v[v.length-1]=="n"&&v[v.length-2]=="i"&&conson.includes(v[v.length-"3"])&&conson.includes(v[v.length-"4"])){q+=`\n${v}`;a++;}}
 // document.getElementById("a").innerText=q+a;
 
-let a=0; let q="";
-for (w of txt){
-for (v of w) {if (v[2].includes("given")&&v[1].includes("ここ")){q+=`\n${v}`;a++;}}
-}
+// let a=0; let q="";
+// for (w of txt){
+// for (v of w) {if (v[2].includes("given")&&v[1].includes("ここ")){q+=`\n${v}`;a++;}}
+// }
 
-document.getElementById("a").innerText=q+a;
+// const rep=[];
+// const r=rep.length;
+// let i=0; let j=0; let b=true;
+// while (j<r){while (b){if (json[0][i]==rep[j]){
+//  json[0].splice(i,1); json[0].push(rep[j].toLowerCase()); b=false;} else {i++;}
+// }
+// j++; b=true;}
+// document.getElementById("a").innerText=JSON.stringify(json[0]);
 
 
 });
