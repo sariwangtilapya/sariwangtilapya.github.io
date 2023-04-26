@@ -82,7 +82,7 @@ const requests = wAds.map((wAd) => {
 });
 
 Promise.all(requests)
-  .then(wallets => {console.log(wallets);
+  .then(wallets => {//console.log(wallets);
 
     for (v of wallets[0].transactions){if (wallets[1].transactions.includes(v)){txids.push(v);}}
 
@@ -92,22 +92,23 @@ Promise.all(requests)
     });
 
     Promise.all(requests)
-    .then(transactions => {console.log(transactions);
+    .then(transactions => {//console.log(transactions);
     for (v of transactions){for (w of v.vout){
       if (w.scriptPubKey.addresses.includes(wAds[0])){
         accèTpr=Math.floor(v.time*1000+parseFloat(w.value)/0.00001*24*60*60000-temps);
         if (accèTpr>0){accès+=accèTpr;
-        vérifPous.push([w.value,v.time]); somme+=parseFloat(w.value); console.log(somme, accès)}}}}
-      console.log(vérifPous); console.log(somme);
+        vérifPous.push([w.value,v.time]); somme+=parseFloat(w.value); //console.log(somme, accès)
+      }}}}
+      //console.log(vérifPous); console.log(somme);
       if (somme/0.00007<5){nvTil=Math.floor(somme/0.00007);} else {nvTil=5;}
 
       if (accès>8640000000){
-        document.getElementById("Infos").innerText=`You are at TILAPYA Level 5\nYou have more than 100 days of TILAPYA Access`;
-        localStorage.setItem("nvTilapya",5); localStorage.setItem("accèsTilapya",Date.now()+8640000000);
+        document.getElementById("Infos").innerText=`You are at TILAPYA Level 5\nYou have more than 99 days of TILAPYA Access`;
+        localStorage.setItem("nvTilapya",5); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+8640000000);
       }
       else{
         document.getElementById("Infos").innerText=`You are at TILAPYA Level ${nvTil}\nYou have ${Math.floor(accès/(24*60*60000))} days, ${Math.floor(accès%(24*60*60000)/(60*60000))} hours and ${Math.floor(accès%(60*60000)/60000)} minutes of TILAPYA Access`;
-        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapya",accès);}
+        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+accès);}
     })
     .catch(error => {console.error(error);
     document.getElementById("Infos").style="visibility: visible;";
