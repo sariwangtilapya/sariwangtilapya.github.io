@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="/styling/ymc.css">
     <title>TILAPYA Access</title>
 </head>
-<body><h3>Your donations help improve the site.</h3>
-  <p>Donate to our site and get TILAPYA access.</p>
+<body>
+  <p><h3>Your donations help improve the site.</h3>
+  Donate to our site and get TILAPYA access.</p>
   <p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copy</button></p>
   <div id="notifCopié" style="visibility: hidden;">Copied</div>
   <p>Every 0.00001BTC donation, grants 24 hours of TILAPYA Access. (4 zeros after the decimal separator)<br>
@@ -31,6 +32,8 @@ There are 5 TILAPYA Levels.</p>
 <p>Articles and exercises at 3 levels higher than one's level and below are accessible. Articles and exercises higher than one's level have a cooldown period. The higher one's level, the faster the cooldown.</p>
 <p>Any amount donated with active TILAPYA Access brings the TILAPYA Level to level 1. Every 7 days worth of cumulative active donation increases the TILAPYA Level by 1 up to Level 5. Cumulatively counted from the earliest active donation.</p>
 <p>TILAPYA Access works sitewide.</p>
+<p>Maximum storeable TILAPYA Access is 100 days. Donations are still active but have to be refreshed.</p>
+<p>Thank you for your support!</p>
 </div>
 
 <script>
@@ -98,9 +101,13 @@ Promise.all(requests)
       console.log(vérifPous); console.log(somme);
       if (somme/0.00007<5){nvTil=Math.floor(somme/0.00007);} else {nvTil=5;}
 
-      document.getElementById("Infos").innerText=`You are at TILAPYA Level ${nvTil}\nYou have ${Math.floor(accès/(24*60*60000))} days, ${Math.floor(accès%(24*60*60000)/(60*60000))} hours and ${Math.floor(accès%(60*60000)/60000)} minutes of TILAPYA Access`;
-      localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapya",accès);
-      console.log(localStorage.getItem("nvTilapya"), localStorage.getItem("accèsTilapya"));
+      if (accès>8640000000){
+        document.getElementById("Infos").innerText=`You are at TILAPYA Level 5\nYou have more than 100 days of TILAPYA Access`;
+        localStorage.setItem("nvTilapya",5); localStorage.setItem("accèsTilapya",Date.now()+8640000000);
+      }
+      else{
+        document.getElementById("Infos").innerText=`You are at TILAPYA Level ${nvTil}\nYou have ${Math.floor(accès/(24*60*60000))} days, ${Math.floor(accès%(24*60*60000)/(60*60000))} hours and ${Math.floor(accès%(60*60000)/60000)} minutes of TILAPYA Access`;
+        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapya",accès);}
     })
     .catch(error => {console.error(error);
     document.getElementById("Infos").style="visibility: visible;";
