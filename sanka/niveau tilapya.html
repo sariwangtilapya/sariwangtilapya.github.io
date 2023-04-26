@@ -4,26 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/ymc.css">
     <title>Document</title>
 </head>
-<body>
-    <div>Collez votre wallet address et validez pour activer votre niveau TILAPYA</div>
+<body><h3>Vos dons nous aident à améliorer le site.</h3>
+  <p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></p>
+  <div id="notifCopié"></div>
+  <p>Si vous n'avez pas un portefeuille Bitcoin. Vous pouvez en vous faire un <a href="https://grd.to/ref/DYfG" target="_blank" rel="noopener noreferrer">ici</a>.</p>
+<p></p>  
+    <div>Collez le wallet address avec lequel vous nous avez envoyez des dons et validez pour activer votre niveau TILAPYA</div>
     <div>
-        <input type="text" id="wAd">
+        <input type="text" id="adresse" style="width : 51ch"><br>
+            <button type="button" id="coller">Coller</button>
         <button onclick="entrer()">Valider</button>
     </div>
 <div id="test"></div>
 <div id="instructions">
 <p><h3>Comment ça marche ?</h3>
-Il y a 5 niveau d'access pour les articles ou des exercises. Plus haut votre niveau, moin de temps à attendre pour les accéder, ou même instant.</p> 
-<p>Accès à niveau TILAPYA coût 0.00025BTC/3 jours (72 heures).</p>
-<p>Votre niveau TILAPYA dépend de combien de semaines (7 jours) il vous reste.</p>
-<p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly><button onclick="copierLAd()">Copier</button></p>
-<p>Si vous n'avez pas un portefeuille Bitcoin. Vous pouvez en vous faire un <a href="">ici</a>.</p>
+Il y a 5 niveau d'accès pour les articles, des exercises, etc. Plus que votre niveau est haut, moins de temps à attendre pour les accéder, même instant.</p> 
+<p>Pour chaque 0,00001BTC de dons, vous avez 24 heures d'Accès TILAPYA. (4 zéros aprés le séparateur décimal)</p>
+<p>Votre niveau TILAPYA égale aux semaines (7 jours / 168 heures) d'Accès TILAPYA que vous avez, y inclut le surplus. Compté depuis la plus ancienne transaction active.</p>
 
 </div>
 
 <script>
+const pasteButton = document.getElementById('coller');
+
+pasteButton.addEventListener('click', async () => {
+  try {
+    const text = await navigator.clipboard.readText()
+    document.getElementById('adresse').value = text;
+    console.log('Text pasted.');
+  } catch (error) {
+    console.log('Failed to read clipboard. Using execCommand instead.');
+    document.getElementById('adresse').focus();
+    const result = document.execCommand('paste')
+    console.log('document.execCommand result: ', result);
+  }
+});
+
+function copierLAd() {
+  // Get the text field
+  var copyText = document.getElementById("btcAd");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  document.getElementById("notifCopié").innerText="Copié";
+}
+
+
 let temps=new Date();
 let code="Manuel_Valls";
 let ass=undefined;
