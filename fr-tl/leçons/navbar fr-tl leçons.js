@@ -13,6 +13,6 @@ document.getElementById("tête").innerHTML=`
         <h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1>
     </div>
     <div id=navbar-links>
-        <a href="/en-tl/accueil.html">Home</a></div></nav>
+        <a href="/fr-tl/accueil.html">Home</a></div></nav>
     </div>
 </nav>`;
