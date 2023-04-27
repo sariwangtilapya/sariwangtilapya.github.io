@@ -5,26 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styling/ymc.css">
-    <title>Document</title>
+    <title>Accès TILAPYA</title>
 </head>
-<body><h3>Vos dons nous aident à améliorer le site.</h3>
+<body>
+  <p><h3>Vos dons aident à améliorer le site.</h3>
+  Faites nous un don pour avoir accès TILAPYA.</p>
   <p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></p>
-  <div id="notifCopié"></div>
-  <p>Si vous n'avez pas un portefeuille Bitcoin. Vous pouvez en vous faire un <a href="https://grd.to/ref/DYfG" target="_blank" rel="noopener noreferrer">ici</a>.</p>
+  <div id="notifCopié" style="visibility: hidden;">Copié</div>
+  <p>Chaque 0.00001BTC de dons donne 24 heures d'accès TILAPYA. (4 zéros après le séparateur décimal)<br>
+  L'excédent sera divisé en heures et minutes.</p>
+  <p>Si vous n'avez toujours pas une adresse portefeuille Bitcoin (BTC). Vous pouvez vous en faire une <a href="https://grd.to/ref/DYfG" target="_blank" rel="noopener noreferrer">ici.</a>.</p>
 <p></p>  
-    <div>Collez le wallet address avec lequel vous nous avez envoyez des dons et validez pour activer votre niveau TILAPYA</div>
+    <div>Collez l'adresse de portefeuille Bitcoin avec laquelle vous avez fait le don. Puis, validez pour activer votre accès TILAPYA</div>
     <div>
-        <input type="text" id="adresse" style="width : 51ch"><br>
+        <input type="text" id="adresse" style="width : 51ch">
+        <button onclick="valider()">Valider</button><br>
             <button type="button" id="coller">Coller</button>
-        <button onclick="entrer()">Valider</button>
+        <div id="Infos" style="visibility: hidden;">Les infos montrera ici.</div>
+        
     </div>
 <div id="test"></div>
 <div id="instructions">
 <p><h3>Comment ça marche ?</h3>
-Il y a 5 niveau d'accès pour les articles, des exercises, etc. Plus que votre niveau est haut, moins de temps à attendre pour les accéder, même instant.</p> 
-<p>Pour chaque 0,00001BTC de dons, vous avez 24 heures d'Accès TILAPYA. (4 zéros aprés le séparateur décimal)</p>
-<p>Votre niveau TILAPYA égale aux semaines (7 jours / 168 heures) d'Accès TILAPYA que vous avez, y inclut le surplus. Compté depuis la plus ancienne transaction active.</p>
-
+Il y a 5 niveaux TILAPYA.</p>
+<p>L'accès est instantsi son niveau est égale ou plus que celui de l'article ou exercice.</p>
+<p>Les articles et exercices de niveaux plus supérieur par 3 que son niveau ou moins sont accessibles. Les articles et exercices de niveaux supérieurs ont un délai. Plus que son niveau est haut, plus vite le délai.</p>
+<p>Toute autre contribution, de quelque montant qu'elle soit, tant que son accès TILAPYA est encore actif, monte le niveau TILAPYA à niveau 1. Chaque don cumulatif actif valant 7 jours d'accès TILAPYA remonte le niveau TILAPYA par 1 jusqu'à niveau 5. Comptabilisé de façon cumulative depuis le plus ancien don actif.</p>
+<p>Accès TILAPYA fonctionne sur tout le site.</p>
+<p>Maximum stockable d'accès TILAPYA est à 100 jours. Les dons seraient toujours actifs mais il faut juste réactualiser.</p>
+<p>Merci de votre soutien !</p>
 </div>
 
 <script>
@@ -34,7 +43,6 @@ pasteButton.addEventListener('click', async () => {
   try {
     const text = await navigator.clipboard.readText()
     document.getElementById('adresse').value = text;
-    console.log('Text pasted.');
   } catch (error) {
     console.log('Failed to read clipboard. Using execCommand instead.');
     document.getElementById('adresse').focus();
@@ -55,32 +63,62 @@ function copierLAd() {
   navigator.clipboard.writeText(copyText.value);
 
   // Alert the copied text
-  document.getElementById("notifCopié").innerText="Copié";
+  document.getElementById("notifCopié").style="visibility: visible;";
 }
 
+function valider(){
+  let temps=Date.now();
+let wAds=["19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi",""];
+let txids=[];
+let somme=0; let accèTpr=0; let accès=0; let nvTil=0;
+let vérifPous=[];
+  
+  wAds[1]=document.getElementById("adresse").value;
+  document.getElementById("Infos").style="visibility: visible;";
+  document.getElementById("Infos").innerText="Loading.\nPlease wait...";
+const requests = wAds.map((wAd) => {
+  const url = `https://bitcoinblockexplorers.com/api/address/${wAd}`;
+  return fetch(url).then(response => response.json()); //json ou text
+});
 
-let temps=new Date();
-let code="Manuel_Valls";
-let ass=undefined;
-//let tx="dfbe56bf1d3241dde0048e8f7794633246b06b8ff988467bd678e7f86450e6fb";
-let tx;
-//0.00022707
-let tv=0.00022607;
+Promise.all(requests)
+  .then(wallets => {//console.log(wallets);
 
-function vérification (ver){
-    document.getElementById("test").innerText=`${(tv>=ver)}\n${ver}`;
-}
-function entrer(){tx=document.getElementById("wAd").value;
+    for (v of wallets[0].transactions){if (wallets[1].transactions.includes(v)){txids.push(v);}}
 
-document.getElementById("test").innerText="Veuillez attendre";
-fetch(`https://bitcoinblockexplorers.com/api/tx/${tx}`)
-      .then(response => response.json())
-      .then(json => {//ceci est le json qu'a retourné le site
-      document.getElementById("test").innerText=Object.keys(json.vout[0].scriptPubKey);
-      //vérification(json.vout[0].value)
+    const requests = txids.map((txid) => {
+    const url = `https://bitcoinblockexplorers.com/api/tx/${txid}`;
+    return fetch(url).then(response => response.json()); //json ou text
+    });
+
+    Promise.all(requests)
+    .then(transactions => {//console.log(transactions);
+    for (v of transactions){for (w of v.vout){
+      if (w.scriptPubKey.addresses.includes(wAds[0])){
+        accèTpr=Math.floor(v.time*1000+parseFloat(w.value)/0.00001*24*60*60000-temps);
+        if (accèTpr>0){accès+=accèTpr;
+        vérifPous.push([w.value,v.time]); somme+=parseFloat(w.value); //console.log(somme, accès)
+      }}}}
+      //console.log(vérifPous); console.log(somme);
+      if (somme/0.00007<5){nvTil=Math.floor(somme/0.00007);} else {nvTil=5;}
+
+      if (accès>8640000000){
+        document.getElementById("Infos").innerText=`Vous êtes à niveau 5\nVous avez plus que 99 jours d'accès TILAPYA`;
+        localStorage.setItem("nvTilapya",5); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+8640000000);
+      }
+      else{
+        document.getElementById("Infos").innerText=`Vous êtes à niveau ${nvTil}\nVous avez ${Math.floor(accès/(24*60*60000))} jours, ${Math.floor(accès%(24*60*60000)/(60*60000))} heures et ${Math.floor(accès%(60*60000)/60000)} minutes d'accès TILAPYA`;
+        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+accès);}
+    })
+    .catch(error => {console.error(error);
+    document.getElementById("Infos").style="visibility: visible;";
+    document.getElementById("Infos").innerText="Une erreue s'est produite\nVeuillez réessayer";}
+    );
 })
-.catch(error => {console.error(error)
-    document.getElementById("test").innerText="Une erreur s'est produite.\nVeuillez réessayer";});
+  .catch(error => {console.error(error);
+  document.getElementById("Infos").style="visibility: visible;";
+  document.getElementById("Infos").innerText="Une erreue s'est produite\nVeuillez réessayer";}
+);
 }
 </script>
 </body>
