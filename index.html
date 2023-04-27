@@ -8,6 +8,58 @@
     <link rel="stylesheet" href="styling/ymc.css">
     <link rel="stylesheet" href="styling/onglets.css">
    <title>サリワン・ティラピア</title>
+   <style>
+    * {box-sizing: border-box}
+    body {font-family: "Lato", sans-serif;}
+    .tab {
+      position: fixed;
+      float: left;
+      border: 1px solid #073642;
+      background-color: #002b36;
+      width: 30%;
+      height: 100%;
+    }
+    .tab button {
+      display: block;
+      background-color: inherit;
+      color: #657b83;
+      padding: 22px 16px;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    .tab button:hover {
+      background-color: #2aa198;
+    }
+    .tab button.active {
+      background-color: #32c1b6;
+    }
+    .tabcontent {
+      position: absolute;
+      float: left;
+      left: 30%;
+      padding: 0px 12px;
+      width: 70%;
+      border-left: none;
+      height: 87vh;
+    }
+    #navbax {
+        align-items: center;
+        background-color: var(--sol-base02);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        display: flex;
+        flex-wrap: wrap;
+        left: 0;
+        padding: 1rem;
+        right: 0;
+        top: 0;
+        z-index: 9998
+    }
+    </style>
 </head>
 <body>
 <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
@@ -28,10 +80,11 @@
   <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
   <button class="tablinks" onclick="onglets(event, 'AteKan')">Atelier de kanjis</button>
   <button class="tablinks" onclick="onglets(event, 'Ressources')">Ressources d'apprentissage</button>
-  <button class="tablinks" onclick="onglets(event, 'Ressources')">Cours de japonais</button>
+  <button class="tablinks" onclick="onglets(event, 'Sanka')">Accès TILAPYA</button>
+  <button class="tablinks" onclick="onglets(event, 'Cours')">Cours de japonais</button>
   <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
   <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button>
-  <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button>
+  <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button> -->
   <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
 </div>
 
@@ -122,11 +175,15 @@
     Les compteurs
 </div>
 
+<div id="Sanka" class="tabcontent">
+<iframe src="/sanka/niveau tilapya.html" frameborder="0" style="height:100%;width:100%;"></iframe>
+</div>
+
 <div id="AteKan" class="tabcontent">
   <h3>Atelier de kanjis</h3>
   <a href="fr-jp">Écriture</a><br>
   <a href="fr-jp">Lecture</a>
-  <h3>Irrégularité chez les kanjis</h3>
+  <!-- <h3>Irrégularité chez les kanjis</h3>
   <H4>La façon d'écrire</H4>
   <p>Les kanjis royaux / L'os de poisson</p>
   <p>Le NA et le ME ナ、メ</p>
@@ -134,17 +191,18 @@
   <p>右 布 有 希 宏 怖 肴 侑 宥 祐 郁 囿 陏 唏 欷 淆 晞 稀 賄 諾 鮪 醢 鯑 髄</p>
   <p>Néanmoins, aprés tous ces chaos, il y a 2 motifs où la certaineté est présente.</p>
   <p>avec une partie 肴, il s'écrit toujours en ME</p>
-  <p>avec une pôle, toujours NA</p>
+  <p>avec un pôle, toujours NA</p>
   <p>Le NANA et le HI 七、ヒ</p>
-  <p>Les variations indépendantes et composantes</p>
+  <p>Les variations indépendantes et composantes</p> -->
 </div>
 
 <div id="Attributions" class="tabcontent">
   <h3>Dictionnaires utilisés</h3>
-  <p>wikipedia</p>
   <p>kanjidic</p>
   <p>jmnedict</p>
+  <p>jmnedict</p>
   <p>kireicake</p>
+  <p>wikipedia</p>
 </div>
 
 <div id="S-V_1" class="tabcontent">
@@ -160,13 +218,13 @@
   <p>Parce que la lecture onyomi vient de chinois qui est une langue dont chac caractère
     <br>se dit en un seul syllabe.
   </p>
-  <p>Pourtant, en chinois, un caractère peut porter une consonne finale que n'en a pas le japonais.
-    <br>idem pour les diphthongues.
+  <p>Toutefois, en chinois, un caractère peut porter une consonne finale que n'a pas le japonais.
+    <br>idem pour les digraphes.
   </p>
   <h3>En passant toutes les colonnes de gojuon en consécution, à l'exception d'un choonpuu (ー)</h3>
   <p>on peut former les noms <strong>AGOSTINO FUMIYA ROWAN</strong>
   <br><strong>アゴスティーノ　フミヤ　ロワン</strong>
-  <br>qui lui-même est un astuce pour mémoriser l'ordre de kanas.</p>
+  <br>qui lui-même est un truc pour mémoriser l'ordre de kanas.</p>
 </div>
 
 <div id="cherDico" class="tabcontent">
