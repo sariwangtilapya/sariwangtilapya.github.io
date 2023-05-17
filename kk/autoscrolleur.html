@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.section {
+    height: 100vh;
+  }
+</style>
+<body>
+    <button id="btnScroll">Défiler vers la section suivante</button>
+
+<section id="section1" class="section">
+  bfs
+</section>
+
+<section id="section2" class="section">
+  bdvqhql
+</section>
+
+<section id="section3" class="section">
+  bvhfjsdjvbdsj
+</section>
+
+<script>
+// for (i=0; i<100;i++){let a=document.createElement("div"); a.setAttribute("class", "section");
+// a.setAttribute("id", `section${i+1}`);a.innerText=i+1;
+// document.body.appendChild(a);}
+
+const btnScroll = document.getElementById('btnScroll');
+const sections = document.getElementsByClassName('section');
+let currentSectionIndex = 0;
+
+btnScroll.addEventListener('click', scrollToNextSection);
+
+function scrollToNextSection() {
+  currentSectionIndex++;
+
+  if (currentSectionIndex >= sections.length) {
+    currentSectionIndex = 0;
+  }
+
+  sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' });
+}
+
+</script>
+</body>
+</html>

@@ -16,7 +16,7 @@
   L'excédent sera divisé en heures et minutes.</p>
   <p>Si vous n'avez toujours pas une adresse portefeuille Bitcoin (BTC). Vous pouvez vous en faire une <a href="https://grd.to/ref/DYfG" target="_blank" rel="noopener noreferrer">ici.</a>.</p>
 <p></p>  
-    <div>Collez l'adresse de portefeuille Bitcoin avec laquelle vous avez fait le don. Puis, validez pour activer votre accès TILAPYA</div>
+    <div>Collez l'adresse du portefeuille Bitcoin avec lequel vous avez fait le don. Puis, validez pour activer votre accès TILAPYA</div>
     <div>
         <input type="text" id="adresse" style="width : 51ch">
         <button onclick="valider()">Valider</button><br>
@@ -75,7 +75,7 @@ let vérifPous=[];
   
   wAds[1]=document.getElementById("adresse").value;
   document.getElementById("Infos").style="visibility: visible;";
-  document.getElementById("Infos").innerText="Loading.\nPlease wait...";
+  document.getElementById("Infos").innerText="Chargement.\nVeuillez attendre...";
 const requests = wAds.map((wAd) => {
   const url = `https://bitcoinblockexplorers.com/api/address/${wAd}`;
   return fetch(url).then(response => response.json()); //json ou text
@@ -112,12 +112,12 @@ Promise.all(requests)
     })
     .catch(error => {console.error(error);
     document.getElementById("Infos").style="visibility: visible;";
-    document.getElementById("Infos").innerText="Une erreue s'est produite\nVeuillez réessayer";}
+    document.getElementById("Infos").innerText="Une erreur s'est produite\nVeuillez réessayer";}
     );
 })
   .catch(error => {console.error(error);
   document.getElementById("Infos").style="visibility: visible;";
-  document.getElementById("Infos").innerText="Une erreue s'est produite\nVeuillez réessayer";}
+  document.getElementById("Infos").innerText="Une erreur s'est produite\nVeuillez réessayer";}
 );
 }
 </script>

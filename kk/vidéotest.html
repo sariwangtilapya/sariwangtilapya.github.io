@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video id="myVideo" width="640" height="360" controls>
+        <source src="Yakitate!! Ja-Pan - Episode 01 [English Sub].mp4" type="video/mp4">
+      </video>
+      <img id="chatImage" src="One-Point-English-1.png" style="display: none;">
+<script>
+    const video = document.getElementById('myVideo');
+const chatImage = document.getElementById('chatImage');
+
+video.addEventListener('timeupdate', function() {
+  const currentTime = video.currentTime;
+
+  if (currentTime >= 10 && currentTime <= 20) {
+    chatImage.style.display = 'block';
+  } else {
+    chatImage.style.display = 'none';
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      video.currentTime -= 5; // Recule de 5 secondes
+      break;
+    case 'ArrowRight':
+      video.currentTime += 5; // Avance de 5 secondes
+      break;
+    case 'Space':
+      if (video.paused) {
+        video.play(); // Lecture si la vidéo est en pause
+      } else {
+        video.pause(); // Pause si la vidéo est en lecture
+      }
+      break;
+    case 'm':
+      video.muted = !video.muted; // Active/désactive le son de la vidéo
+      break;
+    default:
+      // Autres touches non traitées ici
+      break;
+  }
+});
+
+</script>
+</body>
+</html>

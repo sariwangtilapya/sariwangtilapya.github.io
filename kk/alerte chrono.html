@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const alertSeconds = [3,7,13,17,23,27,30,33,37,43,47,53,57];
+
+function checkSeconds() {
+  const date = new Date();
+  const seconds = date.getSeconds();
+
+  if (alertSeconds.includes(seconds)) {
+    document.body.innerText=`Les secondes sont à ${seconds} !`;
+  }
+}
+
+setInterval(checkSeconds, 1000); // Vérifier toutes les secondes
+
+    </script>
+</body>
+</html>

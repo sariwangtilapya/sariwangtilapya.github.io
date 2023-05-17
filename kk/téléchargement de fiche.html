@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" id="downloadLink"><input type="button" value="Télécharger"></a>
+<script>
+    const text = ["Add",2451,"qGf"];
+
+const downloadLink = document.getElementById("downloadLink");
+downloadLink.addEventListener("click", function() {
+  const blob = new Blob([text], { type: "application/JSON" });
+  const url = URL.createObjectURL(blob);
+  downloadLink.setAttribute("href", url);
+  downloadLink.setAttribute("download", "fichier_json.json");
+});
+</script>
+</body>
+</html>

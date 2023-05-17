@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .conteneur {
+  display: flex;
+  height: 100vh;
+  padding: 0px;
+}
+#gauche {
+  flex: 1;
+}
+#sousTitres {
+  flex: 2;
+  padding-left: 10px;
+  overflow-y: scroll;
+}
+</style>
+<body>
+    <div class="conteneur">
+    <div id="gauche">
+        <video id="video" controls>
+            <source src="Yakitate!! Ja-Pan - Episode 01 [English Sub].mp4" type="video/mp4">
+          </video>
+          <div id="sousVide"></div>
+    </div>
+      <div id="sousTitres" style="visibility: hidden;"></div>
+      </div>
+<script>
+const video = document.getElementById('video');
+const sousTitres = document.getElementById('sousTitres');
+
+fetch ("焼きたて!!.ジャぱん.S01E01.来たぞッ!!.太陽の手を持つ少年!.WEBRip.Netflix.ja[cc].srt")
+.then(response => response.text())
+    .then(text => {
+      sousTitres.innerText = text;
+    })
+    .catch(error => {
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
+
+video.addEventListener('timeupdate', function() {
+  const currentTime = video.currentTime;
+
+  if (currentTime >= 0 && currentTime <= 25) {
+    sousTitres.style.visibility = 'visible';
+  } else {
+    sousTitres.style.visibility = 'hidden';
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'j':
+      video.currentTime -= 5; // Recule de 5 secondes
+      break;
+    case 'l':
+      video.currentTime += 5; // Avance de 5 secondes
+      break;
+    case 'Space':
+      if (video.paused) {
+        video.play(); // Lecture si la vidéo est en pause
+      } else {
+        video.pause(); // Pause si la vidéo est en lecture
+      }
+      break;
+    case 'k':
+    if (video.paused) {
+    video.play(); // Lecture si la vidéo est en pause
+    } else {
+    video.pause(); // Pause si la vidéo est en lecture
+    }
+    break;
+    case 'm':
+      video.muted = !video.muted; // Active/désactive le son de la vidéo
+      break;
+    case "t":
+      document.getElementById("sousVide").innerText=video.currentTime
+    default:
+      // Autres touches non traitées ici
+      break;
+  }
+});
+
+</script>
+</body>
+</html>

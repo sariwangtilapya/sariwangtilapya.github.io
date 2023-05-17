@@ -78,139 +78,180 @@ a:active {
     justify-content: space-between;
     color: black;
 }
+#kanjiHako{
+    font-size: 20px;
+    font-weight: 100;
+    color: #32c1b6;
+}
+#flexEnBas {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  /* padding: 0px; */
+}
+#gauche {
+  flex: 1;
+}
+#kanjiHako {
+  height: 95%;
+  width: 80vw;
+  overflow-y: scroll;
+}
+#détailsHako {
+  flex: 2;
+  float: right;
+  width: 20vh;
+  /* padding-left: 10px; */
+}
     </style>
 
 </head>
 <body>
-    <div id="ménuRoulante">Ménu<br>Roulante</div>
+    <!-- <div id="ménuRoulante">Ménu<br>Roulante</div>
     <div id="insBoî">
     <div id="ins">
     <div id="boutonFermer">Info<button onclick="fermerI()">×</button></div><p>Les lectures s'affichent en passant la souris sur le kanji.<br>Cliquer le kanji ouvre la page fr.wikipedia sur le même kanji.</p>
     </div>
-    </div>
+    </div> -->
     <div id="classement">Classement : 
-    <input type="radio" id="tousLesKanjis"   name="classement" onclick="tousLesKanjis()" checked>Tous
-    <input type="radio" id="nvSc"   name="classement" onclick="nvSc()">Nv. Scolaire
-    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">Nv. JLPT
-    <input type="radio" id="SKIP"   name="classement" onclick="SKIP()">SKIP
+    <input type="radio" id="nvSc"   name="classement" onclick="nvSc()" checked>
+      <label for="nvSc">Nv. Scolaire</label>
+    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">
+      <label for="nvJLPT">Nv. JLPT</label>
+    <input type="radio" id="SKIP"   name="classement" onclick="SKIP()">
+      <label for="SKIP">SKIP</label>
+    <input type="radio" id="tousLesKanjis"   name="classement" onclick="tousLesKanjis()">
+      <label for="tousLesKanjis">Tous</label>
     <input type="radio" id="traits" name="classement" onclick="traits()">Traits - hors service
     </div>
     <div id="étage2"></div>
     <div id="ordre">Ordre : 
     </div>
 
-<div id="compteHako"></div><hr><hr>
-<div id="kanjiHako"></div>
-<script src="kanjidic_english.js"></script>
+<div id="compteHako"></div>
+<hr><hr>
+<div id="flexEnBas">
+    <div id="gauche">
+        <div id="prevuHako">一</div>
+        <div id="kanjiHako">Chargement en cours...</div>
+    </div>
+    <div id="détailsHako">
+        <div id="kanjiTitre">一</div>
+        <div>
+            訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
+            音読み : <span id="Onyomi">イチ イツ</span>
+            <div id="Signification">one,one radical (no.1)</div>
+            <div id="Liens"></div>
+        </div>
+        <div id="desKan"></div>
+    </div>
+</div>
 <script>
-
+  var kanjidic_english;
 const systèmesDOrdination=["kanji_in_context","heisig6","freq","tutt_cards","heisig","sh_desc","sh_kk","sh_kk2","gakken","deroo","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","henshall","jf_cards","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names"];
 
 let SdO="kanji_in_context";
-for (v of systèmesDOrdination){c=document.createElement("INPUT");
+let v=0; let vx=systèmesDOrdination.length;
+while (v<vx){c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","ordre");
-c.setAttribute("id",`${v}`); c.setAttribute("onClick","réordonner(this.id)");
-document.getElementById("ordre").appendChild(c); if (v==SdO){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`${v}`); l.innerHTML=`${v}`;
+c.setAttribute("id",`${systèmesDOrdination[v]}`); c.setAttribute("onClick","réordonner(this.id)");
+document.getElementById("ordre").appendChild(c); if (systèmesDOrdination[v]==SdO){c.setAttribute("checked",1)}
+l=document.createElement("LABEL"); l.setAttribute("for",`${systèmesDOrdination[v]}`); l.innerHTML=`${systèmesDOrdination[v]}`;
 document.getElementById("ordre").appendChild(l);
+v++;}
+
+let étatActuel=[nvSc,nvJLPT,SKIP,tousLesKanjis,traits];
+let étatActuel_i=0;
+let étatActuel_ii=[1,4,4,1];
+
+function dup(vl){wxw=""; v=0; vx=groupements[vl-1].length
+while (v<vx){wxw+=`${groupements[vl-1][v][0]}　`; v++;} document.getElementById("kanjiHako").innerText=wxw; document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;
 }
 
-let étatActuel=[tousLesKanjis,nvSc,nvJLPT,SKIP,traits];
-let étatActuel_i=0;
-let étatActuel_ii=[1,1,4,4];
+function nvSc_ii(vl){étatActuel_ii[0]=vl;dup(vl);}
+function nvJLPT_ii(vl){étatActuel_ii[1]=vl;dup(vl);}
+function SKIP_ii(vl){étatActuel_ii[2]=vl;dup(vl);}
+function tousLesKanjis_ii(vl){étatActuel_ii[3]=vl; a=vl*3700;
+  if (a>kanjidic_english.length){a=kanjidic_english.length;}
+  wxw=""; i=(vl-1)*3700; while (i<a){wxw+=`${kanjidic_english[i][0]}　`; i++;}
+  document.getElementById("kanjiHako").innerText=wxw;
+  document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;}
 
-function dup(vl){wxw=""; for (v of groupements[vl-1]){wxw+=`<a href="https://fr.wiktionary.org/wiki/${v[0]}" target="_blank" rel="noopener noreferrer" title="${eval("v[5]."+SdO)}\n${v[1]}\n${v[2]}">${v[0]}</a>　`;} document.getElementById("kanjiHako").innerHTML=wxw; document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;}
-
-function nvSc_ii(vl){étatActuel_ii[1]=vl;dup(vl);}
-function nvJLPT_ii(vl){étatActuel_ii[2]=vl;dup(vl);}
-function SKIP_ii(vl){étatActuel_ii[3]=vl;dup(vl);}
-
-function nvSc(){étatActuel_i=1; groupements=[]; document.getElementById("étage2").innerText="";
+  function nvSc(){étatActuel_i=0; groupements=[]; document.getElementById("étage2").innerText="";
 for (i=1; i<=10; i++){c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","nvSc"); c.setAttribute("id",`nvSc${i}`);
 c.setAttribute("value",`${i}`); c.setAttribute("onClick","nvSc_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[1]){c.setAttribute("checked",1)}
+document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[0]){c.setAttribute("checked",1)}
 l=document.createElement("LABEL"); l.setAttribute("for",`nvSc${i}`); l.innerHTML=`${i}`;
 document.getElementById("étage2").appendChild(l);
-if (i==6){i++;}
-}
-for (v of kanjidic_english){if (groupements[parseInt(v[5].grade)-1]==undefined){groupements[parseInt(v[5].grade)-1]=new Array;}
-groupements[parseInt(v[5].grade)-1].push(v)}
-nvSc_ii(étatActuel_ii[1]);
+if (i==6){i++;}}
+v=0; vx=kanjidic_english.length;
+while (v<vx){if (groupements[parseInt(kanjidic_english[v][5].grade)-1]==undefined){groupements[parseInt(kanjidic_english[v][5].grade)-1]=new Array;}
+groupements[parseInt(kanjidic_english[v][5].grade)-1].push(kanjidic_english[v]); v++;}
+nvSc_ii(étatActuel_ii[0]);
 }
 
-function nvJLPT(){étatActuel_i=2; groupements=[]; document.getElementById("étage2").innerText="";
+function nvJLPT(){étatActuel_i=1; groupements=[]; document.getElementById("étage2").innerText="";
 for (i=4; i>0; i--){c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","nvJLPT"); c.setAttribute("id",`nvJLPT${i}`);
 c.setAttribute("value",`${i}`); c.setAttribute("onClick","nvJLPT_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[2]){c.setAttribute("checked",1)}
+document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[1]){c.setAttribute("checked",1)}
 l=document.createElement("LABEL"); l.setAttribute("for",`nvJLPT${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);
-}
+document.getElementById("étage2").appendChild(l);}
 for (v of kanjidic_english){if (groupements[parseInt(v[5].jlpt)-1]==undefined){groupements[parseInt(v[5].jlpt)-1]=new Array;}
 groupements[parseInt(v[5].jlpt)-1].push(v)}
-nvJLPT_ii(étatActuel_ii[2]);
+nvJLPT_ii(étatActuel_ii[1]);
 }
 
-function SKIP(){étatActuel_i=3; groupements=[]; document.getElementById("étage2").innerText="";
+function SKIP(){étatActuel_i=2; groupements=[]; document.getElementById("étage2").innerText="";
 for (i=4; i>0; i--){c=document.createElement("INPUT");
 c.setAttribute("type","radio"); c.setAttribute("name","SKIP"); c.setAttribute("id",`SKIP${i}`);
 c.setAttribute("value",`${i}`); c.setAttribute("onClick","SKIP_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[3]){c.setAttribute("checked",1)}
+document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[2]){c.setAttribute("checked",1)}
 l=document.createElement("LABEL"); l.setAttribute("for",`SKIP${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);
-}
+document.getElementById("étage2").appendChild(l);}
 for (v of kanjidic_english){if (groupements[parseInt(v[5].skip)-1]==undefined){groupements[parseInt(v[5].skip)-1]=new Array;}
 groupements[parseInt(v[5].skip)-1].push(v)}
-SKIP_ii(étatActuel_ii[3]);
+SKIP_ii(étatActuel_ii[2]);
+}
+
+function tousLesKanjis(){étatActuel_i=3; document.getElementById("étage2").innerText="page : ";
+i=1; while (i<=3){c=document.createElement("INPUT");
+c.setAttribute("type","radio"); c.setAttribute("name","tousLesKanjis"); c.setAttribute("id",`tousLesKanjis${i}`);
+c.setAttribute("value",`${i}`); c.setAttribute("onClick","tousLesKanjis_ii(this.value)");
+document.getElementById("étage2").appendChild(c); if (i==1){c.setAttribute("checked",1)}
+l=document.createElement("LABEL"); l.setAttribute("for",`tousLesKanjis${i}`); l.innerHTML=`${i}`;
+document.getElementById("étage2").appendChild(l);
+i++;}
+tousLesKanjis_ii(étatActuel_ii[3])
 }
 
 function traits(){groupements=[];
 étage2.innerHTML=`<input type="checkbox" name="Niveau Scolaire" onclick="nvS1()">1<input type="checkbox" name="Niveau Scolaire" onclick="nvS2()">2`
-
 for (v of kanjidic_english){if (groupements[parseInt(v[5].strokes)-1]==undefined){groupements[parseInt(v[5].strokes)-1]=new Array;}
 groupements[parseInt(v[5].strokes)-1].push(v)}
-
 wxw="";
 for (v of groupements){if (v!=undefined){
 for (w of v){wxw+=w[0]+"　";}
 }wxw+="\n";}
-document.getElementById("kanjiHako").innerText=wxw;
-}
-if (document.getElementById("nvSc").checked==1){nvSc();}
+document.getElementById("kanjiHako").innerText=wxw;}
 
-//"freq","deroo","gakken","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","heisig","heisig6","henshall","jf_cards","jis208","kanji_in_context","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names","sh_desc","sh_kk","sh_kk2","tutt_cards"
-
-function tousLesKanjis_ii(vl){étatActuel_i=0; a=vl*3700; if (a>kanjidic_english.length){a=kanjidic_english.length}
-wxw=""; for (i=(vl-1)*3700; i<a; i++)
-
-{wxw+=`<a href="https://fr.wiktionary.org/wiki/${kanjidic_english[i][0]}" target="_blank" rel="noopener noreferrer" title="${eval("kanjidic_english[i][5]."+SdO)}\n${kanjidic_english[i][1]}\n${v[2]}">${kanjidic_english[i][0]}</a>　`;} document.getElementById("kanjiHako").innerHTML=wxw; document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;
-}
-
-function tousLesKanjis(){étatActuel_i=0; document.getElementById("étage2").innerText="page : ";
-for (i=1; i<=3; i++){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","tousLesKanjis"); c.setAttribute("id",`tousPage${i}`);
-c.setAttribute("value",`${i}`); c.setAttribute("onClick","tousLesKanjis_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==1){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`nvJLPT${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);
-}
-tousLesKanjis_ii(étatActuel_ii[0])
-}
+// if (document.getElementById("nvSc").checked==1){nvSc();}
 
 function pOrd(sSdO){SdO=sSdO;
-//document.getElementById("kanjiHako").innerText="";
-//0-kanji,1-onyomi,2-kunyomi,3-joyo,4-trad anglaise,5-objet
 let sorter=[]; let uSorter=[];
-for (v of kanjidic_english){if (eval(`v[5].${sSdO}`)!=undefined){sorter.push(v);} else {uSorter.push(v);}}
-
+v=0; vx=kanjidic_english.length;
+while (v<vx){if (eval(`kanjidic_english[v][5].${sSdO}`)!=undefined){sorter.push(kanjidic_english[v]);} else {uSorter.push(kanjidic_english[v]);}v++;}
 sorter.sort(function(a,b) {return parseInt(eval(`a[5].${sSdO}`),10)-parseInt(eval(`b[5].${sSdO}`),10);});
-
 kanjidic_english=sorter.concat(uSorter);
-
 }
+
+fetch("/dictionaires/kanjidic_en.json")
+.then(response=>response.json())
+.then(json=>{kanjidic_english=json;
+
 pOrd("heisig");
-tousLesKanjis();
+nvSc();
 
 function réordonner(id){
     pOrd(id); étatActuel[étatActuel_i]();
@@ -218,6 +259,62 @@ function réordonner(id){
 function fermerI(){
     document.getElementById("insBoî").remove();
 }
+
+var hovIdx; var range;
+//characteer hover
+var targetDiv = document.getElementById('kanjiHako');
+let bksp=0;
+targetDiv.addEventListener('mousemove', function(event) {
+  range = document.caretRangeFromPoint(event.clientX, event.clientY);
+  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
+  if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
+  if (range.startOffset<targetDiv.innerText.length)
+  {document.getElementById("prevuHako").innerText=range.startContainer.textContent.charAt(hovIdx);}
+  console.log(hovIdx)
+});
+
+let kanjiCode;
+
+targetDiv.addEventListener('click', function(event) {
+  //range = document.caretRangeFromPoint(event.clientX, event.clientY);
+  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
+  if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
+  if (range.startOffset<targetDiv.innerText.length)
+  {document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${range.startContainer.textContent.charAt(hovIdx)}\nLes images SVG grace à KanjiVG`;
+if (étatActuel_i==3){
+  document.getElementById("kanjiTitre").innerText=kanjidic_english[(étatActuel_ii[3]-1)*3700+hovIdx/2][0];
+  document.getElementById('Onyomi').innerText = kanjidic_english[(étatActuel_ii[3]-1)*3700+hovIdx/2][1];
+  document.getElementById('Kunyomi').innerText = kanjidic_english[(étatActuel_ii[3]-1)*3700+hovIdx/2][2];
+  document.getElementById('Signification').innerText = kanjidic_english[(étatActuel_ii[3]-1)*3700+hovIdx/2][4];
+  kanjiCode=kanjidic_english[(étatActuel_ii[3]-1)*3700+hovIdx/2][0].charCodeAt(0).toString(16);
+}
+else{
+  document.getElementById("kanjiTitre").innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][0];
+  document.getElementById('Onyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][1];
+  document.getElementById('Kunyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][2];
+  document.getElementById('Signification').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][4];
+  kanjiCode=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][0].charCodeAt(0).toString(16);
+  }
+while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
+fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
+    .then(response => response.text())
+    .then(svgData => {
+      svgData=svgData.slice(svgData.search("<svg"));
+      document.getElementById('desKan').innerHTML = svgData;
+    })
+    .catch(error => {
+      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
+  }
+});
+
+})
+.catch(error => {
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
 </script>
 </body>
 </html>

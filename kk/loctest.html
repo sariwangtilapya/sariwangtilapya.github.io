@@ -8,44 +8,28 @@
     <script>const nvDArt=1;</script>
 </head>
 <body>
-        <!-- <div id="pub" style="display: none;"><span id="alerte"></span> <input type="button" id="déverrouiller" value="Voir le contenu" style="display: none;" onclick="pouf()"></div> -->
-        <div id="contenu">
-            <p>cache ceci</p>
-            <p>dsqjqk</p>
-            <p>njqdsk</p>
+        <div id="myDiv" onclick="a()">
+            cache ceci dsqjqk njqdsk
         </div>
     
     <script>
-//localStorage.setItem("nvTilapya",0);
-const pubDiv=document.createElement("div");
-
-function délai(a){
-document.getElementById("alerte").innerText=`${a} secondes avant accès`;
-if (a==0){document.getElementById("déverrouiller").style.display="inline";} a--;
-if (a>=0){setTimeout(()=>délai(a),1000);}
-//if (a==0){setTimeout(()=>{document.getElementById("déverrouiller").style.display="inline";},1000);}
-}
-//localStorage.removeItem("nvTilapya")
-//document.write(document.location.pathname.slice(1,document.location.pathname.search("/",1)));
-//if (location.pathname.slice(1,3)=="kk"){document.getElementById("contenu").style.display="none";
-//document.getElementById("pub").style.display="block";}
-function pouf(){document.getElementById("contenu").style.visibility="visible";
-document.getElementById("pub").style.display="none";}
-if (localStorage.getItem("nvTilapya")==null){localStorage.setItem("nvTilapya",0)}
-//{document.getElementById("contenu").style.display="none";
-//document.getElementById("pub").style.display="block";}
-let nvDiff=nvDArt-parseInt(localStorage.getItem("nvTilapya"));
-if (nvDiff>0)
-{document.getElementById("contenu").style.visibility="hidden";
-document.getElementById("pub").style.display="block";
-let tempsRestant=2**(2*nvDiff);
-//document.getElementById("alerte").innerText=tempsRestant
-délai(tempsRestant);
-if (nvDiff>3){
-document.getElementById("pub").style.display="block";
-document.getElementById("pub").innerHTML=`Il faut être au moins niveau ${nvDArt-3} pour accéder à cet article. Vous êtes à niveau ${localStorage.getItem("nvTilapya")}`;
-}
-}
-    </script>
+        function a(){
+// const div = document.getElementById("myDiv");
+// const selection = window.getSelection();
+// const range = selection.getRangeAt(0);
+// const cursorPos = range.startOffset;
+// const currentChar = range.endContainer.textContent.charAt(cursorPos);
+// console.log("Le caractère courant est :", currentChar);
+// console.log("Index :", range);
+const div = document.getElementById("myDiv");
+const selection = window.getSelection();
+const range = selection.getRangeAt(0);
+const selectedText = range.toString();
+const textBeforeSelection = div.textContent.substring(0, range.startOffset);
+const normalizedOffset = textBeforeSelection.replace(/^\s+|\s+$/g, "").length;
+const cursorIndex = selectedText.trim().length + normalizedOffset - selectedText.length;
+console.log("L'index du caractère courant est :", cursorIndex);
+console.log("L'index du caractère courant est :", selection);
+}    </script>
 </body>
 </html>

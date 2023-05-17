@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button class="noteButton"  onmousedown="playNote(277.18)">C#</button>
+<button class="noteButton"  onmousedown="playNote(293.66)">D</button>
+<button class="noteButton"  onmousedown="playNote(440)">A</button>
+<button class="noteButton"  onmousedown="playNote(60)">wild</button>
+
+<script>
+    const audioContext = new AudioContext();
+const noteButton = document.getElementsByClassName('noteButton');
+let oscillator = null;
+
+//noteButton.addEventListener('mousedown', playNote(parseFloat(value)));
+noteButton.addEventListener('mouseup', stopNote);
+noteButton.addEventListener('mouseleave', stopNote);
+
+function playNote(frequency) {
+  oscillator = audioContext.createOscillator();
+  oscillator.frequency.value = frequency;
+  oscillator.connect(audioContext.destination);
+  oscillator.start();
+}
+
+function stopNote() {
+  if (oscillator !== null) {
+    oscillator.stop();
+    oscillator.disconnect();
+    oscillator = null;
+  }
+}
+</script>
+</body>
+</html>

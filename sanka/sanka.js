@@ -1,6 +1,7 @@
 function délai(a){
-document.getElementById("alerte").innerHTML=`${a} secondes avant accès<br>Activez votre niveau TILAPYA <a href="/sanka/niveau tilapya.html">ici</a>`;
-if (a==0){document.getElementById("déverrouiller").style.display="block";} a--;
+document.getElementById("alerte").innerText=`${a} secondes avant accès`;
+if (a==0){document.getElementById("alerte").innerText=`Cliquez le bouton pour continuer ->`;
+    document.getElementById("déverrouiller").style.display="inline";} a--;
 if (a>=0){setTimeout(()=>délai(a),1000);}
 }
 function pouf(){document.getElementById("contenu").style.visibility="visible";
