@@ -94,13 +94,13 @@ a:active {
 }
 #kanjiHako {
   height: 95%;
-  width: 80vw;
+  width: 70vw;
   overflow-y: scroll;
 }
 #détailsHako {
   flex: 2;
   float: right;
-  width: 20vh;
+  width: 30vw;
   /* padding-left: 10px; */
 }
     </style>
@@ -140,7 +140,7 @@ a:active {
         <div>
             訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
             音読み : <span id="Onyomi">イチ イツ</span>
-            <div id="Signification">one,one radical (no.1)</div>
+            <div id="Signification">un,radical un (no. 1)</div>
             <div id="Liens"></div>
         </div>
         <div id="desKan"></div>
@@ -246,19 +246,19 @@ sorter.sort(function(a,b) {return parseInt(eval(`a[5].${sSdO}`),10)-parseInt(eva
 kanjidic_french=sorter.concat(uSorter);
 }
 
-fetch("/dictionaires/kanjidic_french/kanji_bank_1.json")
-.then(response=>response.json())
-.then(json=>{kanjidic_french=json;
-
-pOrd("heisig");
-nvSc();
-
 function réordonner(id){
     pOrd(id); étatActuel[étatActuel_i]();
 }
 function fermerI(){
     document.getElementById("insBoî").remove();
 }
+
+fetch("/dictionaires/kanjidic_french/kanji_bank_1.json")
+.then(response=>response.json())
+.then(json=>{kanjidic_french=json;
+
+pOrd("heisig");
+nvSc();
 
 var hovIdx; var range;
 //characteer hover

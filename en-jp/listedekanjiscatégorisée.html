@@ -94,13 +94,13 @@ a:active {
 }
 #kanjiHako {
   height: 95%;
-  width: 80vw;
+  width: 70vw;
   overflow-y: scroll;
 }
 #détailsHako {
   flex: 2;
   float: right;
-  width: 20vh;
+  width: 30vh;
   /* padding-left: 10px; */
 }
     </style>
@@ -246,19 +246,19 @@ sorter.sort(function(a,b) {return parseInt(eval(`a[5].${sSdO}`),10)-parseInt(eva
 kanjidic_english=sorter.concat(uSorter);
 }
 
-fetch("/dictionaires/kanjidic_en.json")
-.then(response=>response.json())
-.then(json=>{kanjidic_english=json;
-
-pOrd("heisig");
-nvSc();
-
 function réordonner(id){
     pOrd(id); étatActuel[étatActuel_i]();
 }
 function fermerI(){
     document.getElementById("insBoî").remove();
 }
+
+fetch("/dictionaires/kanjidic_en.json")
+.then(response=>response.json())
+.then(json=>{kanjidic_english=json;
+
+pOrd("heisig");
+nvSc();
 
 var hovIdx; var range;
 //characteer hover
