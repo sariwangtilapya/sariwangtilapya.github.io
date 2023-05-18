@@ -27,17 +27,17 @@
   <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Home</button>
   <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
   <button class="tablinks" onclick="onglets(event, 'AteKan')">Kanji Workshop</button>
-  <button class="tablinks" onclick="onglets(event, 'Ressources')">Ressources d'apprentissage</button>
+  <button class="tablinks" onclick="onglets(event, 'Ressources')">Resources</button>
   <button class="tablinks" onclick="onglets(event, 'Cours')">Japanese Course</button>
   <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
   <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button>
-  <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button>
+  <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button> -->
   <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
 </div>
 
 <div id="Accueil" class="tabcontent">
   <h3>Welcome to Sariwang Tilapya!</h3>
-  <div><p>You are on the page « apprendre le japonais »</p></div>
+  <div><p>You are on the page « Learn Japanese »</p></div>
   <div>You can follow us on<!-- <a href="https://discord.com/channels/958785395343106088/958785395343106090" target="_blank" rel="noopener noreferrer">Discord</a>
   -->  ||<a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a>
   <!--  || <a href="https://www.youtube.com/channel/UC3E25B2WTjVv9apNbRFj52w" target="_blank" rel="noopener noreferrer">Youtube</a> 
@@ -49,15 +49,15 @@
   <hr><hr>
   <h3>What you can find on this site.</h3>
   <hr><hr>
-  <a href="exercices/testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br>
+  <a href="/fr-jp/exercices/testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br>
   <hr><hr>
-  <a href="testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
+  <a href="/fr-jp/testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
   <hr><hr>
-  <a href="chainesàsuivre.html">Chaines YouTube à suivre pour apprendre le japonais</a><br>
+  <!-- <a href="chainesàsuivre.html">Chaines YouTube à suivre pour apprendre le japonais</a><br>
+  <hr><hr> -->
+  <a href="listedekanjiscatégorisée.html">Kanji List (categorised)</a>
   <hr><hr>
-  <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
-  <hr><hr>
-  <a href="listevocabulaireJLPT.html">Listes de vocabulaire JLPT (catégorisées)</a>
+  <a href="/fr-jp/listevocabulaireJLPT.html">JLPT Vocabulary Lists (categorised)</a>
   <hr><hr>
   <a href="exercices/EdLdNつ.html">Counter つ Reading</a></p>
   <hr><hr>
@@ -74,16 +74,18 @@
 
 <div id="Tests" class="tabcontent">
   <h3>Tests</h3>
-  <p><a href="exercices/testhiragana.html">Test de hiragana QCM</a><br>
-    <a href="exercices/testkatakana.html">Test de katakana QCM</a><br>
+  <p><a href="/fr-jp/exercices/testhiragana.html">Hiragana Test (Multiple Choice)</a><br>
+    <a href="/fr-jp/exercices/testkatakana.html">Katakana Test (Multiple Choice)</a><br>
     <hr><hr>
-    <a href="exercices/testkanjiponderé.html">Test de kanji kunyomi et onyomi (aléatoire pondéré)</a><br>
-    <a href="exercices/testkanji.html">Test de kanji kunyomi et onyomi (distribution égale)</a><br>
+    <a href="/fr-jp/exercices/testkanjiponderé.html">Kunyomi/Onyomi Test (Weighted Random)</a><br>
+    <a href="/fr-jp/exercices/testkanji.html">Kunyomi/Onyomi Test (Equal distribution)</a><br>
     <hr><hr>
-    <a href="exercices/testhiraganadevocab.html">Test de lecture de hiragana avec vocabulaire JLPT</a><br></p>
-  <a href="exercices/EdLdNつ.html">Entraînement de lecture des nombres : compteur つ</a></p>
-  <hr><hr>
-  <a href="exercices/EdLdN日.html">Entraînement de lecture des nombres : compteur 日</a></p>
+    <a href="exercices/testhiraganadevocab.html">Hiragana Reading Test with JLPT Vocabulary</a><br></p>
+    <hr><hr>
+    <a href="exercices/EdLdNつ.html">Counter つ Reading</a></p>
+    <hr><hr>
+    <a href="exercices/EdLdN日.html">Counter 日 Reading</a></p>
+    <hr><hr>
 </div>
 
 <div id="Cours" class="tabcontent">
@@ -94,8 +96,6 @@
   <hr>
   <p>Click <a href="Lessons/Complete Sentence.html">here</a> to access to course.<br>
     <hr><hr>
-    <a href="tableau des kanas.html">Tableau des kanas (higarana et katakana) 平仮名と片仮名</a>
-    <hr>
     <a href="listedekanjiscatégorisée.html">Listes de kanji (catégorisées)</a>
     <hr>
     <a href="listevocabulaireJLPT.html">Listes de vocabulaire JLPT (catégorisées)</a>
@@ -144,8 +144,10 @@
   <ul>
     <li>wikipedia</li>
     <li>kanjidic</li>
-    <li>jmnedict</li>
-    <li>kireicake</li>
+    <li>jmdict</li>
+    <!-- <li>jmnedict</li> -->
+    <!-- <li>kireicake</li> -->
+    <li>kanjivg</li>
   </ul>
 </div>
 
