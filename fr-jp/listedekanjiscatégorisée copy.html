@@ -273,24 +273,22 @@ function fermerI(){
 }
 
 function vocabAff(kA){
-  v=0; vx=jmdict_fr.length; wxw="";
-    while (v<vx){if (jmdict_fr[v][0].includes(kA)){wxw+=`${jmdict_fr[v]}\n`;}v++;}
+  fetch("/dictionnaires/jmdict_fr.json")
+  .then(response=>response.json())
+  .then(vjson=>{v=0; vx=vjson.length; wxw="";
+    while (v<vx){if (vjson[v][0].includes(kA)){wxw+=`${vjson[v]}\n`;}v++;}
     document.getElementById("vocab").innerText=wxw;
     document.getElementById("boîCach").style.display="block";
+  }
+  );
 }
 function fermeVoc(){document.getElementById("boîCach").style.display="none"}
 
 document.addEventListener('keydown', (event) => {if (event.code==="Escape"){fermeVoc()}});
 
-let dicos=["kanjidic_french/kanji_bank_1.json","jmdict_fr.json"];
-
-const requests = dicos.map((dico) => {
-  const url = `/dictionnaires/${dico}`;
-  return fetch(url).then(response => response.json()); //json ou text
-});
-
-Promise.all(requests)
-.then(json=>{kanjidic_french=json[0]; jmdict_fr=json[1];
+fetch("/dictionnaires/kanjidic_french/kanji_bank_1.json")
+.then(response=>response.json())
+.then(json=>{kanjidic_french=json;
 
 pOrd("heisig");
 nvSc();
