@@ -244,6 +244,10 @@ kbd {
     z-index: 9998
 }
 
+header{
+    position: sticky;
+}
+
 #navbax {
     align-items: center;
     background-color: var(--sol-base02);
