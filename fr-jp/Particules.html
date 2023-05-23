@@ -22,7 +22,7 @@ body {font-family: "Lato", sans-serif;}
   display: block;
   background-color: inherit;
   color: #657b83;
-  padding: 22px 16px;
+  padding: 2px 16px;
   width: 100%;
   border: none;
   outline: none;
@@ -107,10 +107,64 @@ for (let j = 0; j < 2; j++) {
 </script>
 
 <div id="は" class="tabcontent">
-    <p>は est la particule de contrast. Mais il est plus connu en tant que la particule de sujet.</p>
+  <h1>La particule de distinction</h1>
+    <p>は est la particule de distinction. Mais il est plus connu en tant que la particule de sujet.</p>
 </div>
 <div id="も" class="tabcontent">
-    <p>azertyuiop</p>
+    <h1>La particule d'inclusion</h1>
+</div>
+<div id="か" class="tabcontent">
+  <h1>La particule indéfini</h1>
+  <p>plus connu sous le nom la marque de questions.</p>
+  <p>Et oui, c'est vrai. On l'emploi pour poser des questions. Mais il y a encore d'autres utilisations.</p>
+  <h3>Pronoms indéfinis</h3>
+  <p>Si on ajoute la particule か après un mot interrogatif, ça fait un pronom indéfini</p>
+  <table id="pnInd">
+    <tr>
+      <th>Interrogatif</th>
+      <th>de</th>
+      <th>Trad</th>
+      <th>Pronom</th>
+      <th>de</th>
+      <th>Trad</th>
+    </tr>
+    <tr>
+      <td>何</td>
+      <td>chose</td>
+      <td>quoi</td>
+      <td>何か</td>
+      <td>chose indéfinie</td>
+      <td>quelque chose</td>
+    </tr>
+    <tr>
+      <td>誰</td>
+      <td>personne</td>
+      <td>qui</td>
+      <td>誰か</td>
+      <td>personne indéfinie</td>
+      <td>quelqu'un</td>
+    </tr>
+    <tr>
+      <td>どこ</td>
+      <td>lieu</td>
+      <td>où</td>
+      <td>どこか</td>
+      <td>lieu indéfini</td>
+      <td>quelque part</td>
+    </tr>
+    <tr>
+      <td>いつ</td>
+      <td>temps</td>
+      <td>quand</td>
+      <td>いつか</td>
+      <td>temps indéfini</td>
+      <td>un jour</td>
+    </tr>
+  </table>
+  <h3>Disjonction (ou)</h3>
+  <p>On utilise « ou » quand entre plusiers choix, on sait pas lequel. C'est indéfini. C'est la même chose en japonais.</p>
+  <h3>Marque de question</h3>
+  <p>Oui ou non, on ne sait pas. Qui, où, quand, on ne sais pas non plus. C'est pour cette indéfinition qu'on emploie la particule indéfini pour marquer les questions.</p>
 </div>
 <script>
     function onglets(evt, ongletNom) {
@@ -125,7 +179,6 @@ for (let j = 0; j < 2; j++) {
     }
     document.getElementById(ongletNom).style.display = "block";
     evt.currentTarget.className += " active";
-    console.log(evt.currentTarget);
     }
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
