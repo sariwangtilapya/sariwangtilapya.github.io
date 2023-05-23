@@ -90,7 +90,7 @@ body {font-family: "Lato", sans-serif;}
 </div>
 
 <script>
-const particulesListe=[["は","Distinction"],["も","Inclusion"],["を","Objet direct"],["が","Idée secondaire descriptive"],["と","Ensemble"],["の","Description nominale"],["な","Description qualificative"],["で","Instrument"],["に","But"],["へ","Direction"],["か","Indéfini"]];
+const particulesListe=[["は","Distinction"],["も","Inclusion"],["を","Objet direct"],["が","Idée secondaire descriptive"],["か","Indéfini"],["と","Ensemble"],["に","But"],["へ","Direction"],["で","Moyen"],["の","Description nominale"],["な","Description qualificative"]];
     
     let i=0, ix=particulesListe.length;
     while (i<ix){const c=document.createElement("button"); c.setAttribute("class","tablinks");
@@ -112,6 +112,52 @@ for (let j = 0; j < 2; j++) {
 </div>
 <div id="も" class="tabcontent">
     <h1>La particule d'inclusion</h1>
+    <h3>Pronoms</h3>
+    <p>Si on ajoute la particule も après un mot interrogatif, ça fait un pronom de totalité</p>
+    <p>Mais faites attention! Il y a une piège.</p>
+    <table id="pnTot">
+      <tr>
+        <th>Interrogatif</th>
+        <th>de</th>
+        <th>Trad</th>
+        <th>Pronom</th>
+        <th>de</th>
+        <th>Trad</th>
+      </tr>
+      <tr>
+        <td>何</td>
+        <td>chose</td>
+        <td>quoi</td>
+        <td>何も</td>
+        <td>choses inclues</td>
+        <td>tous</td>
+      </tr>
+      <tr>
+        <td>誰</td>
+        <td>personne</td>
+        <td>qui</td>
+        <td>誰も</td>
+        <td>personnes inclues<td>
+        <td>tout le monde</td>
+      </tr>
+      <tr>
+        <td>どこ</td>
+        <td>lieu</td>
+        <td>où</td>
+        <td>どこも</td>
+        <td>lieux inclus</td>
+        <td>partout</td>
+      </tr>
+      <tr>
+        <td>いつ</td>
+        <td>temps</td>
+        <td>quand</td>
+        <td>いつも</td>
+        <td>temps inclus</td>
+        <td>tout le temps</td>
+      </tr>
+    </table>
+  <p>Bien qu'ils indiquent la totalité, ces pronoms, à part いつも, ne s'emploient dans les phrases négatives. En conséquence, ils indiquent l'inexistence.</p>
 </div>
 <div id="か" class="tabcontent">
   <h1>La particule indéfini</h1>
