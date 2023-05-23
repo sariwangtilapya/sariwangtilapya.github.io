@@ -243,10 +243,10 @@ kbd {
     top: 0;
     z-index: 9998
 }
-
+/* 
 header{
     position: sticky;
-}
+} */
 
 #navbax {
     align-items: center;
