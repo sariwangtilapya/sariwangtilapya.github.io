@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/ymc.css">
+   <title>Leçons de japonais サリワン・ティラピア</title>
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+.tab {
+  position: fixed;
+  float: left;
+  border: 1px solid #073642;
+  background-color: #002b36;
+  width: 30%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #657b83;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tab button:hover {
+  background-color: #2aa198;
+}
+.tab button.active {
+  background-color: #32c1b6;
+}
+.tabcontent {
+  position: absolute;
+  float: left;
+  left: 30%;
+  padding: 0px 12px;
+  border: 1px solid #073642;
+  width: 70%;
+  border-left: none;
+  height: 100%;
+}
+#barreInf {
+    bottom: 0%;
+    position: fixed;
+    background-color: #073642;
+    width: 100%;
+    left: 0px;
+    padding: 5px;
+    border: 1px solid #73AD21;
+}
+#barreInf>button {
+    position: fixed;
+    right:  5px;
+    bottom: 5px;
+}
+</style>
+</head>
+<body>
+
+<header><nav id=navbar><div id=navbar-brand><h1>Particules</h1></div>
+  <div id=navbar-links>
+  <a href="/index.html">Page d'accueil</a></div></nav>
+</header>
+<h2>bla bla bla</h2>
+<p>bla bla bla</p>
+
+<!--###onglets de leçons-->
+<div class="tab" id="tab">
+  <button class="tablinks" onclick='onglets(event,"tabledesmatières")' id="defaultOpen">Table des matières</button>
+</div>
+
+<div id="tabledesmatières" class="tabcontent">
+    <table id="tabledepart">
+        <tr>
+            <th>Particule</th>
+            <th>Emploie</th>
+        </tr>
+    </table>
+    は se prononce comme わ<br>
+    を se prononce comme お<br>
+    へ se prononce comme え
+</div>
+
+<script>
+const particulesListe=[["は","Distinction"],["も","Inclusion"],["を","Objet direct"],["が","Idée secondaire descriptive"],["と","Ensemble"],["の","Description nominale"],["な","Description qualificative"],["で","Instrument"],["に","But"],["へ","Direction"],["か","Indéfini"]];
+    
+    let i=0, ix=particulesListe.length;
+    while (i<ix){const c=document.createElement("button"); c.setAttribute("class","tablinks");
+    c.setAttribute("onclick",`onglets(event,"${particulesListe[i][0]}")`); c.innerText=particulesListe[i][0];
+    document.getElementById("tab").appendChild(c); i++;}
+
+i=0; while(i<ix){let tr=document.getElementById("tabledepart").insertRow();
+for (let j = 0; j < 2; j++) {
+        const td = tr.insertCell();
+        td.appendChild(document.createTextNode(`${particulesListe[i][j]}`));
+        // td.style.border = '1px solid black';
+    } i++;
+  }
+</script>
+
+<div id="は" class="tabcontent">
+    <p>は est la particule de contrast. Mais il est plus connu en tant que la particule de sujet.</p>
+</div>
+<div id="も" class="tabcontent">
+    <p>azertyuiop</p>
+</div>
+<script>
+    function onglets(evt, ongletNom) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(ongletNom).style.display = "block";
+    evt.currentTarget.className += " active";
+    console.log(evt.currentTarget);
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+<!-- "ha","mo","wo","ga","to","no","na","de","ni","he","ka" -->
+<script>localStorage.setItem("langue", "fr");</script>
+</body>
+</html>
