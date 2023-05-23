@@ -104,9 +104,9 @@ Promise.all(requests)
       if (somme/0.000025<10){nvTil=Math.floor(somme/0.000025)+1;} else {nvTil=11;}
       }else{nvTil=0;}
 
-      if (accès>10*2.5*24*60*60*1000){
-        document.getElementById("Infos").innerText=`Vous êtes à niveau 10\nVous avez 10 jours ou plus d'accès TILAPYA`;
-        localStorage.setItem("nvTilapya",11); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+10*2.5*24*60*60*1000);
+      if (accès>10*24*60*60*1000){
+        document.getElementById("Infos").innerText=`Vous êtes à niveau ${nvTil}\nVous avez 10 jours ou plus d'accès TILAPYA`;
+        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+10*24*60*60*1000);
       }
       else{
         document.getElementById("Infos").innerText=`Vous êtes à niveau ${nvTil}\nVous avez ${Math.floor(accès/(24*60*60000))} jours, ${Math.floor(accès%(24*60*60000)/(60*60000))} heures et ${Math.floor(accès%(60*60000)/60000)} minutes d'accès TILAPYA`;

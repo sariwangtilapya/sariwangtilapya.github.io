@@ -27,13 +27,14 @@
 <div id="test"></div>
 <div id="instructions">
 <p><h3>How it works?</h3>
-There are 5 TILAPYA Levels.</p>
+There are 11 TILAPYA Levels.</p>
 <p>Access is instant if one's level is equal to or greater than the level of the article or exercise.</p>
-<p>Articles and exercises at 3 levels higher than one's level and below are accessible. Articles and exercises higher than one's level have a cooldown period. The higher one's level, the faster the cooldown.</p>
-<p>Any amount donated with active TILAPYA Access brings the TILAPYA Level to level 1. Every 7 days worth of cumulative active donation increases the TILAPYA Level by 1 up to Level 5. Cumulatively counted from the earliest active donation.</p>
+<p>Articles and exercises at 5 levels higher than one's level and below are accessible. Articles and exercises higher than one's level have a cooldown period. The higher one's level, the faster the cooldown.</p>
+<p>Any amount donated with active TILAPYA Access brings the TILAPYA Level to level 1. Every <strike>3.5 days (72 hours)</strike> 2.5 days (60 hours) [for the moment] worth of cumulative active donation increases the TILAPYA Level by 1 up to Level 11. Cumulatively counted from the earliest active donation.</p>
 <p>TILAPYA Access works sitewide.</p>
-<p>Maximum storeable TILAPYA Access is 100 days. Donations are still active but have to be refreshed.</p>
+<p>Maximum storeable TILAPYA Access is 10 days. Donations are still active but have to be refreshed.</p>
 <p>Thank you for your support!</p>
+<p>Exceeding amounts are subject to change 30 days after the change.</p>
 </div>
 
 <script>
@@ -100,11 +101,13 @@ Promise.all(requests)
         vérifPous.push([w.value,v.time]); somme+=parseFloat(w.value); //console.log(somme, accès)
       }}}}
       //console.log(vérifPous); console.log(somme);
-      if (somme/0.00007<5){nvTil=Math.floor(somme/0.00007);} else {nvTil=5;}
+      if (somme!=0){
+      if (somme/0.000025<10){nvTil=Math.floor(somme/0.000025)+1;} else {nvTil=11;}
+      }else{nvTil=0;}
 
-      if (accès>8640000000){
-        document.getElementById("Infos").innerText=`You are at TILAPYA Level 5\nYou have more than 99 days of TILAPYA Access`;
-        localStorage.setItem("nvTilapya",5); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+8640000000);
+      if (accès>10*24*60*60*1000){
+        document.getElementById("Infos").innerText=`You are at TILAPYA Level ${nvTil}\nYou have more than 10 days of TILAPYA Access`;
+        localStorage.setItem("nvTilapya",nvTil); localStorage.setItem("accèsTilapyaJusquÀ",Date.now()+10*24*60*60*1000);
       }
       else{
         document.getElementById("Infos").innerText=`You are at TILAPYA Level ${nvTil}\nYou have ${Math.floor(accès/(24*60*60000))} days, ${Math.floor(accès%(24*60*60000)/(60*60000))} hours and ${Math.floor(accès%(60*60000)/60000)} minutes of TILAPYA Access`;
