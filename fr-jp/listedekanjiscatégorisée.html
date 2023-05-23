@@ -14,21 +14,29 @@ font-family: roboto, sans-serif;
 margin: 10;
 }
 a:link {
-  text-decoration: none;
+  text-decoration: underline;
   color: #2aa198;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
-
+a:hover {
+  text-decoration: underline;
+  color: #586e75;
+  /* font-size: 20px; */
+}
 a:visited {
   text-decoration: none;
-  color: #586e75;
 }
 
-a:hover {
-  background-color: blue;
-  color: #32c1b6;
+.kanHakoNaka {
+  padding: 0.4em;
+  margin: 0.1em;
+}
+  
+.kanHakoNaka:hover {
+  background-color: #586e75;
+  color: blue;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 a:active {
@@ -175,11 +183,14 @@ a:active {
 <hr><hr>
 <div id="flexEnBas">
     <div id="gauche">
-        <div id="prevuHako">一</div>
+        <div id="prevuHako" style="display: none;">一</div>
         <div id="kanjiHako">Chargement en cours...</div>
     </div>
     <div id="détailsHako">
-        <div id="kanjiTitre">一</div>
+        <div>
+          <span id="kanjiTitre">一</span>
+        <input type="button" onclick="vocabAff(kanAct)" value='Mots avec ce kanji'>
+        </div>
         <div>
             訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
             音読み : <span id="Onyomi">イチ イツ</span>
@@ -187,7 +198,6 @@ a:active {
             <div id="Liens"></div>
         </div>
         <div id="desKan"></div>
-        <input type="button" onclick="vocabAff(kanAct)" value='Cliquer ici pour afficher les mots dans lesquels ce kanji apparaît.'>
     </div>
 </div>
 <div id="optionsBouton"><input type="button" value="Options" onclick="optionsAff()"></div>
@@ -218,8 +228,15 @@ let étatActuel=[nvSc,nvJLPT,SKIP,tousLesKanjis,traits];
 let étatActuel_i=0;
 let étatActuel_ii=[1,4,4,1];
 
-function dup(vl){wxw=""; v=0; vx=groupements[vl-1].length
-while (v<vx){wxw+=`${groupements[vl-1][v][0]}　`; v++;} document.getElementById("kanjiHako").innerText=wxw; document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;
+function dup(vl){document.getElementById("kanjiHako").innerText=""; v=0; vx=groupements[vl-1].length
+while (v<vx){let naka=document.createElement("span"); naka.setAttribute("class","kanHakoNaka"); 
+naka.innerText=groupements[vl-1][v][0];
+document.getElementById("kanjiHako").appendChild(naka);
+  //+=`${groupements[vl-1][v][0]}　`; 
+  v++;}
+  kanjiClick();
+//document.getElementById("kanjiHako").innerText=wxw;
+document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;
 }
 
 function nvSc_ii(vl){étatActuel_ii[0]=vl;dup(vl);}
@@ -227,9 +244,18 @@ function nvJLPT_ii(vl){étatActuel_ii[1]=vl;dup(vl);}
 function SKIP_ii(vl){étatActuel_ii[2]=vl;dup(vl);}
 function tousLesKanjis_ii(vl){étatActuel_ii[3]=vl; a=vl*3700;
   if (a>kanjidic_french.length){a=kanjidic_french.length;}
-  wxw=""; i=(vl-1)*3700; while (i<a){wxw+=`${kanjidic_french[i][0]}　`; i++;}
-  document.getElementById("kanjiHako").innerText=wxw;
-  document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;}
+
+  document.getElementById("kanjiHako").innerText=""; v=0; vx=kanjidic_french.length;
+while (v<vx){let naka=document.createElement("span"); naka.setAttribute("class","kanHakoNaka"); 
+naka.innerText=kanjidic_french[v][0];
+document.getElementById("kanjiHako").appendChild(naka);
+  //+=`${groupements[vl-1][v][0]}　`; 
+  v++;}
+  kanjiClick();
+//   wxw=""; i=(vl-1)*3700; while (i<a){wxw+=`${kanjidic_french[i][0]}　`; i++;}
+//   document.getElementById("kanjiHako").innerText=wxw;
+  document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;
+}
 
   function nvSc(){étatActuel_i=0; groupements=[]; document.getElementById("étage2").innerText="";
 for (i=1; i<=10; i++){c=document.createElement("INPUT");
@@ -317,6 +343,47 @@ function fermerPopUps(){document.getElementById("boîCach").style.display="none"
 
 function optionsAff(){document.getElementById("overlay").style.display="flex";}
 
+function kanjiClick() {let kanjiCode; let tKi;
+tousKan=document.getElementsByClassName("kanHakoNaka"); v=0, vx=tousKan.length; while(v<vx){
+tousKan[v].addEventListener('click', function(event) {
+  tKi=Array.from(document.getElementsByClassName("kanHakoNaka"));
+  //range = document.caretRangeFromPoint(event.clientX, event.clientY);
+  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
+  // if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
+  // if (range.startOffset<targetDiv.innerText.length){
+if (étatActuel_i==3){
+  console.log(tKi.indexOf(event.target));
+  document.getElementById("kanjiTitre").innerText=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
+  document.getElementById('Onyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][1];
+  document.getElementById('Kunyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][2];
+  document.getElementById('Signification').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][4];
+  kanjiCode=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
+  kanAct=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
+    document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
+}
+else{
+  document.getElementById("kanjiTitre").innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
+  document.getElementById('Onyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][1];
+  document.getElementById('Kunyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][2];
+  document.getElementById('Signification').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][4];
+  kanjiCode=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
+  kanAct=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
+    document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
+  }
+while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
+fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
+    .then(response => response.text())
+    .then(svgData => {
+      svgData=svgData.slice(svgData.search("<svg"));
+      document.getElementById('desKan').innerHTML = svgData;
+    })
+    .catch(error => {
+      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
+}); v++;}}
+
 document.addEventListener('keydown', (event) => {if (event.code==="Escape"){fermerPopUps()}});
 
 let dicos=["kanjidic_french/kanji_bank_1.json","jmdict_fr.json"];
@@ -342,46 +409,7 @@ targetDiv.addEventListener('mousemove', function(event) {
   if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
   if (range.startOffset<targetDiv.innerText.length)
   {document.getElementById("prevuHako").innerText=range.startContainer.textContent.charAt(hovIdx);}
-  console.log(hovIdx)
-});
-
-let kanjiCode;
-
-targetDiv.addEventListener('click', function(event) {
-  //range = document.caretRangeFromPoint(event.clientX, event.clientY);
-  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
-  if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
-  if (range.startOffset<targetDiv.innerText.length)
-  {document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${range.startContainer.textContent.charAt(hovIdx)}\nLes images SVG grace à KanjiVG`;
-if (étatActuel_i==3){
-  document.getElementById("kanjiTitre").innerText=kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][0];
-  document.getElementById('Onyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][1];
-  document.getElementById('Kunyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][2];
-  document.getElementById('Signification').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][4];
-  kanjiCode=kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][0].charCodeAt(0).toString(16);
-  kanAct=kanjidic_french[(étatActuel_ii[3]-1)*3700+hovIdx/2][0];
-}
-else{
-  document.getElementById("kanjiTitre").innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][0];
-  document.getElementById('Onyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][1];
-  document.getElementById('Kunyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][2];
-  document.getElementById('Signification').innerText=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][4];
-  kanjiCode=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][0].charCodeAt(0).toString(16);
-  kanAct=groupements[étatActuel_ii[étatActuel_i]-1][(hovIdx)/2][0];
-  }
-while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
-fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
-    .then(response => response.text())
-    .then(svgData => {
-      svgData=svgData.slice(svgData.search("<svg"));
-      document.getElementById('desKan').innerHTML = svgData;
-    })
-    .catch(error => {
-      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
-      console.log(error);
-      // Gérez les erreurs de requête ici
-    });
-  }
+ // console.log(hovIdx)
 });
 
 })

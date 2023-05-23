@@ -35,6 +35,8 @@ button {
 <body>
     <button onclick="showBox()">Cliquez pour afficher la boîte</button>
 
+    <div id="dsq"></div>
+
 <div class="overlay" id="overlay">
   <div class="box">
     <button onclick="hideBox()">Fermer</button>
@@ -52,7 +54,14 @@ function hideBox() {
   var overlay = document.getElementById('overlay');
   overlay.style.display = 'none';
 }
+function index(dom){console.log(b)}
 
+i=0; while (i<4){const a=document.createElement("div"); a.setAttribute("class",`loul`); a.innerText="sssss"
+a.setAttribute("onClick","index(this)"); document.getElementById("dsq").appendChild(a); i++;
+}
+
+b=document.getElementsByClassName("loul");
+b[0].style="color: blue";
 </script>
 </body>
 </html>
