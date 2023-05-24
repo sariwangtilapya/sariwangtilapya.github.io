@@ -38,7 +38,7 @@ body {font-family: "Lato", sans-serif;}
   float: left;
   left: 30%;
   padding: 0px 12px;
-  border: 1px solid #073642;
+  /* border: 1px solid #073642; */
   width: 70%;
   border-left: none;
   height: 100%;

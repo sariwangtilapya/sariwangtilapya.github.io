@@ -2,6 +2,10 @@ const tabledesmatières=[];
 
 function redir(loc){document.location=`${loc}.html`}
 
+document.title="Particules";
+document.getElementsByClassName("headTitre")[0].innerText="Particules";
+document.getElementsByClassName("headTitre")[1].innerText="Particules";
+
 fetch("tabledesmatières.txt")
 .then(response => response.text())
 .then(text => {let i=0, s=0; ix=text.length;
@@ -15,7 +19,4 @@ else {//document.getElementById("tab").innerHTML+=`<a href="${v}.html">${v}</a><
     ong.innerText=v; ong.setAttribute("onclick","redir(this.innerText)");
     document.getElementById("tab").appendChild(ong)}
 }
-document.title="Particules";
-document.getElementsByClassName("headTitre")[0].innerText="Particules";
-document.getElementsByClassName("headTitre")[1].innerText="Particules";
 });
