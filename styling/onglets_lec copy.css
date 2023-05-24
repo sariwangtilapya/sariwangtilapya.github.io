@@ -1,4 +1,7 @@
 * {box-sizing: border-box}
+.borderbox {
+  display: flex;
+}
 /* body {font-family: "Lato", sans-serif;} */
 html, body {
   height: 100%;
@@ -46,7 +49,7 @@ html, body {
   width: 70%;
   border-left: none;
   height: 89vh;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 header{
   position: sticky;

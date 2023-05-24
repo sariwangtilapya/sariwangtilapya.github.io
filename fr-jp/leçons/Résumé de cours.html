@@ -5,48 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styling/ymc.css">
-   <title>Leçons de japonais サリワン・ティラピア</title>
+    <link rel="stylesheet" href="/styling/onglets_lec.css">
 <style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-.tab {
-  position: fixed;
-  float: left;
-  border: 1px solid #073642;
-  background-color: #002b36;
-  width: 30%;
-  height: 100%;
-}
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: #657b83;
-  padding: 22px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 17px;
-}
-.tab button:hover {
-  background-color: #2aa198;
-}
-.tab button.active {
-  background-color: #32c1b6;
-}
-.tabcontent {
-  position: absolute;
-  float: left;
-  left: 30%;
-  padding: 0px 12px;
-  border: 1px solid #073642;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-}
-#barreInf {
+/* #barreInf {
     bottom: 0%;
     position: fixed;
     background-color: #073642;
@@ -59,20 +20,15 @@ body {font-family: "Lato", sans-serif;}
     position: fixed;
     right:  5px;
     bottom: 5px;
-}
+} */
 </style>
 </head>
 <body>
-<header><nav id=navbar><div id=navbar-brand><h1>Leçons サリワン・ティラピア</h1></div>
-  <div id=navbar-links>
-  <a href="/index.html">Page d'accueil</a></div></nav>
+<header><nav id=navbar><div id=navbar-brand><h1 id="headTitre"></h1></div>
+  <div id=navbar-links><a href="/index.html">Page d'accueil</a></div></nav>
 </header>
-
-<h2>bla bla bla</h2>
-<p>bla bla bla</p>
-<!--###onglets de leçons-->
-<div class="tab">
-  <button class="tablinks">Table des matières</button>
+<div id="tab" class="tab">
+  <!-- <button class="tablinks">Table des matières</button>
   <button class="tablinks" onclick="onglets(event, 'écri')" id="defaultOpen">L'écritures de japonais</button>
   <button class="tablinks" onclick="onglets(event, 'lecKnj')">Les lectures kanji</button>
   <button class="tablinks" onclick="onglets(event, 'prédicatNV')">Prédicats non-verbaux</button>
@@ -84,62 +40,7 @@ body {font-family: "Lato", sans-serif;}
   <button class="tablinks" onclick="onglets(event, 'conjo')">Conjonctions</button>
   <button class="tablinks" onclick="onglets(event, 'expr')">Expressions</button>
   <button class="tablinks">Pars deux</button>
-  <button class="tablinks" onclick="onglets(event, '')">Table de vocabulaires dans chac leçon</button>
-</div>
-
-<!--<div class="soustab2">
-  <button class="tablinks"></button>
-  <button class="tablinks" onclick="onglets(event, 'écri')" id="defaultOpen">Hiragana</button>
-  <button class="tablinks" onclick="onglets(event, 'casEtPart')">Katakana</button>
-  <button class="tablinks">Supplémentaires :</button>
-  <button class="tablinks" onclick="onglets(event, 'adv')">Romaji</button>
-  <button class="tablinks" onclick="onglets(event, 'verb')">Verbes</button>
-  <button class="tablinks" onclick="onglets(event, 'S-V_1')">lll</button>
-  <button class="tablinks" onclick="onglets(event, 'conjo')">Conjonctions</button>
-  <button class="tablinks" onclick="onglets(event, 'expr')">Expressions</button>
-  <button class="tablinks" onclick="onglets(event, 'knjIrr')">Kanjis Irreguliers</button>
-  <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
-</div>-->
-
-<div id="écri" class="tabcontent">
-  <h3>L'écritures de japonais</h3>
-  <div>
-    <h4>Overview</h4>
-    <p>Il existe au moins trois systèmes d'écritures en japonais.
-      <br>Les kana (hiragana et katakana) et les kanji.
-      <br>Les kana sont deux groupes de caractères phonétique.
-      <br>Et le kanji est le groupe ideographique.
-      <br>Ne vous enquitez pas de mémorisez les kanji tout de suites.
-      <br>Il y'en a des millièmes.
-      <br>Apprenez-les pas à pas
-    </p>
-  </div>
-  <h3>Kana</h3>
-  <h3>dan-gyou 段行</h3>
-  <div>
-    <h4>Hiragana ひらがな 平仮名</h4>
-    <p>Hiragana s'emploie dans certains mots natifs, les terminaisons d'adjectifs, les conjugaisons,
-    <br>pour guider apprendre la lecture de kanji etc.</p>
-  </div>
-  <div>
-    <h4>Katakana カタカナ 片仮名</h4>
-    <p>Katakana s'emploie souvent dans les mots dérivés d'une autre langue (souvent d'anglais).</p>
-  </div>
-  <h5>*Règles spéciales</h5>
-  <h5>Le う après ligne ぉ</h5>
-  <p>Le う après un kana de ligne ぉ se prononce お (fait un élongation)</p>
-  <h5>i après ligne e</h5>
-  <p>ex. arigatou→arigatoo</p>
-  <p>Le い après un kana de ligne ぇ se prononce え (fait un élongation)</p>
-  <p>ex. せんせい→せんせえ</p>
-  <div>
-    <h4>Kanji 漢字</h4>
-    <p></p>
-  </div>
-  <div>
-    <h4>Romaji ローマ字</h4>
-    <p>C'est le japonais écrit en lettres romaines.</p>
-  </div>
+  <button class="tablinks" onclick="onglets(event, '')">Table de vocabulaires dans chac leçon</button> -->
 </div>
 
 <div id="lecKnj" class="tabcontent">
@@ -207,15 +108,7 @@ body {font-family: "Lato", sans-serif;}
   <p>Le NA et le ME ナ、メ</p>
   <p>Le NANA et le HI 七、ヒ</p>
 </div>
-<!--
-<div id="cherDico" class="tabcontent">
-  <h3>Cherchez les dictionnaires</h3>
-  <p>JMDict(French)</p>
-  <p>Kirei Cake</p>
-</div>-->
-<script src="pagesvisitées.js"></script>    
-<script src="barresout.js"></script>
-  <script>
+  <!-- <script>
   function onglets(evt, ongletNom) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -231,8 +124,10 @@ body {font-family: "Lato", sans-serif;}
   }
   
   // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+  // document.getElementById("defaultOpen").click();
 
-  </script>
+  </script> -->
+<script>localStorage.setItem("langue", "fr");</script>
+<script src="jscomp/tabledesmatières.js"></script>
 </body>
 </html>

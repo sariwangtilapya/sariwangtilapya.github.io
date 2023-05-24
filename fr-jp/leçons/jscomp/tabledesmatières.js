@@ -7,13 +7,13 @@ while(dln[dll-d]!="/"){if (dln[dll-d]=="."&&!pp){f=d;} d++;}
 const nomDeFiche=decodeURIComponent(dln.slice(dll-d+1,dll-f));
 
 document.title=nomDeFiche;
-document.getElementsByClassName("headTitre")[0].innerText="Particules";
-// document.getElementsByClassName("headTitre")[1].innerText="Particules";
+document.getElementById("headTitre").innerText="Leçons de japonais サリワン・ティラピア";
 
-fetch("tabledesmatières.txt")
+fetch("jscomp/tabledesmatières.txt")
 .then(response => response.text())
 .then(text => {let i=0, s=0; ix=text.length;
 while (i<ix){if (text[i]=="\n"){tabledesmatières.push(text.slice(s,i)); s=i+1;}i++;}
+tabledesmatières.push(text.slice(s,i));
 for (v of tabledesmatières){
 if (v[v.length-1]=="*"){//document.getElementById("tab").innerHTML+=`${v.slice(0,v.length-1)}<br>`;
     const ong=document.createElement("button"); ong.setAttribute("class","tablinks pasdispo");
