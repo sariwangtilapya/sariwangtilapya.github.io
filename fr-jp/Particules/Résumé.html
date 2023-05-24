@@ -5,49 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styling/ymc.css">
-   <title>Leçons de japonais サリワン・ティラピア</title>
+    <link rel="stylesheet" href="/styling/onglets_lec.css">
 <style>
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-.tab {
-  position: fixed;
-  float: left;
-  border: 1px solid #073642;
-  background-color: #002b36;
-  width: 30%;
-  height: 100%;
-  overflow-y: scroll;
-}
-.tab button {
-  display: block;
-  background-color: inherit;
-  color: #657b83;
-  padding: 2px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 17px;
-}
-.tab button:hover {
-  background-color: #2aa198;
-}
-.tab button.active {
-  background-color: #32c1b6;
-}
-.tabcontent {
-  position: absolute;
-  float: left;
-  left: 30%;
-  padding: 0px 12px;
-  border: 1px solid #073642;
-  width: 70%;
-  border-left: none;
-  height: 100%;
-}
-#barreInf {
+/* #barreInf {
     bottom: 0%;
     position: fixed;
     background-color: #073642;
@@ -60,7 +20,7 @@ body {font-family: "Lato", sans-serif;}
     position: fixed;
     right:  5px;
     bottom: 5px;
-}
+} */
 </style>
 </head>
 <body>
@@ -69,13 +29,13 @@ body {font-family: "Lato", sans-serif;}
   <div id=navbar-links>
   <a href="/index.html">Page d'accueil</a></div></nav>
 </header>
-<h2>bla bla bla</h2>
-<p>bla bla bla</p>
+<header><nav id=navbax><div id=navbar-brand><h1 class="headTitre"></h1></div>
+  <div id=navbar-links>
+  <a href="/index.html">Page d'accueil</a></div></nav>
+</header>
 
 <!--###onglets de leçons-->
-<div class="tab" id="tab">
-  <button class="tablinks" onclick='onglets(event,"tabledesmatières")' id="defaultOpen">Table des matières</button>
-</div>
+<div class="tab" id="tab"></div>
 
 <div id="tabledesmatières" class="tabcontent">
     <table id="tabledepart">
@@ -92,12 +52,8 @@ body {font-family: "Lato", sans-serif;}
 <script>
 const particulesListe=[["は","Distinction"],["も","Inclusion"],["を","Objet direct"],["が","Idée secondaire descriptive"],["か","Indéfini"],["と","Ensemble"],["に","But"],["へ","Direction"],["で","Moyen"],["の","Description nominale"],["な","Description qualificative"]];
     
-    let i=0, ix=particulesListe.length;
-    while (i<ix){const c=document.createElement("button"); c.setAttribute("class","tablinks");
-    c.setAttribute("onclick",`onglets(event,"${particulesListe[i][0]}")`); c.innerText=particulesListe[i][0];
-    document.getElementById("tab").appendChild(c); i++;}
-
-i=0; while(i<ix){let tr=document.getElementById("tabledepart").insertRow();
+let i=0, ix=particulesListe.length;
+while(i<ix){let tr=document.getElementById("tabledepart").insertRow();
 for (let j = 0; j < 2; j++) {
         const td = tr.insertCell();
         td.appendChild(document.createTextNode(`${particulesListe[i][j]}`));
@@ -105,29 +61,7 @@ for (let j = 0; j < 2; j++) {
     } i++;
   }
 </script>
-
-<div id="は" class="tabcontent">
-  <h1>La particule de distinction</h1>
-    <p>は est la particule de distinction. Mais il est plus connu en tant que la particule de sujet.</p>
-</div>
-<div id="が" class="tabcontent"></div>
-<script>
-    function onglets(evt, ongletNom) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(ongletNom).style.display = "block";
-    evt.currentTarget.className += " active";
-    }
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    </script>
+<script src="tabledesmatières.js"></script>
 <!-- "ha","mo","wo","ga","to","no","na","de","ni","he","ka" -->
 <script>localStorage.setItem("langue", "fr");</script>
 </body>
