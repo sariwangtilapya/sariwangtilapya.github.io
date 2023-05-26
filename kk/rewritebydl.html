@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+   let fiches=["Résumé"];
+
+const requests = fiches.map((fch) => {
+  const path = `/fr-jp/particules/${fch}.html`;
+  return fetch(path).then(response => response.text()); //json ou text
+});
+
+Promise.all(requests)
+  .then(htmlS => {const contenuArr=htmlS; let contenu; let remplacement=[];
+
+    fetch("/kk/remplacement.txt").then(response=>response.text()).then (remplaces => {
+    let z=0, w=0, zx=remplaces.length;
+    while(z<zx){if (remplaces[z]=="\n"){if(remplaces.slice(z+1,z+8)=="*:*:*:\n"){
+      remplacement.push(remplaces.slice(w,z)); console.log(remplaces.slice(w,z)); w=z+8; z=z+6;
+    }}
+    z++;}
+    let ix=contenuArr.length, jx=remplacement.length;
+    let i=0, j=0; while (i<ix){
+    const downloadLink=document.createElement("a");
+    contenu=contenuArr[i];
+    j=0; while (j<jx){
+    contenu=contenu.replaceAll(remplacement[j],remplacement[j+1]); j+=2;}
+  const blob = new Blob([contenu], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+  downloadLink.setAttribute("href", url);
+  downloadLink.setAttribute("download", `${fiches[i]}.html`);
+downloadLink.click(); //download upon landing
+    i++;}
+    
+});
+
+});
+</script>
+</body>
+</html>

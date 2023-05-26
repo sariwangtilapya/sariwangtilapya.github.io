@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vous êtes perdu</title>
 </head>
 <body>
-   
-    <script>window.location="/"</script>
+  <p> Cette page redirigera automatiquement à la page d'accueil. Si cette page reste affiché longtemps sois vous avez une connexion lente sois votre navigateur n'accepte pas la redirection automatique.</p>
+  <p>Cliquez <a onclick="redirige()">ici</a> pour aller à l'accueil.</p>
+<script>
+console.log(document.getElementsByTagName("html")[0].lang);
+//window.location.replace("/")
+        function redirige()
+        // {window.location.assign("/")}
+        {window.location.replace("/")} //ne peut revenir
+        redirige();
+</script>
 </body>
 </html>

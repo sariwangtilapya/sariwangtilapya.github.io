@@ -1,0 +1,20 @@
+<header><nav id=navbar><div id=navbar-brand><h1 class="headTitre"></h1></div>
+  <div id=navbar-links><a href="/index.html">Page d'accueil</a></div></nav>
+</header>
+
+*:*:*:
+*:*:*:
+<script>localStorage.setItem("langue", "fr");</script>
+<script src="jscomp/tabledesmatières.js"></script>
+*:*:*:
+<script src="/jscomp/constructeur.js"></script><script src="/jscomp/tabledesmatières.js"></script>
+*:*:*:
+<h1 class="headTitre">
+*:*:*:
+<h1 id="headTitre">
+*:*:*:
+
+<div id="tab" class="tab"></div>
+
+*:*:*:
+*:*:*:

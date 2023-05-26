@@ -16,8 +16,9 @@ downloadLink.addEventListener("click", function() {
   const blob = new Blob([text], { type: "application/JSON" });
   const url = URL.createObjectURL(blob);
   downloadLink.setAttribute("href", url);
-  downloadLink.setAttribute("download", "fichier_json.json");
+  downloadLink.setAttribute("download", "no/hands/ma.json");
 });
+// downloadLink.click(); //download upon landing 
 </script>
 </body>
 </html>

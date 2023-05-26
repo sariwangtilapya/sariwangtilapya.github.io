@@ -7,12 +7,10 @@
     <title>Document</title>
 </head>
 <body>
- <input type="file"> 
- <button onclick="télch()">télécharger</button>  
- <div id="a"></div>
+    <div id="a"></div>
 <script>
 let a=[];
-fetch ("dictionaires/jmdict_fr.json")
+fetch ("dictionnaires/jmdict_fr.json")
 .then(response => response.json())
 .then(json => {
 /*let q=json.length, tous=0;
@@ -24,18 +22,11 @@ g+=a.length;*/
 let g=[];
 for (v of json){if (v[2].includes("adj-na")&&v[0][v[0].length-1]=="い"){g.push(v);}}
 
-
-
-
-
-
 document.getElementById("a").innerText=g+g.length;
 
-
-
-
-
 });
+b="bbba";
+document.write(b.replace(/bb/g,"c"));
 </script>
 </body>
 </html>
