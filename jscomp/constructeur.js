@@ -1,9 +1,10 @@
 const dln=document.location.pathname, dll=dln.length, lesBarresOubliques=[];
 let lesBarresOubliquesIter=1, lePointDExtension; pointTrouvé=false;
 while(lesBarresOubliquesIter<=dll){
-if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){pointTrouvé=lesBarresOubliquesIter; pointTrouvé=true;}
+if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){lePointDExtension=dll-lesBarresOubliquesIter; pointTrouvé=true;}
 if (dln[dll-lesBarresOubliquesIter]=="/"){lesBarresOubliques.push(dll-lesBarresOubliquesIter);}
 lesBarresOubliquesIter++;}
+
 
 const nomDuFiche=decodeURIComponent(dln.slice(lesBarresOubliques[0]+1,lePointDExtension));
 document.title=nomDuFiche;
