@@ -23,7 +23,7 @@ const navlinksFils=document.createElement("a");
     navlinksFils.setAttribute("href","/index.html");
     navlinksFils.innerText="Page d'accueil";
 
-const tab=document.createElement("div");
+const tab=document.createElement("aside");
     tab.setAttribute("class","tab");
     tab.setAttribute("id","tab");
 
@@ -39,3 +39,7 @@ localStorage.setItem("langue","fr");
 
 document.body.insertBefore(tab, document.body.firstChild);
 document.body.insertBefore(header, document.body.firstChild);
+
+console.log(header.getBoundingClientRect().height);
+tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;

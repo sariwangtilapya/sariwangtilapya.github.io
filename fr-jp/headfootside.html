@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Match Height of Sidebar with Header</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ccc;
+      padding: 20px;
+    }
+    main {
+      display: flex;
+      flex: 1;
+      margin-top: 80px; /* Adjust the margin-top value to accommodate the header height */
+    }
+    aside {
+      position: fixed;
+      top: 80px; /* Adjust the top value to match the header height */
+      left: 0;
+      width: 200px;
+      background-color: #eee;
+      overflow-y: auto;
+    }
+    section {
+      margin-left: 220px; /* Adjust the margin-left value to accommodate the sidebar width */
+      padding: 20px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ccc;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Header</h1>
+    </header>
+    <main>
+      <aside id="sidebar">
+        <h2>Sidebar</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <!-- Add your sidebar content here -->
+      </aside>
+      <section>
+        <h2>Main Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <!-- Add your main content here -->
+      </section>
+    </main>
+    <footer>
+      <h3>Footer</h3>
+    </footer>
+  </div>
+
+  <script>
+    // Match the height of the sidebar with the header
+    window.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const header = document.querySelector('header');
+      sidebar.style.height = `${header.offsetHeight}px`;
+    });
+  </script>
+</body>
+</html>
