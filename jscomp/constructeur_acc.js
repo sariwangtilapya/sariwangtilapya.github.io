@@ -40,22 +40,21 @@ const navlinks=document.createElement("div");
 //     tab.setAttribute("id","tab");
 
 const tab=document.getElementById("tab");
+let ongletAct="Accueil";
+
+let enPortrait;
+if (window.matchMedia("(orientation: portrait)").matches) {
+    enPortrait=true;
+} else if (window.matchMedia("(orientation: landscape)").matches) {
+    enPortrait=false;
+} else {
+    enPortrait=false;
+}
 
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     tablinks = document.getElementsByClassName("tablinks");
 function onglets(evt, ongletNom) {ongletAct=ongletNom;
-
-    // document.getElementById(ongletAct).style.top=`${header.getBoundingClientRect().height}px`;
-    // document.getElementById(ongletAct).style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;
-
-    // if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
-    // document.getElementById(ongletAct).style.left="0px";
-    // document.getElementById(ongletAct).style.width="100vw";
-    // }
-    // else{
-    //     document.getElementById(ongletAct).style.left="0px";
-    //     document.getElementById(ongletAct).style.width="70vw";}
     orientationSet(ongletAct);
 
     for (i = 0; i < tabcontent.length; i++) {
@@ -76,7 +75,8 @@ header.appendChild(navbar);
     navbar.appendChild(navlinks);
         // navlinks.appendChild(navlinksFils);
 
-localStorage.setItem("langue","fr");
+if (dln=="index.html")
+{localStorage.setItem("langue",dln.slice(1,3));}
 
 document.body.insertBefore(header, document.body.firstChild);
 // document.body.appendChild(tab);
@@ -85,15 +85,6 @@ document.body.insertBefore(header, document.body.firstChild);
 tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
 for (i = 0; i < tabcontent.length; i++) {
 tabcontent[i].style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;}
-
-let enPortrait;
-if (window.matchMedia("(orientation: portrait)").matches) {
-    enPortrait=true;
-} else if (window.matchMedia("(orientation: landscape)").matches) {
-    enPortrait=false;
-} else {
-    enPortrait=false;
-}
 
 function orientationSet(ongletCiblé){
 if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
@@ -117,21 +108,21 @@ for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
     tab.style.overflowY="hidden";
     }
 
-    else{
-        tabcontent = document.getElementsByClassName("tabcontent");
-        document.getElementById(ongletCiblé).style.left="30vw";
-        document.getElementById(ongletCiblé).style.top=`${header.getBoundingClientRect().height}px`;
-        document.getElementById(ongletCiblé).style.width="70vw";
-        document.getElementById(ongletCiblé).style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+else{
+    tabcontent = document.getElementsByClassName("tabcontent");
+    document.getElementById(ongletCiblé).style.left="30vw";
+    document.getElementById(ongletCiblé).style.top=`${header.getBoundingClientRect().height}px`;
+    document.getElementById(ongletCiblé).style.width="70vw";
+    document.getElementById(ongletCiblé).style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
     
     for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
-        tab.getElementsByTagName("button")[i].style.padding="0px 0em";
+        tab.getElementsByTagName("button")[i].style.padding="22px 16px";
     }
         // navbar.style.padding="0px"; navbar.style.paddingLeft="1rem";
         tab.style.width="30vw";
         tab.style.removeProperty("bottom");
         // tab.style.removeProperty("height");
-        tab.style.padding="22px 16";
+        tab.style.top=`${header.getBoundingClientRect().height}px`;
         tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
         tab.style.display='block';
         tab.style.removeProperty("overflow-X");
@@ -140,7 +131,7 @@ for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
     }
 }
 
-let ongletAct="Accueil";
+
 orientationSet(ongletAct);
 
 window.addEventListener('resize', function (){orientationSet(ongletAct)});
