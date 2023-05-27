@@ -47,6 +47,7 @@ html, body {
   border-left: none;
   height: 89vh;
   overflow-y: scroll;
+  display: none;
 }
 header{
   position: sticky;

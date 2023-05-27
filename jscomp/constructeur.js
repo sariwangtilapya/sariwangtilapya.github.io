@@ -37,9 +37,20 @@ header.appendChild(navbar);
 
 localStorage.setItem("langue","fr");
 
-document.body.insertBefore(tab, document.body.firstChild);
 document.body.insertBefore(header, document.body.firstChild);
+document.body.appendChild(tab);
 
 console.log(header.getBoundingClientRect().height);
 tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
 document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+
+try {
+    nvDArt; // The variable is not set (ReferenceError)
+    // document.getElementById("contenu").innerText=nvDArt;
+    
+  } catch (error) {
+    nvDArt=null;
+
+if (nvDArt==null|| nvDArt==0){document.getElementById("contenu").style.display="block";}
+// document.getElementById("contenu").innerText=nvDArt==undefined;
+  }
