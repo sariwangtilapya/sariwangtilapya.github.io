@@ -147,13 +147,13 @@ h6 {
 
 table {
     margin: 1rem 0;
+    width: 100%;
 }
 
 table,
 th,
 td {
     border-collapse: collapse;
-    z-index: 0;
 }
 
 th {
