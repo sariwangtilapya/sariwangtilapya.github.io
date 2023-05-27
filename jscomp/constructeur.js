@@ -27,6 +27,9 @@ const tab=document.createElement("aside");
     tab.setAttribute("class","tab");
     tab.setAttribute("id","tab");
 
+const droitDAuteur=document.createElement("div");
+    droitDAuteur.innerText="sariwangtilapya© 2022";
+
 
 
 header.appendChild(navbar);
@@ -39,8 +42,8 @@ localStorage.setItem("langue","fr");
 
 document.body.insertBefore(header, document.body.firstChild);
 document.body.appendChild(tab);
+document.getElementById("contenu").appendChild(droitDAuteur);
 
-console.log(header.getBoundingClientRect().height);
 tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
 document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
 
@@ -49,8 +52,8 @@ try {
     // document.getElementById("contenu").innerText=nvDArt;
     
   } catch (error) {
-    nvDArt=null;
+    nvDArt=null;}
 
 if (nvDArt==null|| nvDArt==0){document.getElementById("contenu").style.display="block";}
 // document.getElementById("contenu").innerText=nvDArt==undefined;
-  }
+

@@ -19,3 +19,28 @@ else{ong.setAttribute("class","tablinks");}
     document.getElementById("tab").appendChild(ong)}
 }
 });
+
+let enPortrait;
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    enPortrait=true;
+  } else if (window.matchMedia("(orientation: landscape)").matches) {
+    enPortrait=false;
+  } else {
+    enPortrait=false;
+  }
+//console.log(tab.getElementsByClassName("tablinks")[0].style);
+
+if (enPortrait){
+    document.getElementById("contenu").style.left="0";
+    document.getElementById("contenu").style.width="100vw";
+    tab.style.width="100vw";
+    tab.style.bottom="0em";
+    // tab.style.removeProperty("height");
+    tab.style.height="2.5em";
+    tab.style.display='flex'
+    tab.style.overflowX="scroll";
+    document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;
+    // for (i=0; i=tab.getElementsByTagName("button").length; i++){
+    //     // tab.getElementsByTagName("button").style.removeProperty("padding");
+    //     tab.getElementsByTagName("button").style.display="inline";
+    }

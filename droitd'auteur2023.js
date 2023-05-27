@@ -1,3 +1,3 @@
 document.getElementById("contenu").innerHTML+=`<div id="droitD'Auteur">
-©sariwangtilapya 2023
+sariwangtilapya© 2022
 </div>`

@@ -37,7 +37,7 @@ html, body {
   background-color: #657b83;
   color: #073642;
 }
-.tabcontent {
+#contenu {
   position: absolute;
   /* float: left; */
   left: 30%;

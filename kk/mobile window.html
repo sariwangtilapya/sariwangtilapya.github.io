@@ -8,17 +8,19 @@
 </head>
 <body>
     <input type="text" id="urlboîte" value="fr-jp/particules/Résumé.html">
-    <input type="button" onclick="ouvre()" value="ouvre">
-    <input type="button" onclick="quarter()" value="resize">
+    <input type="button" onclick="ouvre(this.value)" value="portrait">
+    <input type="button" onclick="ouvre(this.value)" value="landcape">
     <-- ça marche pas quand c'est agrandi ni la fentre pincipale
     <script>
         let url;
-        function ouvre() {
+        function ouvre(a) {
     url=document.getElementById("urlboîte").value;
  // window.open("/kk/window resize.html","",window.screen.availWidth / 2, window.screen.availHeight / 2);
  const port=window.open(`/${url}`,"",0);
- port.resizeTo(360,640);
-//  port.resizeTo(640,360);
+ if (a=="portrait")
+ {port.resizeTo(360,640);}
+ else
+ {port.resizeTo(640,360);}
 }
 function quarter(){
     window.resizeTo(60, 50);
