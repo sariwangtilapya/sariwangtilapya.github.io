@@ -146,16 +146,20 @@ h6 {
 }
 
 table {
-    margin: 1rem 0
+    margin: 1rem 0;
 }
 
 table,
 th,
 td {
-    border-collapse: collapse
+    border-collapse: collapse;
+    z-index: 0;
 }
 
-th,
+th {
+    padding: .5rem;
+    text-align: center;
+}
 td {
     padding: .5rem;
     text-align: left
@@ -166,7 +170,26 @@ th {
 }
 
 td {
-    border-top: 1px var(--sol-base02)solid
+    border-top: 1px var(--sol-base02)solid;
+    z-index: 0;
+}
+.table-container{
+    width: 96%;
+    overflow-x: scroll;
+}
+.table-container.sticky-left th:first-child{
+  position: sticky;
+  left: 0;
+  z-index: 9999;
+  /* background-color: #fff; /* Optional: To make the cell appear on top of other cells */
+  
+}
+.table-container.sticky-left td:first-child{
+    position: sticky;
+    left: 0;
+    z-index: 9999;
+    background-color: var(--sol-base03);
+    border-top: 1px var(--sol-base02)solid;
 }
 
 pre,
