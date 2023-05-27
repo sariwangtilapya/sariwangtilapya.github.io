@@ -10,7 +10,7 @@
     <input type="text" id="urlboîte" value="fr-jp/particules/Résumé.html">
     <input type="button" onclick="ouvre(this.value)" value="portrait">
     <input type="button" onclick="ouvre(this.value)" value="landcape">
-    <-- ça marche pas quand c'est agrandi ni la fentre pincipale
+    <div id="a"></div>
     <script>
         let url;
         function ouvre(a) {
@@ -26,6 +26,7 @@ function quarter(){
     window.resizeTo(60, 50);
 }
 document.getElementById("urlboîte").focus();
+document.getElementById("a").innerText=`${window.innerWidth}×${window.innerHeight}`
     </script>
 </body>
 </html>

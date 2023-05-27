@@ -45,7 +45,7 @@ body {
     background-color: var(--sol-base03);
     color: var(--sol-base1);
     font-family: roboto, sans-serif;
-    margin: 0
+    margin: 0;
 }
 
 p,
@@ -153,15 +153,18 @@ table {
 table,
 th,
 td {
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
+    padding: 0;
 }
 
 th {
     padding: .5rem;
+    margin: 0;
     text-align: center;
 }
 td {
     padding: .5rem;
+    margin: 0;
     text-align: left
 }
 
@@ -170,26 +173,30 @@ th {
 }
 
 td {
-    border-top: 1px var(--sol-base02)solid;
+    border-bottom: 1px var(--sol-base02)solid;
+    border-right: 1px var(--sol-base02)solid;
     z-index: 0;
 }
 .table-container{
-    width: 96%;
-    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.table-container.sticky-left th:first-child,
+.table-container.sticky-left td:first-child{
+  position: sticky;
+  left: 0px;
+  z-index: 9999;
+  margin: 0px;
 }
 .table-container.sticky-left th:first-child{
-  position: sticky;
-  left: 0;
-  z-index: 9999;
-  /* background-color: #fff; /* Optional: To make the cell appear on top of other cells */
-  
+    border-right: 1px var(--sol-base03)solid;
 }
 .table-container.sticky-left td:first-child{
-    position: sticky;
-    left: 0;
-    z-index: 9999;
     background-color: var(--sol-base03);
-    border-top: 1px var(--sol-base02)solid;
+    border-right: 1px var(--sol-base02)solid;
 }
 
 pre,
