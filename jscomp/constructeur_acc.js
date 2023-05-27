@@ -1,9 +1,9 @@
-// const dln=document.location.pathname, dll=dln.length, lesBarresOubliques=[];
-// let lesBarresOubliquesIter=1, lePointDExtension; pointTrouvé=false;
-// while(lesBarresOubliquesIter<=dll){
-// if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){lePointDExtension=dll-lesBarresOubliquesIter; pointTrouvé=true;}
-// if (dln[dll-lesBarresOubliquesIter]=="/"){lesBarresOubliques.push(dll-lesBarresOubliquesIter);}
-// lesBarresOubliquesIter++;}
+const dln=document.location.pathname, dll=dln.length, lesBarresOubliques=[];
+let lesBarresOubliquesIter=1, lePointDExtension; pointTrouvé=false;
+while(lesBarresOubliquesIter<=dll){
+if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){lePointDExtension=dll-lesBarresOubliquesIter; pointTrouvé=true;}
+if (dln[dll-lesBarresOubliquesIter]=="/"){lesBarresOubliques.push(dll-lesBarresOubliquesIter);}
+lesBarresOubliquesIter++;}
 
 
 // const nomDuFiche=decodeURIComponent(dln.slice(lesBarresOubliques[0]+1,lePointDExtension));
@@ -24,10 +24,13 @@ function titreChange(){titreIndexActuel=(titreIndexActuel+1)%3; titre.innerText=
     setTimeout(()=>titreChange(),3000);
 const navlinks=document.createElement("div");
     navlinks.setAttribute("id","navbar-links");
-    navlinks.innerHTML=`FR-JP
-    <a href="en-jp/home.html">EN-JP</a>
-    <a href="fr-tl/accueil.html">FR-TL</a>
-    <a href="en-tl/home.html">EN-TL</a></div>`;
+    j=["/index.html","/en-jp/home.html","/fr-tl/accueil.html","/en-tl/home.html"];
+    for (i=0; i<4; i++){
+        const navLF=document.createElement("a");
+        if (j[i]!=dln){navLF.setAttribute("href",j[i]);}
+        navLF.innerText=["FR-JP","EN-JP","FR-TL","EN-TL"][i];
+        navlinks.appendChild(navLF);
+    }
 // const navlinksFils=document.createElement("a");
 //     navlinksFils.setAttribute("href","/index.html");
 //     navlinksFils.innerText="Page d'accueil";

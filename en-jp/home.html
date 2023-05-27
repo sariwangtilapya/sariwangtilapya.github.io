@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="/styling/onglets.css">
    <title>サリワン・ティラピア</title>
 </head>
-<body>
+<!-- <body>
 <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
   <div id=navbar-links><a href="/index.html">FR-JP</a>
   EN-JP
   <a href="/fr-tl/accueil.html">FR-TL</a>
   <a href="/en-tl/home.html">EN-TL</a></div></nav>
-</header>
+</header> -->
 
-<div class="tab">
+<div id="tab" class="tab">
   <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Home</button>
   <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
   <button class="tablinks" onclick="onglets(event, 'AteKan')">Kanji Workshop</button>
   <button class="tablinks" onclick="onglets(event, 'Ressources')">Resources</button>
   <button class="tablinks" onclick="onglets(event, 'Cours')">Japanese Course</button>
   <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
-  <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button>
+  <!-- <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button> -->
   <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button> -->
   <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
 </div>
@@ -120,7 +120,7 @@
   <h3>Kanji Workshop</h3>
   <a href="Kanji Workshop/Reading/Onyomi Reading Rules.html">Reading</a><br>
   <a href="Kanji Workshop/Writing/Basic Strokes.html">Writing</a>
-  <h3>Irrégularité chez les kanjis</h3>
+  <!-- <h3>Irrégularité chez les kanjis</h3>
   <H4>La façon d'écrire</H4>
   <p>Les kanjis royaux / L'os de poisson</p>
   <p>Le NA et le ME ナ、メ</p>
@@ -130,19 +130,21 @@
   <p>avec une partie 肴, il s'écrit toujours en ME</p>
   <p>avec une pôle, toujours NA</p>
   <p>Le NANA et le HI 七、ヒ</p>
-  <p>Les variations indépendantes et composantes</p>
+  <p>Les variations indépendantes et composantes</p> -->
 </div>
 
 <div id="Attributions" class="tabcontent">
-  <h3>Dictionaries / Resources used</h3>
-  <ul>
-    <li>wikipedia</li>
-    <li>kanjidic</li>
-    <li>jmdict</li>
-    <!-- <li>jmnedict</li> -->
-    <!-- <li>kireicake</li> -->
-    <li>kanjivg</li>
-  </ul>
+  <h3>Dictionnaires</h3>
+  <dt><a href="http://www.edrdg.org/wiki/index.php/KANJIDIC_Project">kanjidic</a></dt>
+  <dd>KANJIDIC, Jim Breen/EDRDG, is a database of kanji that includes readings, meanings and a lot of metadata around kanji like lookup numbers for kanji dictionary books, stroke count and information about variant forms.</dd>
+  <dt><a href="http://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project">jmdict</a></dt>
+  <dd>JMdict, created by Jim Breen and now managed by the Electronic Dictionary Research and Development Group (EDRDG), is a great general dictionary with roughly 170 000 entries and is actively maintained by Jim Breen and a team of volunteers.</dd>
+  <!-- <p>jmnedict</p>
+  <p>kireicake</p>
+  <p>wikipedia</p> -->
+  <h3>Ressource de dessin de kanjis</h3>
+  <dt><a href="http://kanjivg.tagaini.net/">KanjiVG</a></dt>
+  <dd>KanjiVG (Kanji Vector Graphics) provides vector graphics and other information about kanji used by the Japanese language. For each character, it provides an SVG file which gives the shape and direction of its strokes, as well as the stroke order. Each file is also enriched with information about the components of the character such as the radical, or the type of stroke employed.</dd>
 </div>
 
 <div id="S-V_1" class="tabcontent">
@@ -199,23 +201,9 @@
     +<input type="number" id="b" value="25">
     =<output name="x" for="a b"></output>
   </form>
-<a href="chifoumi.html">じゃんけんぽん</a><hr>
+<a href="/chifoumi.html">じゃんけんぽん</a><hr>
 </div>
-  <script>
-  function onglets(evt, ongletNom) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(ongletNom).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  document.getElementById("defaultOpen").click();
-  </script>
+
+<script src="/jscomp/constructeur_acc.js"></script>
 </body>
 </html>

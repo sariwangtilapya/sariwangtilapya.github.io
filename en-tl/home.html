@@ -11,15 +11,8 @@
 <style></style>
 </head>
 <body>
-<header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ</h1></div>
-  <div id=navbar-links>
-  <a href="/index.html">FR-JP</a>
-  <a href="/en-jp/home.html">EN-JP</a>
-  <a href="/fr-tl/accueil.html">FR-TL</a>
-  EN-TL</div></nav>
-</header>
 
-<div class="tab">
+<div id="tab" class="tab">
   <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Home</button>
   <button class="tablinks" onclick="onglets(event, 'Leçons')">Lessons</button>
   <button class="tablinks" onclick="onglets(event, 'Exercices')">Exercises</button>
@@ -27,7 +20,7 @@
   <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Triviæ</button> -->
   <button class="tablinks" onclick="onglets(event, 'Vocabulaire')">Vocabulary</button>
   <button class="tablinks" onclick="onglets(event, 'Sanka')">Tilapya Levels</button>
-  <button class="tablinks" onclick="onglets(event, 'Change_Log')">Change Log</button>
+  <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddie Malou</button>
 </div>
 
 <div id="Accueil" class="tabcontent">
@@ -130,7 +123,7 @@
   <h3>Search our Tagalog dictionary</h3>
   <p>Our dictionary is made specifically for learners of the spoken language.</p>
 </div>
-<div id="Change_Log" class="tabcontent">
+<div id="Eddy Malou" class="tabcontent">
   <h3>Change Log</h3>
   <p>Le nom de mon père c'est le nom du papa du savant de la République : Eddy Malou<br>
   Renaissance Africaine comparée la Rénaque</p>
@@ -157,25 +150,9 @@
     +<input type="number" id="b" value="25">
     =<output name="x" for="a b"></output>
   </form>
-<a href="chifoumi.html">じゃんけんぽん</a><hr>
+<a href="/chifoumi.html">じゃんけんぽん</a><hr>
 </div>
-  <script>
-  localStorage.setItem("langue", "en");
-  function onglets(evt, ongletNom) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(ongletNom).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  
-  document.getElementById("defaultOpen").click();
-  </script>
+
+<script src="/jscomp/constructeur_acc.js"></script>
 </body>
 </html>
