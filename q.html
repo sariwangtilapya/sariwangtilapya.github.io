@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html,body{padding: 0; margin: 0; overflow: scroll;}
+    </style>
+</head>
+<body>
+    <script>
+        let winH=window.innerHeight, winW=window.innerWidth, ix=2**64;
+        for (i=0; i<12; i++){winW/=2;
+        const a=document.createElement("div");
+        a.style.height=`${window.innerHeight/ix}px`; a.style.borderLeft="1px black solid";
+        a.style.position="fixed"; a.style.left=`${2**i-0}px`; a.style.top=`${winH/ix*i}px`;
+        a.style.width="1px";
+        a.innerText="a"
+        document.body.appendChild(a);}
+    </script>
+</body>
+</html>

@@ -30,9 +30,10 @@ let enPortrait;
   }
 //console.log(tab.getElementsByClassName("tablinks")[0].style);
 
-if (enPortrait){
+if (enPortrait||(window.innerHeight<=767&&window.innerWidth<=767)){
     document.getElementById("contenu").style.left="0";
     document.getElementById("contenu").style.width="100vw";
+    // navbar.style.padding="0px"; navbar.style.paddingLeft="1rem";
     tab.style.width="100vw";
     tab.style.bottom="0em";
     // tab.style.removeProperty("height");

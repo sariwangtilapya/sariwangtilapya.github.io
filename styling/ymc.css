@@ -268,16 +268,15 @@ kbd {
     flex-wrap: wrap;
     left: 0;
     padding: 1rem;
-    /* position: fixed; */
     right: 0;
     top: 0;
-    z-index: 9998
+    z-index: 9998;
 }
 
 header{
     position: sticky;
     top: 0;
-    z-index: 9998
+    z-index: 9998;
 } 
 
 #navbax {
@@ -297,9 +296,9 @@ header{
     flex-grow: 1
 }
 
-#navbar-brand img {
+/* #navbar-brand img {
     height: 3rem
-}
+} */
 
 #navbar-links a {
     display: inline-block;
@@ -343,25 +342,30 @@ header{
 }
 
 @media screen and (max-width:768px) {
+    #navbar{
+        padding: 0%;
+        padding-left: 1rem;
+    }
     #navbar-links {
-        display: none;
-        text-align: center;
-        width: 100%
+        display: inline-block;
+        padding-right: 1rem;
+        /* text-align: center;
+        width: 100% */
     }
 
     #navbar-links a {
-        display: block;
+        /* display: block; */
         margin-left: 0;
-        padding: 1rem
+        /* padding: 1rem */
     }
-
+/* 
     #navbar-plate {
         display: block
     }
 
     #navbar-burger:checked~#navbar-links {
         display: block
-    }
+    } */
 }
 
 .story-date {
