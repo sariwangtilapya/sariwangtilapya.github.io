@@ -43,12 +43,12 @@ const tab=document.getElementById("tab");
     tablinks = document.getElementsByClassName("tablinks");
 function onglets(evt, ongletNom) {ongletAct=ongletNom;
 
-    if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
-    document.getElementById(ongletAct).style.left="0px";
-    document.getElementById(ongletAct).style.top=`${header.getBoundingClientRect().height}px`;
-    document.getElementById(ongletAct).style.width="100vw";
-    document.getElementById(ongletAct).style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;
-    }
+    // if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
+    // document.getElementById(ongletAct).style.left="0px";
+    // document.getElementById(ongletAct).style.top=`${header.getBoundingClientRect().height}px`;
+    // document.getElementById(ongletAct).style.width="100vw";
+    // document.getElementById(ongletAct).style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;
+    // }
 
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
@@ -111,7 +111,7 @@ for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
 }
 orientationSet();
 
-    window.addEventListener('orientationchange', orientationSet());
+window.addEventListener('orientationchange', function (){orientationSet()});
 
     document.getElementById("defaultOpen").click();
     

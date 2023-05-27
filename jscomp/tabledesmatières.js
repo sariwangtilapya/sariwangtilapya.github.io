@@ -29,7 +29,7 @@ let enPortrait;
     enPortrait=false;
   }
 //console.log(tab.getElementsByClassName("tablinks")[0].style);
-
+function orientationSet(){
 if (enPortrait||(window.innerHeight<=767&&window.innerWidth<=767)){
     document.getElementById("contenu").style.left="0";
     document.getElementById("contenu").style.width="100vw";
@@ -45,3 +45,7 @@ if (enPortrait||(window.innerHeight<=767&&window.innerWidth<=767)){
     //     // tab.getElementsByTagName("button").style.removeProperty("padding");
     //     tab.getElementsByTagName("button").style.display="inline";
     }
+  }
+  orientationSet();
+
+  window.addEventListener('orientationchange', function (){orientationSet()});
