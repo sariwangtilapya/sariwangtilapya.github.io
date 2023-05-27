@@ -10,20 +10,25 @@
     <input type="text" id="urlboîte" value="fr-jp/particules/Résumé.html">
     <input type="button" onclick="ouvre(this.value)" value="portrait">
     <input type="button" onclick="ouvre(this.value)" value="landcape">
+    <input type="button" onclick="resize(this.value)" value="portrait">
+    <input type="button" onclick="resize(this.value)" value="landcape">
     <div id="a"></div>
     <script>
-        let url;
+        let url; let port; let b;
         function ouvre(a) {
     url=document.getElementById("urlboîte").value;
  // window.open("/kk/window resize.html","",window.screen.availWidth / 2, window.screen.availHeight / 2);
- const port=window.open(`/${url}`,"",0);
  if (a=="portrait")
+ {b="width=360, height=640";}
+ else
+ {b="width=640, height=360";}
+ port=window.open(`/${url}`,"",b);
+}
+function resize(a){
+    if (a=="portrait")
  {port.resizeTo(360,640);}
  else
  {port.resizeTo(640,360);}
-}
-function quarter(){
-    window.resizeTo(60, 50);
 }
 document.getElementById("urlboîte").focus();
 document.getElementById("a").innerText=`${window.innerWidth}×${window.innerHeight}`

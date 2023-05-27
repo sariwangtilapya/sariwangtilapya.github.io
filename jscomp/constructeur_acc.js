@@ -111,7 +111,7 @@ for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
 }
 orientationSet();
 
-window.addEventListener('orientationchange', function (){orientationSet()});
+window.addEventListener('resize', function (){orientationSet()});
 
     document.getElementById("defaultOpen").click();
     

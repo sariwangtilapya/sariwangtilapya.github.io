@@ -48,4 +48,4 @@ if (enPortrait||(window.innerHeight<=767&&window.innerWidth<=767)){
   }
   orientationSet();
 
-  window.addEventListener('orientationchange', function (){orientationSet()});
+  window.addEventListener('resize', function (){orientationSet()});
