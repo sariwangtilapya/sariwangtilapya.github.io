@@ -87,6 +87,7 @@ if (window.matchMedia("(orientation: portrait)").matches) {
     enPortrait=false;
 }
 
+function orientationSet(){
 if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
     tabcontent = document.getElementsByClassName("tabcontent");
     document.getElementById('Accueil').style.left="0px";
@@ -107,6 +108,10 @@ for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
     tab.style.overflowX="auto";
     tab.style.overflowY="hidden";
     }
+}
+orientationSet();
+
+    window.addEventListener('orientationchange', orientationSet());
 
     document.getElementById("defaultOpen").click();
     
