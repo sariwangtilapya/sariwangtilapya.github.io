@@ -10,25 +10,12 @@
    <title>サリワン・ティラピア</title>
 </head>
 <body>
-<header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
+<!-- <header><nav id=navbar><div id=navbar-brand><h1>ＳＡＲＩＷＡＮＧ　ＴＩＬＡＰＹＡ　サリワン・ティラピア</h1></div>
   <div id=navbar-links>FR-JP
   <a href="en-jp/home.html">EN-JP</a>
   <a href="fr-tl/accueil.html">FR-TL</a>
   <a href="en-tl/home.html">EN-TL</a></div></nav>
-</header>
-
-<div class="tab">
-  <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Accueil</button>
-  <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
-  <button class="tablinks" onclick="onglets(event, 'AteKan')">Atelier de kanjis</button>
-  <button class="tablinks" onclick="onglets(event, 'Ressources')">Ressources d'apprentissage</button>
-  <button class="tablinks" onclick="onglets(event, 'Cours')">Cours de japonais</button>
-  <button class="tablinks" onclick="onglets(event, 'Sanka')">Accès TILAPYA</button>
-  <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
-  <!-- <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button> -->
-  <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button> -->
-  <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
-</div>
+</header> -->
 
 <div id="Accueil" class="tabcontent">
   <h3>Bienvenue sur Sariwang Tilapya !</h3>
@@ -217,21 +204,18 @@
   </form>
 <a href="fr-jp/chifoumi.html">じゃんけんぽん</a><hr>
 </div>
-  <script>
-  function onglets(evt, ongletNom) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(ongletNom).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-  document.getElementById("defaultOpen").click();
-  </script>
+<aside id="tab" class="tab">
+  <button class="tablinks" onclick="onglets(event, 'Accueil')" id="defaultOpen">Accueil</button>
+  <button class="tablinks" onclick="onglets(event, 'Tests')">Tests</button>
+  <button class="tablinks" onclick="onglets(event, 'AteKan')">Atelier de kanjis</button>
+  <button class="tablinks" onclick="onglets(event, 'Ressources')">Ressources d'apprentissage</button>
+  <button class="tablinks" onclick="onglets(event, 'Cours')">Cours de japonais</button>
+  <button class="tablinks" onclick="onglets(event, 'Sanka')">Accès TILAPYA</button>
+  <button class="tablinks" onclick="onglets(event, 'Attributions')">Attributions</button>
+  <!-- <button class="tablinks" onclick="onglets(event, 'cherDico')">Cherchez les dictionnaires</button> -->
+  <!-- <button class="tablinks" onclick="onglets(event, 'S-V_1')">Saviez-vous</button> -->
+  <button class="tablinks" onclick="onglets(event, 'Eddy Malou')">Eddy Malou</button>
+</aside>
+<script src="/jscomp/constructeur_acc.js"></script>
 </body>
 </html>
