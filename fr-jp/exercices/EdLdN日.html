@@ -89,8 +89,6 @@ a:active {
 <div id="numéro"></div><div id="lecture"></div>
 <button id="suivant" onclick="suivant()">Afficher la lecture/Aller au suivant</button>
 </div>
-<script src="pagesvisitées.js"></script>    
-<script src="barresout.js"></script>
 <script>
     const numéro=document.getElementById("numéro"); const lecture=document.getElementById("lecture");
     const button=document.getElementById("suivant");
@@ -107,7 +105,7 @@ a:active {
     else if (préAléaKa>1324){aléaKa=(préAléaKa-1324)%28;} else {aléaKa=(préAléaKa-724)%30;}
     numéro.innerText=aléaKa+1+"日";
     if (aléaKa==19){lecture.innerText=lecSpéc[10];} else if (aléaKa==13){lecture.innerText="じゅうよっか";}
-    else if (aléaKa==23){lecture.innerText="にじゅうよっか";} else if (aléaKa==29){"さんじゅうにち";}
+    else if (aléaKa==23){lecture.innerText="にじゅうよっか";} else if (aléaKa==29){lecture.innerText="さんじゅうにち";}
     else if (aléaKa<10){lecture.innerText=lecSpéc[aléaKa];}
     else if (aléaKa>19){lecture.innerText=lecRég[Math.floor(aléaKa/10)-1]+"じゅう"+lecRég[aléaKa%10]+"にち";}
     else {lecture.innerText="じゅう"+lecRég[aléaKa%10]+"にち";} lecture.style.visibility="hidden";}
