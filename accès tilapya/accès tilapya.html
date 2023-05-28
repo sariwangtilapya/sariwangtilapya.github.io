@@ -10,7 +10,7 @@
 <body>
   <p><h3>Vos dons aident à améliorer le site.</h3>
   Faites nous un don pour avoir accès TILAPYA.</p>
-  <p>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></p>
+  <p id="btcAdP">BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></p>
   <div id="notifCopié" style="visibility: hidden;">Copié</div>
   <p>Chaque 0.00001BTC de dons donne 24 heures d'accès TILAPYA. (4 zéros après le séparateur décimal)<br>
   L'excédent sera divisé en heures et minutes.</p>
@@ -35,6 +35,7 @@ Il y a 11 niveaux TILAPYA.</p>
 <p>Merci de votre soutien !</p>
 <p>*L'excédent serait sujet à changement 30 jours après le changement.</p>
 </div>
+<div id="a"></div>
 
 <script>
 const pasteButton = document.getElementById('coller');
@@ -122,6 +123,19 @@ Promise.all(requests)
   document.getElementById("Infos").innerText="Une erreur s'est produite\nVeuillez réessayer";}
 );
 }
+// if (window.location==parent.window.location){
+//   const a=document.createElement("script"); a.setAttribute("src","/jscomp/constructeur.js");
+//   document.body.appendChild(a);
+// }
+
+// // btcAd, adresse
+// if (document.getElementById("btcAdP").getBoundingClientRect().width>window.innerWidth){
+//   document.getElementById("btcAdP").style.width=window.innerWidth;
+// }
+// if (document.getElementById("adresse").getBoundingClientRect().width>window.innerWidth){
+//   document.getElementById("adresse").style.width=window.innerWidth;
+
+// }
 </script>
 </body>
 </html>
