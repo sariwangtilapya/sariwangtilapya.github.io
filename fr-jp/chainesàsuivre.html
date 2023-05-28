@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/ymc.css">
     <title>Chaînes à suivre</title>
 <style>
     body{
-        background-color: #002b36;;
+        background-color: #002b36;
         color: #586e75;
         font-family: roboto, sans-serif;
-        margin: 10px;
     }
     a{
         color: white;
         text-decoration: none;
     }
-    #grandeBoîte{
+    /* #grandeBoîte{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-    }
+        justify-items: center;
+    } */
     .bExNom{
-        width: 27%;
+        /* width: 27%; */
+        padding-bottom: 1em;
+        border: 1px #32c1b6;
     }
     .bInNom{
         background-color: #073642;
@@ -33,7 +36,8 @@
     }
     .bExLi{
         display: flex;
-        justify-content: space-around;
+        /* justify-content: space-around; */
+        justify-content: center;
         
     }
     .Youtube{
@@ -52,28 +56,17 @@
         background-color: greenyellow;
         color: rgba(126, 128, 0, 0.747);
     }
-    .Twitch>a{
-        color: rgba(126, 128, 0, 0.747);
+    .liens{
+        border: 1em;
+        margin: 1em;
+        border-color: #002b36;
     }
-    #barreInf {
-    bottom: 0%;
-    position: fixed;
-    background-color: #073642;
-    width: 100%;
-    left: 0px;
-    padding: 5px;
-}
-#barreInf>button {
-    position: fixed;
-    right:  5px;
-    bottom: 5px;
-}
 </style>
 </head>
 <body>
 
 Première publication : 15 Mai 2022
-<br>Dernier mis à jour : 17 Nov 2022
+<br>Dernier ajoute : 17 Nov 2022
 <hr><hr>
 Chaines youtube à suivre afin d'apprendre le japonais (Seulement les chaines enseignant le japonais — pas d'immersion)
 <br>*Chaînes seulement francophones
@@ -87,20 +80,32 @@ Si vous souhaitez ajouter une chaîne, votre ou à quelqu'un d'autre, contactez-
 const càS=[["Sophie /\/ Cours de japonais",{Youtube: "https://www.youtube.com/c/SophieCoursdejaponais", Instagram: "https://www.instagram.com/coursdejaponaiscom/"}], ["Juudaichi - Le Japonais en Animés",{Youtube: "https://www.youtube.com/c/JuudaichiLeJaponaisenAnim%C3%A9s", Instagram: "https://www.instagram.com/juudaichi/", Twitch: "https://www.twitch.tv/juudaichi", Facebook: "https://www.facebook.com/JuudaichiYoutube/", Discord: "https://discord.gg/pRuUJ98Xxa"}], ["Apprendre le Japonais avec Mizuki Sensee",{Youtube: "https://www.youtube.com/channel/UCeU4bKoaIB1-1idpFXaO6mA"}], ["Mini cours de japonais",{Youtube: "https://www.youtube.com/channel/UCCWQCSKngX3_w3np-gTbEVw"}], ["Digischool [playlist spécifique]",{Youtube: "https://www.youtube.com/playlist?list=PLxWYUus9YBzVM0lY3378egRmBzmFDYcAH"}], ["Japan Doki Doki - cours de japonais",{Youtube: "https://www.youtube.com/channel/UCb3WOVZkIQ0zt-eK7V86e5A"}], ["KANJI - Link",{Youtube: "https://www.youtube.com/c/KANJILink"}], ["Cours de japonais",{Youtube: "https://www.youtube.com/channel/UCSoNEXGR_Px0EBL-HIjAh1A"}], ["OKAERI France",{Youtube: "https://www.youtube.com/c/OKAERIFRANCE", Instagram: "https://www.instagram.com/okaeri_france/"}], ["Tous au japonais",{Youtube: "https://www.youtube.com/c/Tousaujaponais", Instagram: "https://www.instagram.com/tousaujaponais/"}], ["TOKIMEKI",{Youtube: "https://www.youtube.com/c/TOKIMEKIchannel"}], ["ACEKID [playlists spécifiques]",{Youtube: "https://www.youtube.com/c/ACEKIDprod", Instagram: "https://www.instagram.com/acekidprod/"}], ["Cours de japonais !",{Youtube: "https://www.youtube.com/c/CoursdejaponaisFR"}], ["Gokaido",{Youtube: "https://www.youtube.com/channel/UCJT53XxbZMM1pnE11ftm_MA", Instagram: "https://twitter.com/_Gokaido"}], ["Zero to Japan avec Léïna",{Youtube: "https://www.youtube.com/@zerotojapanavecleina", Instagram: "https://www.instagram.com/zerotojapan/"}], ["Jonihongo",{Youtube: "https://www.youtube.com/user/MrLitldevil", Instagram: "https://www.instagram.com/jo.nihongo/"}], ["Japanistar",{Youtube: "https://www.youtube.com/user/japaniistar"}], ["Japaniste : Apprendre le japonais",{Youtube: "https://www.youtube.com/channel/UCgeWYygS_GYibgS0_W0tj7g"}], ["apprendlejaponais - Machiko",{Youtube: "https://www.youtube.com/c/apprendrelejaponaisMachikoetLaurent"}], ["SENSEI : J'apprends le japonais en ligne",{Youtube: "https://www.youtube.com/channel/UCv8skMVwwI4l7IbVDGYQrMA"}], ["Apprend le japonais avec Lois Lin",{Youtube: "https://www.youtube.com/c/ApprendrelejaponaisavecLoisLin"}], ["Le Japon fou fou fou",{Youtube: "https://www.youtube.com/c/LeJaponfoufoufou"}], ["Pont de japon",{Youtube: "https://www.youtube.com/channel/UCQLsRbgyEFuiXogqMawBfMQ"}]];
 //target="_blank" rel="noopener noreferrer"
 
-for (i=0; i<càS.length; i++){let bExNom=document.createElement("div");
+for (i=0; i<càS.length; i++){
+const bExNom=document.createElement("div");
 bExNom.setAttribute("class", "bExNom"); bExNom.setAttribute("id", `bExNom${i}`);
 document.getElementById("grandeBoîte").appendChild(bExNom);
+
 let bInNom=document.createElement("div");
 bInNom.setAttribute("class", "bInNom"); bInNom.setAttribute("id", `bInNom${i}`);
 bExNom.appendChild(bInNom); bInNom.innerText=càS[i][0];
+
 let bExLi=document.createElement("div");
 bExLi.setAttribute("class", "bExLi"); bExLi.setAttribute("id", `bExLi${i}`);
 bExNom.appendChild(bExLi);
-for (j=0; j<Object.keys(càS[i][1]).length; j++){let bInLi=document.createElement("div");
-bInLi.setAttribute("class", `${Object.keys(càS[i][1])[j]}`); bInLi.setAttribute("id", `bInLi${Object.keys(càS[i][1])[j]}-${i}`);
-bExLi.appendChild(bInLi); bInLi.innerHTML=`<a href="${Object.values(càS[i][1])[j]}" target="_blank" rel="noopener noreferrer" title="${càS[i][0]}<br>${Object.keys(càS[i][1])[j]}">${Object.keys(càS[i][1])[j]}</a>`;
+
+for (j=0; j<Object.keys(càS[i][1]).length; j++){
+    let bInLi=document.createElement("div");
+    bInLi.setAttribute("class", `${Object.keys(càS[i][1])[j]}`);
+    bInLi.setAttribute("id", `bInLi${Object.keys(càS[i][1])[j]}-${i}`);
+    bExLi.appendChild(bInLi);
+    bInLi.innerHTML=`<a href="${Object.values(càS[i][1])[j]}" class="liens" target="_blank" rel="noopener noreferrer" title="${càS[i][0]}\n${Object.keys(càS[i][1])[j]}">${Object.keys(càS[i][1])[j]}</a>`;
 }
 }
+fetch("chaines à suivre.txt").then(response=>response.text())
+.then(text=>{const càs=text;
+console.log(text[3].charCodeAt(0))});
 </script>
+<script src="/jscomp/constructeur.js"></script>
+<script>titre.innerText="Chaînes à suivre";</script>
 </body>
 </html>
