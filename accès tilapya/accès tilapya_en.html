@@ -19,11 +19,12 @@
     <div>Paste the wallet address with which you have donated and then validate to activate your TILAPYA Access</div>
     <div>
         <input type="text" id="adresse" style="width : 51ch">
-        <button onclick="valider()">Validate</button><br>
+        <button onclick="valider()">Validate</button>
+    </div>   
             <button type="button" id="coller">Paste</button>
         <div id="Infos" style="visibility: hidden;">Les infos montrera ici.</div>
         
-    </div>
+    
 <div id="test"></div>
 <div id="instructions">
 <p><h3>How it works?</h3>
@@ -122,6 +123,13 @@ Promise.all(requests)
   document.getElementById("Infos").style="visibility: visible;";
   document.getElementById("Infos").innerText="An error has occured.\nPlease try again.";}
 );
+}
+
+if (parent.document.getElementById("btcAd").getBoundingClientRect().width>window.innerWidth){
+  document.getElementById("btcAd").style.width=document.getElementById("btcAd").style.width-(window.innerWidth-parent.document.getElementById("btcAd").getBoundingClientRect().width);
+}
+if (parent.document.getElementById("adresse").getBoundingClientRect().width>window.innerWidth){
+  document.getElementById("adresse").style.width=document.getElementById("adresse").style.width-(window.innerWidth-parent.document.getElementById("btcAd").getBoundingClientRect().width);
 }
 </script>
 </body>

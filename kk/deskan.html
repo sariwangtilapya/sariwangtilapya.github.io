@@ -9,7 +9,7 @@
 <body>
     <div id="kanjiDiv"></div>
 <script>
-let kanjiCode="凸".charCodeAt(0).toString(16);
+let kanjiCode="ゑ".charCodeAt(0).toString(16);
 while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
 fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
     .then(response => response.text())

@@ -10,7 +10,7 @@
 <body>
   <p><h3>Vos dons aident à améliorer le site.</h3>
   Faites nous un don pour avoir accès TILAPYA.</p>
-  <p id="btcAdP">BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></p>
+  <div>BTC : <input type="text" value="19eRibHoLtLhA21RYC2z1Tz31qEaWy98pi" id="btcAd" readonly style="width : 51ch"><button onclick="copierLAd()">Copier</button></div>
   <div id="notifCopié" style="visibility: hidden;">Copié</div>
   <p>Chaque 0.00001BTC de dons donne 24 heures d'accès TILAPYA. (4 zéros après le séparateur décimal)<br>
   L'excédent sera divisé en heures et minutes.</p>
@@ -18,8 +18,10 @@
 <p></p>  
     <div>Collez l'adresse du portefeuille Bitcoin avec lequel vous avez fait le don. Puis, validez pour activer votre accès TILAPYA</div>
     <div>
-        <input type="text" id="adresse" style="width : 51ch">
-        <button onclick="valider()">Valider</button><br>
+        <div>
+          <input type="text" id="adresse" style="width : 51ch">
+          <button onclick="valider()">Valider</button>
+        </div>
             <button type="button" id="coller">Coller</button>
         <div id="Infos" style="visibility: hidden;">Les infos montrera ici.</div>
         
@@ -129,13 +131,14 @@ Promise.all(requests)
 // }
 
 // // btcAd, adresse
-// if (document.getElementById("btcAdP").getBoundingClientRect().width>window.innerWidth){
-//   document.getElementById("btcAdP").style.width=window.innerWidth;
-// }
-// if (document.getElementById("adresse").getBoundingClientRect().width>window.innerWidth){
-//   document.getElementById("adresse").style.width=window.innerWidth;
+if (parent.document.getElementById("btcAd").getBoundingClientRect().width>window.innerWidth){
+  document.getElementById("btcAd").style.width=window.innerWidth-parent.document.getElementById("btcAd").getBoundingClientRect().width;
+}
+if (parent.document.getElementById("adresse").getBoundingClientRect().width>window.innerWidth){
+  document.getElementById("adresse").style.width=window.innerWidth-parent.document.getElementById("btcAd").getBoundingClientRect().width;
+}
 
-// }
+// console.log(parent.document.getElementById("btcAdP").innerHTML);
 </script>
 </body>
 </html>
