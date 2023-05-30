@@ -1,8 +1,0 @@
-let p="";
-
-let z=[];let d=0; let f=0;
-function h(){d=p.search("\\. "); f=p.search(" -");
-if (d!=-1){z.push(p.substring(d+2,f));
-p=p.slice(f+2); h();}}
-
-h(); console.log(z);

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/ymc.css">
+    <link rel="stylesheet" href="/styling/onglets_lec.css">
+</head>
+<body>
+
+<div id="contenu" class="tabcontent">
+    <table id="tabledepart">
+        <tr>
+            <th>Particule</th>
+            <th>Emploie</th>
+        </tr>
+    </table>
+    は se prononce comme わ<br>
+    を se prononce comme お<br>
+    へ se prononce comme え
+</div>
+
+<script>
+const particulesListe=[["は","Distinction"],["も","Inclusion"],["を","Objet direct"],["が","Idée secondaire descriptive"],["か","Indéfini"],["と","Ensemble"],["に","But"],["へ","Direction"],["で","Moyen"],["の","Description nominale"],["な","Description qualificative"]];
+    
+let i=0, ix=particulesListe.length;
+while(i<ix){let tr=document.getElementById("tabledepart").insertRow();
+for (let j = 0; j < 2; j++) {
+        const td = tr.insertCell();
+        td.appendChild(document.createTextNode(`${particulesListe[i][j]}`));
+        // td.style.border = '1px solid black';
+    } i++;
+  } 
+</script>
+<!-- "ha","mo","wo","ga","to","no","na","de","ni","he","ka" -->
+<script src="/jscomp/constructeur.js"></script><script src="/jscomp/tabledesmatières.js"></script>
+</body>
+</html>
