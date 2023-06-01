@@ -28,7 +28,7 @@ html, body {
 }
 .tab button:hover {
   background-color: #2aa198;
-  color: #073642;;
+  color: #073642;
 }
 .tab button.active {
   background-color: #32c1b6;

@@ -5,6 +5,8 @@ if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){lePointDExtension=dll-l
 if (dln[dll-lesBarresOubliquesIter]=="/"){lesBarresOubliques.push(dll-lesBarresOubliquesIter);}
 lesBarresOubliquesIter++;}
 
+console.log(dln.slice(lesBarresOubliques[lesBarresOubliques.length-1],lesBarresOubliques[lesBarresOubliques.length-2]));
+
 
 const nomDuFiche=decodeURIComponent(dln.slice(lesBarresOubliques[0]+1,lePointDExtension));
 document.title=nomDuFiche;
@@ -20,8 +22,12 @@ const titre=document.createElement("h1");
 const navlinks=document.createElement("div");
     navlinks.setAttribute("id","navbar-links");
 const navlinksFils=document.createElement("a");
-    navlinksFils.setAttribute("href","/index.html");
-    navlinksFils.innerText="Page d'accueil";
+    if (dln.slice(lesBarresOubliques[lesBarresOubliques.length-1],lesBarresOubliques[lesBarresOubliques.length-2])=="/fr-jp")
+    {navlinksFils.setAttribute("href","/index.html");
+    navlinksFils.innerText="Page d'accueil";}
+    else if (dln.slice(lesBarresOubliques[lesBarresOubliques.length-1],lesBarresOubliques[lesBarresOubliques.length-2])=="/en-jp")
+    {navlinksFils.setAttribute("href","/en-jp/home.html");
+    navlinksFils.innerText="Home";}
 
 const tab=document.createElement("aside");
     tab.setAttribute("class","tab");
