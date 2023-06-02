@@ -1,0 +1,173 @@
+body {
+    background-color: #002b36;;
+    color: #586e75;
+    font-family: roboto, sans-serif;
+    margin: 10;
+    }
+    a:link {
+      text-decoration: underline;
+      color: #2aa198;
+      /* font-size: 20px; */
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #586e75;
+      /* font-size: 20px; */
+    }
+    a:visited {
+      color: #2aa198;
+    }
+    a:visited:hover {
+      text-decoration: underline;
+      color: #586e75;
+      /* font-size: 20px; */
+    }
+    
+    .kanHakoNaka {
+      padding: 0.4em;
+      margin: 0.1em;
+    }
+      
+    .kanHakoNaka:hover {
+      color: #08414f;
+      background-color: #657b83;
+      font-size: 20px;
+      font-weight: 200;
+      cursor: pointer;
+    }
+    
+    a:active {
+      text-decoration: underline;
+      color: #32c1b6;
+    }
+    #barreInf {
+        bottom: 0%;
+        position: fixed;
+        background-color: #073642;
+        width: 100%;
+        left: 0px;
+        padding: 5px;
+        border: 1px solid #73AD21;
+    }
+    #barreInf>button {
+        position: fixed;
+        right:  5px;
+        bottom: 5px;
+    }
+    #ménuRoulante {
+        position: fixed;
+        right: 5px;
+        top:   5px;
+        background-color: #32c1b6;
+        color: #002b36;
+    }
+    #insBoî {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #ins {
+        background-color: #073642;
+        color: #2aa198;
+        border: 3px solid seagreen;
+    }
+    #boutonFermer{
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        background-color: #73AD21;
+        justify-content: space-between;
+        color: black;
+    }
+    #kanjiHako{
+        font-size: 20px;
+        font-weight: 100;
+        color: #32c1b6;
+    }
+    #flexEnBas {
+      display: flex;
+      width: 100vw;
+      height: 80vh;
+      /* padding: 0px; */
+    }
+    #gauche {
+      flex: 1;
+    }
+    #kanjiHako {
+      height: 95%;
+      width: 70vw;
+      overflow-y: scroll;
+    }
+    #détailsHako {
+      flex: 2;
+      float: right;
+      width: 30vw;
+      /* padding-left: 10px; */
+    }
+    #boîCach{
+      position: fixed;
+      display: none;
+      background-color: #073642;
+      color: #2aa198;
+      /* border: 3px solid seagreen; */
+      border: 3px solid #73AD21;
+      height: 95vh;
+      overflow-y: scroll;
+    }
+    #boîCach input{
+        display: block;
+        float: right;
+    }
+    #vocab{
+      height: 100%;
+      overflow-y: scroll;
+    }
+    #optionsBouton{
+      position: fixed;
+      right: 0%;
+      bottom: 2%;
+    }
+    #optionsFenêtre{
+      background-color: #073642;
+      color: #2aa198;
+      border: 3px solid seagreen;
+      /*display: none;
+      position: fixed;
+      right: 50%;
+      bottom: 50%; */
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    svg {
+      display: block;
+      border: 1px black solid;
+    }
+    svg path {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 0;
+      display: none;
+      stroke: #93a1a1;
+      /* animation: dash 1s linear; */
+    }
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 320;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
