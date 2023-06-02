@@ -96,9 +96,9 @@ svg path {
 
 </style>
 <body>
-  <header><nav id=navbar><div id=navbar-brand><h1>Tableau de kana</h1></div>
+  <header><nav id=navbar><div id=navbar-brand><h1 id="headTitre">Kana Table</h1></div>
     <div id=navbar-links>
-    <a href="/en-jp/home.html">Page d'accueil</a></div></nav>
+    <a href="/en-jp/home.html">Home</a></div></nav>
     </header>
     <div id="desKanPopUp">
       <input type="button" value="Fermer" onclick="fermer(this)">
@@ -112,6 +112,7 @@ const line = document.getElementById('myLine');
 let kanjiCode, svgData, listeDeTraits, tableauDeKanas;
 
 function écrireLesKanas(syll){tbody.innerHTML="";
+document.getElementById("headTitre").innerText=syll.toUpperCase();
                 i=0; ix=tableauDeKanas[syll].length;
 while(i<ix){tr=tbody.insertRow();
     th=document.createElement("th"); th.innerText=gyoudan.gyou[i]; tr.appendChild(th);
