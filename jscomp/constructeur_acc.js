@@ -86,50 +86,58 @@ tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`
 for (i = 0; i < tabcontent.length; i++) {
 tabcontent[i].style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;}
 
-function orientationSet(ongletCiblé){
-if (enPortrait||(window.innerHeight<=768&&window.innerWidth<=768)){
-    tabcontent = document.getElementsByClassName("tabcontent");
-    document.getElementById(ongletCiblé).style.left="0px";
-    document.getElementById(ongletCiblé).style.top=`${header.getBoundingClientRect().height}px`;
-    document.getElementById(ongletCiblé).style.width="100vw";
-    document.getElementById(ongletCiblé).style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;
+function orientationSet(){
+    // if (enPortrait||(window.innerHeight<=767&&
+        if (window.innerWidth<=768){
 
-for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
-    tab.getElementsByTagName("button")[i].style.padding="0px 0em";
-}
-    // navbar.style.padding="0px"; navbar.style.paddingLeft="1rem";
-    tab.style.width="100vw";
-    tab.style.bottom="0em";
-    // tab.style.removeProperty("height");
-    tab.style.padding="0px";
-    tab.style.height="6em";
-    tab.style.display='flex'
-    tab.style.overflowX="auto";
-    tab.style.overflowY="hidden";
-    }
-
-else{
-    tabcontent = document.getElementsByClassName("tabcontent");
-    document.getElementById(ongletCiblé).style.left="30vw";
-    document.getElementById(ongletCiblé).style.top=`${header.getBoundingClientRect().height}px`;
-    document.getElementById(ongletCiblé).style.width="70vw";
-    document.getElementById(ongletCiblé).style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
-    
-    for (i = 0; i < tab.getElementsByTagName("button").length; i++) {
-        tab.getElementsByTagName("button")[i].style.padding="22px 16px";
-    }
         // navbar.style.padding="0px"; navbar.style.paddingLeft="1rem";
-        tab.style.width="30vw";
-        tab.style.removeProperty("bottom");
+        tab.style.width="100vw";
+        tab.style.bottom="0em";
         // tab.style.removeProperty("height");
-        tab.style.top=`${header.getBoundingClientRect().height}px`;
-        tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
-        tab.style.display='block';
-        tab.style.removeProperty("overflow-X");
-        tab.style.overflowY='scroll';
+        tab.style.height="3.5em";
+        tab.style.display='flex'
+        tab.style.overflowX="scroll";
+        tab.style.overflowY="hidden";
+        for (i=0; i<document.getElementsByClassName("tabcontent").length; i++){
+            document.getElementsByClassName("tabcontent")[i].style.left="0";
+            document.getElementsByClassName("tabcontent")[i].style.width="100vw";
+            document.getElementsByClassName("tabcontent")[i].style.height=`${window.innerHeight-header.getBoundingClientRect().height-tab.getBoundingClientRect().height}px`;}
+    
         
-    }
-}
+        // tab.getElementsByTagName("button")[0].style.color="red";
+        for (i=0; i<tab.getElementsByTagName("button").length; i++){
+            // tab.getElementsByTagName("button")[i].style.removeProperty("padding");
+            tab.getElementsByTagName("button")[i].style.display="inline-block";
+            tab.getElementsByTagName("button")[i].style.padding="0.5em 16px 2.5em";
+            // tab.getElementsByTagName("button")[i].style.flexShrink=
+            tab.getElementsByTagName("button")[i].style.flex="0 0 auto"; 
+            tab.getElementsByTagName("button")[i].style.width="auto";
+            // tab.getElementsByTagName("button")[i].style.whiteSpace="nowrap";    
+        }
+        }
+        else{
+        tab.style.width="25vw";
+        tab.style.bottom="unset";
+        tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+        tab.style.display="unset";
+        tab.style.overflowX="unset";
+        tab.style.overflowY="scroll";
+        for (i=0; i<document.getElementsByClassName("tabcontent").length; i++){
+            document.getElementsByClassName("tabcontent")[i].style.left="25vw";
+            document.getElementsByClassName("tabcontent")[i].style.width="75vw";
+            document.getElementsByClassName("tabcontent")[i].style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;}
+            
+        for (i=0; i<tab.getElementsByTagName("button").length; i++){
+            // tab.getElementsByTagName("button")[i].style.removeProperty("padding");
+            tab.getElementsByTagName("button")[i].style.display="block";
+            tab.getElementsByTagName("button")[i].style.padding="22px 16px";
+            // tab.getElementsByTagName("button")[i].style.flexShrink=
+            tab.getElementsByTagName("button")[i].style.flex="unset"; 
+            tab.getElementsByTagName("button")[i].style.width="100%";
+            // tab.getElementsByTagName("button")[i].style.whiteSpace="nowrap";    
+        }
+        }
+      }
 
 
 orientationSet(ongletAct);
