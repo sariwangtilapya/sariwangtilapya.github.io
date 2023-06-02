@@ -13,7 +13,7 @@ html, body {
   height: 89vh;
   overflow-y: scroll;
 }
-.tab button {
+.tab button { 
   display: block;
   background-color: inherit;
   color: #657b83;
