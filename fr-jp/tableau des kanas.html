@@ -1,90 +1,231 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de kana</title>
-<link rel="stylesheet" href="/styling/ymc.css">
-<style>
-    header{
-        position: static;
-    }
-    #navbar{
-        position: relative;
-    }
-    .ptn{
-        position: static;
-        display: flex;
-        bottom: 0;
-        left: 0px;
-        align-items: center;
-        flex-basis: 100%;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: space-around;
-    }
-    .ptn>div{
-        flex-basis: 50%;
-        padding: 0;
-        margin: auto;
-    }
-    /* .hrgn{
-        flex: 1;
-        width: 42vw;
-    }
-    .ktkn{
-        flex: 2;
-        float: right;
-        right: 100%;
-        width: 42vw;
-    } */
-</style>
+    <link rel="stylesheet" href="/styling/ymc.css">
+    <title>Document</title>
 </head>
+<style>
+/* #myTable tr:nth-child(odd) td { background: red; } */
+#myTable{
+  display: flex;
+  direction: rtl;
+  border: 1px black solid;
+  margin: 3px;
+
+}
+#myTable tbody,thead{
+  display: flex; 
+}
+#myTable tr{
+  display: block;
+}
+#myTable tr td{
+  flex-direction: column;
+}
+
+#myTable th,td {
+  display: block;
+  border: 1px black solid;
+  margin: 3px;
+}
+#myTable tr td.obsolète{
+  background-color: #657b83;
+  color: #073642;
+}
+#myTable tr td.rien{
+  background: black;
+}
+#myTable tr td:not(.rien):hover{
+  background-color: #2aa198;
+  color: #073642;
+  cursor: pointer;
+}
+input{
+  float: right;
+  display: block;
+}
+
+svg {
+  /* width: 300px; */
+  display: block;
+  border: 1px black solid;
+}
+svg path {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 0;
+  display: none;
+  /* animation: dash 1s linear; */
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 320;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#desKanPopUp{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: aquamarine;
+  border: 3px mediumseagreen solid;
+}
+@media screen and (max-width:480px) {
+  #myTable{
+  display: flex;
+  direction: ltr;
+  width: 100%;
+  flex-direction: column;
+  }
+  #myTable tbody,thead{
+  display: block;
+  float: right;
+  }
+  #myTable th,td {
+  display: inline-block;
+  }
+  #desKanPopUp{
+  width: 100%;
+  }
+}
+
+</style>
 <body>
-<header><nav id=navbar><div id=navbar-brand><h1>Tableau de kana サリワン・ティラピア</h1></div>
+  <header><nav id=navbar><div id=navbar-brand><h1>Tableau de kana</h1></div>
     <div id=navbar-links>
     <a href="/index.html">Page d'accueil</a></div></nav>
     </header>
-
-<div class="ptn">
-    <div class="hrgn">
-        <table border="black"><tr><td>Ｎ</td><td>Ｗ</td><td>Ｒ</td><td>Ｙ</td><td>Ｍ</td><td>Ｈ</td><td>Ｎ</td><td>Ｔ</td><td>Ｓ</td><td>Ｋ</td><td align="center">Ø</td><td></td><td rowspan="7"><strong>Ｈ<br>Ｉ<br>Ｒ<br>Ａ<br>Ｇ<br>Ａ<br>Ｎ<br>Ａ<br>平<br>仮<br>名</strong></td></tr>
-        <tr><td>　</td><td>わ</td><td>ら</td><td>や</td><td>ま</td><td>は</td><td>な</td><td>た</td><td>さ</td><td>か</td><td>あ</td><td>Ａ</td></tr>
-        <tr><td>　</td><td>　</td><td>り</td><td>　</td><td>み</td><td>ひ</td><td>に</td><td>ち</td><td>し</td><td>き</td><td>い</td><td>Ｉ</td></tr>
-        <tr><td>　</td><td>　</td><td>る</td><td>ゆ</td><td>む</td><td>ふ</td><td>ぬ</td><td>つ</td><td>す</td><td>く</td><td>う</td><td>Ｕ</td></tr>
-        <tr><td>　</td><td>　</td><td>れ</td><td>　</td><td>め</td><td>へ</td><td>ね</td><td>て</td><td>せ</td><td>け</td><td>え</td><td>Ｅ</td></tr>
-        <tr><td>　</td><td>を</td><td>ろ</td><td>よ</td><td>も</td><td>ほ</td><td>の</td><td>と</td><td>そ</td><td>こ</td><td>お</td><td>Ｏ</td></tr>
-        <tr><td>ん</td><td colspan="10" align="center">ひらがな</td><td align="center">Ø</td></tr></table> 
+    <div id="desKanPopUp">
+      <input type="button" value="Fermer" onclick="fermer(this)">
+      <div id="desKan" onclick="toDélai()"></div>
     </div>
-    <div class="ktkn">
-        <table border="black"><tr><td>Ｎ</td><td>Ｗ</td><td>Ｒ</td><td>Ｙ</td><td>Ｍ</td><td>Ｈ</td><td>Ｎ</td><td>Ｔ</td><td>Ｓ</td><td>Ｋ</td><td align="center">Ø</td><td></td><td rowspan="7"><strong>Ｋ<br>Ａ<br>Ｔ<br>Ａ<br>Ｋ<br>Ａ<br>Ｎ<br>Ａ<br>片<br>仮<br>名</strong></td></tr>
-        <tr><td>　</td><td>ワ</td><td>ラ</td><td>ヤ</td><td>マ</td><td>ハ</td><td>ナ</td><td>タ</td><td>サ</td><td>カ</td><td>ア</td><td>Ａ</td></tr>
-        <tr><td>　</td><td>　</td><td>リ</td><td>　</td><td>ミ</td><td>ヒ</td><td>ニ</td><td>チ</td><td>シ</td><td>キ</td><td>イ</td><td>Ｉ</td></tr>
-        <tr><td>　</td><td>　</td><td>ル</td><td>ユ</td><td>ム</td><td>フ</td><td>ヌ</td><td>ツ</td><td>ス</td><td>ク</td><td>ウ</td><td>Ｕ</td></tr>
-        <tr><td>　</td><td>　</td><td>レ</td><td>　</td><td>メ</td><td>ヘ</td><td>ネ</td><td>テ</td><td>セ</td><td>ケ</td><td>エ</td><td>Ｅ</tr>
-        <tr><td>　</td><td>ヲ</td><td>ロ</td><td>ヨ</td><td>モ</td><td>ホ</td><td>ノ</td><td>ト</td><td>ソ</td><td>コ</td><td>オ</td><td>Ｏ</td></tr>
-        <tr><td>ン</td><td colspan="10" align="center">カタカナ</td><td align="center">Ø</td></tr></table> 
-</div>
-</div>
+    <input type="button" value="hiragana" onclick="écrireLesKanas(this.value)">
+    <input type="button" value="katakana" onclick="écrireLesKanas(this.value)">
 
-<div class="ptn">
-    <div class="hrgn">
-        <table border="black"><tr><td>Ｐ</td><td>Ｂ</td><td>Ｄ</td><td>Ｚ</td><td>Ｇ</td><td></td><td rowspan="6"><strong>Ｈ<br>Ｉ<br>Ｒ<br>Ａ<br>Ｇ<br>Ａ<br>Ｎ<br>Ａ<br>平<br>仮<br>名</strong></td></tr>
-        <tr><td>ぱ</td><td>ば</td><td>だ</td><td>ざ</td><td>が</td><td>Ａ</td></tr>
-        <tr><td>ぴ</td><td>び</td><td>ぢ</td><td>じ</td><td>ぎ</td><td>Ｉ</td></tr>
-        <tr><td>ぷ</td><td>ぶ</td><td>づ</td><td>ず</td><td>ぐ</td><td>Ｕ</td></tr>
-        <tr><td>ぺ</td><td>べ</td><td>で</td><td>ぜ</td><td>げ</td><td>Ｅ</td></tr>
-        <tr><td>ぽ</td><td>ぼ</td><td>ど</td><td>ぞ</td><td>ご</td><td>Ｏ</td></tr></table> 
-    </div>
-    <div class="ktkn">
-        <table border="black"><tr><td>Ｐ</td><td>Ｂ</td><td>Ｄ</td><td>Ｚ</td><td>Ｇ</td><td></td><td rowspan="6"><strong>Ｋ<br>Ａ<br>Ｔ<br>Ａ<br>Ｋ<br>Ａ<br>Ｎ<br>Ａ<br>片<br>仮<br>名</strong></td></tr>
-        <tr><td>パ</td><td>バ</td><td>ダ</td><td>ザ</td><td>ガ</td><td>Ａ</td></tr>
-        <tr><td>ピ</td><td>ビ</td><td>ヂ</td><td>ジ</td><td>ギ</td><td>Ｉ</td></tr>
-        <tr><td>プ</td><td>ブ</td><td>ヅ</td><td>ズ</td><td>グ</td><td>Ｕ</td></tr>
-        <tr><td>ペ</td><td>ベ</td><td>デ</td><td>ゼ</td><td>ゲ</td><td>Ｅ</td></tr>
-        <tr><td>ポ</td><td>ボ</td><td>ド</td><td>ゾ</td><td>ゴ</td><td>Ｏ</td></tr></table> 
-    </div>
-</div>
+    <script>
+const line = document.getElementById('myLine');
+let kanjiCode, svgData, listeDeTraits, tableauDeKanas;
 
-</body></html>
+function écrireLesKanas(syll){tbody.innerHTML="";
+                i=0; ix=tableauDeKanas[syll].length;
+while(i<ix){tr=tbody.insertRow();
+    th=document.createElement("th"); th.innerText=gyoudan.gyou[i]; tr.appendChild(th);
+                j=0; jx=tableauDeKanas[syll][i].length; 
+  while(j<jx){td=tr.insertCell(); td.innerText=tableauDeKanas[syll][i][j];
+      if (tableauDeKanas[syll][i][j]!="　"){
+        td.setAttribute("onclick","desKan(this.innerText)");
+        if (["ゐ","ゑ","を","ヰ","ヱ","ヲ"].includes(tableauDeKanas[syll][i][j])){
+          td.setAttribute("class","obsolète")
+        }
+      }
+      else{
+        td.setAttribute("class","rien")
+      }
+tr.appendChild(td); j++;}
+tbody.appendChild(tr); i++;}
+
+tr=tbody.insertRow();
+    td=document.createElement("td");
+    if (syll=="hiragana"){td.innerText="ん";
+      thead.getElementsByTagName("th")[0].innerText="平";}
+    else if (syll=="katakana"){td.innerText="ン";
+      thead.getElementsByTagName("th")[0].innerText="片";}
+    td.setAttribute("onclick","desKan(this.innerText)");
+    tr.appendChild(td);}
+
+function fermer(a){a.parentNode.style.display='none';}
+
+function délai(a){
+    listeDeTraits[a].style.display="block";
+    listeDeTraits[a].style.animation= `dash ${longeur[a]/200}s linear`;
+    console.log(longeur[a]);
+    iter++;
+}
+
+function toDélai(){iter=0;
+    for (v of listeDeTraits){
+    v.style.display="none";
+}
+setTimeout(()=>délai(iter),0);}
+
+function desKan(kana){
+                kanjiCode=kana.charCodeAt(0).toString(16);
+                document.getElementById("desKanPopUp").style.display="block";
+                document.getElementById("desKan").innerText="Chargement en cours."
+                while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
+                console.log(kanjiCode);
+
+  fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
+      .then(response => response.text())
+      .then(svgData => {svgData=svgData.slice(svgData.search("<svg"));
+
+  document.getElementById("desKan").innerHTML=svgData;
+  listeDeTraits=document.getElementById('desKan').children[0].children[0].children[0].children;
+  iter=0; longeur=[];
+    for (v of listeDeTraits){longeur.push(v.getTotalLength());
+        v.addEventListener('animationend', () => {console.log('Animation completed');
+            if (iter<listeDeTraits.length){délai(iter);}  }   );    }
+  délai(iter);      }     )
+      .catch(error=>{document.getElementById('desKan').innerText="Connectez-vous à Internet";
+    console.log(error);}
+);                    }
+
+fetch("/données/jp/gojuon.txt").then(response=>response.text())
+.then(text =>{
+gyoudan={"gyou":["　","Ｋ","Ｓ","Ｔ","Ｎ","Ｈ","Ｍ","Ｙ","Ｒ","Ｗ"],
+"dan":["Ａ","Ｉ","Ｕ","Ｅ","Ｏ"]};
+tableauDeKanas={"hiragana":[],"katakana":[]};
+
+i=0, ix=text.indexOf("を")+1; let nouvTab=new Array;
+while (i<ix){if (text[i]=="\n"){tableauDeKanas.hiragana.push(nouvTab); nouvTab=new Array;}
+else if(text[i]=="*"){nouvTab.push("　");}
+else{nouvTab.push(text[i]);} i++;} tableauDeKanas.hiragana.push(nouvTab);
+
+i=text.indexOf("ア"), ix=text.indexOf("ヲ")+1; nouvTab=new Array;
+while (i<ix){if (text[i]=="\n"){tableauDeKanas.katakana.push(nouvTab); nouvTab=new Array;}
+else if(text[i]=="*"){nouvTab.push("　");}
+else{nouvTab.push(text[i]);} i++;} tableauDeKanas.katakana.push(nouvTab);
+
+
+const tableau=document.createElement("table"); tableau.setAttribute("id","myTable");
+thead=document.createElement("thead"); tbody=document.createElement("tbody");
+
+i=0, ix= gyoudan.dan.length; let tr=thead.insertRow();
+let th=document.createElement("th");
+    tr.appendChild(th); thead.appendChild(tr);
+while (i<ix){
+    let th=document.createElement("th"); th.innerText=gyoudan.dan[i];
+    tr.appendChild(th); thead.appendChild(tr); i++;}
+
+
+
+let syllabaire="hiragana"
+écrireLesKanas(syllabaire);
+
+tableau.appendChild(thead);
+tableau.appendChild(tbody);
+document.body.insertBefore(tableau, document.body.children[1]);
+        });
+// console.log(window.innerWidth<782)
+// if (window.innerWidth<782){
+//   for (i++; i<document.getElementsByTagName("th"); i++){
+//     document.getElementsByTagName("th")[i].style.display="inline-block";
+//   }
+//   for (i++; i<document.getElementsByTagName("td"); i++){
+//     document.getElementsByTagName("td")[i].style.display="inline-block";
+//   }
+//   document.getElementById("myTable").style.display="block";
+//   document.getElementById("myTable").style.direction="ltr";
+//   document.getElementsByTagName("tbody")[0].style.display="block";
+//   document.getElementsByTagName("thead")[0].style.display="block";
+  
+// #myTable tbody,thead
+// }
+    </script>
+</body>
+</html>
