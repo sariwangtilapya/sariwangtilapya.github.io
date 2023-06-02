@@ -45,11 +45,13 @@
 }
 input{
   float: right;
+  display: block;
 }
 
 svg {
-  width: 300px;
+  /* width: 300px; */
   display: block;
+  border: 1px black solid;
 }
 svg path {
   stroke-dasharray: 320;
@@ -68,14 +70,36 @@ svg path {
 #desKanPopUp{
   display: none;
   position: fixed;
+  bottom: 0;
   background-color: aquamarine;
   border: 3px mediumseagreen solid;
+}
+@media screen and (max-width:480px) {
+  #myTable{
+  display: flex;
+  direction: ltr;
+  width: 100%;
+  flex-direction: column;
+  }
+  #myTable tbody,thead{
+  display: block;
+  float: right;
+  }
+  #myTable th,td {
+  display: inline-block;
+  }
+  #desKanPopUp{
+  width: 100%;
+  }
 }
 
 </style>
 <body>
+  <header><nav id=navbar><div id=navbar-brand><h1>Tableau de kana</h1></div>
+    <div id=navbar-links>
+    <a href="/index.html">Page d'accueil</a></div></nav>
+    </header>
     <div id="desKanPopUp">
-      <!-- <button>Fermer</button> -->
       <input type="button" value="Fermer" onclick="fermer(this)">
       <div id="desKan" onclick="toDélai()"></div>
     </div>
@@ -184,23 +208,23 @@ let syllabaire="hiragana"
 
 tableau.appendChild(thead);
 tableau.appendChild(tbody);
-document.body.appendChild(tableau);
+document.body.insertBefore(tableau, document.body.children[1]);
         });
-console.log()
-if (window.innerWidth<782){
-  for (i++; i<document.getElementsByTagName("th"); i++){
-    document.querySelectorAll("th")[i].style.display="inline-block";
-  }
-  for (i++; i<document.getElementsByTagName("td"); i++){
-    document.querySelectorAll("td")[i].style.display="inline-block";
-  }
-  document.getElementById("myTable").style.display="block";
-  // document.getElementById("myTable").style.direction="ltr";
-  document.getElementsByTagName("tbody")[0].style.display="block";
-  document.getElementsByTagName("thead")[0].style.display="block";
+// console.log(window.innerWidth<782)
+// if (window.innerWidth<782){
+//   for (i++; i<document.getElementsByTagName("th"); i++){
+//     document.getElementsByTagName("th")[i].style.display="inline-block";
+//   }
+//   for (i++; i<document.getElementsByTagName("td"); i++){
+//     document.getElementsByTagName("td")[i].style.display="inline-block";
+//   }
+//   document.getElementById("myTable").style.display="block";
+//   document.getElementById("myTable").style.direction="ltr";
+//   document.getElementsByTagName("tbody")[0].style.display="block";
+//   document.getElementsByTagName("thead")[0].style.display="block";
   
 // #myTable tbody,thead
-}
+// }
     </script>
 </body>
 </html>

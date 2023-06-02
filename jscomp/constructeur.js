@@ -5,9 +5,6 @@ if (dln[dll-lesBarresOubliquesIter]=="."&&!pointTrouvé){lePointDExtension=dll-l
 if (dln[dll-lesBarresOubliquesIter]=="/"){lesBarresOubliques.push(dll-lesBarresOubliquesIter);}
 lesBarresOubliquesIter++;}
 
-console.log(dln.slice(lesBarresOubliques[lesBarresOubliques.length-1],lesBarresOubliques[lesBarresOubliques.length-2]));
-
-
 const nomDuFiche=decodeURIComponent(dln.slice(lesBarresOubliques[0]+1,lePointDExtension));
 document.title=nomDuFiche;
 
@@ -50,12 +47,28 @@ document.body.insertBefore(header, document.body.firstChild);
 document.body.appendChild(tab);
 document.getElementById("contenu").appendChild(droitDAuteur);
 
-tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
-document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
-
+// let enPortrait;
+//   if (window.matchMedia("(orientation: portrait)").matches) {
+//     enPortrait=true;
+//   } else if (window.matchMedia("(orientation: landscape)").matches) {
+//     enPortrait=false;
+//   } else {
+//     enPortrait=false;
+//   }
+//   if (enPortrait||
+// function orientationSet(){
+//     if (window.innerWidth<=768){
+//     document.getElementById("contenu").style.height=`${window.innerHeight+header.getBoundingClientRect().height+tab.getBoundingClientRect().height}px`;    
+//     tab.style.bottom="0em";
+//     }
+//   else{
+//     tab.style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+//     document.getElementById("contenu").style.height=`${window.innerHeight-header.getBoundingClientRect().height}px`;
+//   }
+// }
+//   window.addEventListener('resize', function (){console.log("changé"); orientationSet()});
 try {
     nvDArt; // The variable is not set (ReferenceError)
-    // document.getElementById("contenu").innerText=nvDArt;
     
   } catch (error) {
     nvDArt=null;}

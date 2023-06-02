@@ -7,10 +7,10 @@ html, body {
 .tab {
   position: fixed;
   /* float: left; */
-  border: 1px solid #073642;
+  border: 1px #073642 solid;
   background-color: #002b36;
-  width: 30%;
-  height: 89vh;
+  width: 25%;
+  /* height: 89vh; */
   overflow-y: scroll;
 }
 .tab button {
@@ -26,7 +26,7 @@ html, body {
   transition: 0.3s;
   font-size: 17px;
 }
-.tab button:hover {
+.tab button:hover { 
   background-color: #2aa198;
   color: #073642;
 }
@@ -40,12 +40,11 @@ html, body {
 #contenu {
   position: absolute;
   /* float: left; */
-  left: 30%;
+  left: 25%;
   padding: 0px 12px;
   /* border: 1px solid #073642; */
-  width: 70%;
+  width: 75%;
   border-left: none;
-  height: 89vh;
   overflow-y: scroll;
   display: none;
 }
@@ -53,3 +52,24 @@ header{
   position: sticky;
   top: 0;
 }
+
+/* @media screen and (max-width:768px) {
+  #contenu{
+    left: 0;
+    width: 100vw;
+  }
+  .tab{
+    display: flex;
+    bottom: 0;
+    height: 2.5em;
+    overflow-x: scroll;
+    width: 100vw;
+  }
+  .tab button{
+    height: 2.5em;
+    display: inline-block;
+    width: auto;
+    flex: 0 0 auto; 
+    
+  }
+} */
