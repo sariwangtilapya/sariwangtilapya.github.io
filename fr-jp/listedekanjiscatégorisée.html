@@ -52,6 +52,10 @@
             <div id="Signification">un,radical un (no. 1)</div>
             <div id="Liens"></div>
         </div>
+        <!-- <form oninput="x.value=parseInt(vitesseDeTraçage.value)"> -->
+          <input type="range" id="vitesseDeTraçage" min="0" max="10" value="4">
+          <!-- <output name="x" for="vitesseDeTraçage"></output>
+        </form> -->
         <div id="desKan"></div>
     </div>
 </div>
@@ -68,6 +72,7 @@
   var kanjidic_french;
   let kanAct="一";
 const systèmesDOrdination=["kanji_in_context","heisig6","freq","tutt_cards","heisig","sh_desc","sh_kk","sh_kk2","gakken","deroo","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","henshall","jf_cards","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names"];
+let vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
 
 let SdO="kanji_in_context";
 let v=0; let vx=systèmesDOrdination.length;
@@ -200,12 +205,45 @@ function optionsAff(){document.getElementById("overlay").style.display="flex";}
 
 function délai(a){
     listeDeTraits[a].style.display="block";
-    listeDeTraits[a].style.animation= `dash ${longeur[a]/150}s linear`;
+    listeDeTraits[a].style.animation= `dash ${longeur[a]/(50+vitesseDeTraçage*25)}s linear`;
     console.log(longeur[a]);
     iter++;
 }
+function toDélai(){iter=0; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
+document.getElementsByTagName("svg")[0].style.border="1px transparent solid";
+    for (v of listeDeTraits){
+    v.style.display="none";
+}
+setTimeout(()=>délai(iter),0);}
 
-function kanjiClick() {let kanjiCode; let tKi;
+function dessinerLeKanjiCurry(){dessinerLekanji();}
+function dessinerLekanji(){fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
+    .then(response => response.text())
+    .then(svgData => {
+      svgData=svgData.slice(svgData.search("<svg"));
+      document.getElementById('desKan').innerHTML = svgData;
+      listeDeTraits=document.getElementsByTagName('path');
+      console.log(listeDeTraits)
+      iter=0; longeur=[];
+      // listeDeTraits[0].style.display="none"
+      // listeDeTraits[0].style.animation="dash 5s linear;"
+    for (v of listeDeTraits){longeur.push(v.getTotalLength());
+        v.addEventListener('animationend', () => {console.log('Animation completed');
+            if (iter<listeDeTraits.length){délai(iter);}
+            else{document.getElementsByTagName("svg")[0].style.border="1px black solid";}
+          }   );    }
+  délai(iter); 
+  desKanBout=document.createElement("button"); desKanBout.innerText="Tracer";
+  desKanBout.setAttribute("onclick","toDélai()"); document.getElementById("desKan").appendChild(desKanBout);
+    })
+    .catch(error => {
+      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
+  desKanBout=document.createElement("button"); desKanBout.innerText="Recharger";
+  desKanBout.setAttribute("onclick","dessinerLeKanjiCurry()"); document.getElementById("desKan").appendChild(desKanBout);
+      // Gérez les erreurs de requête ici
+    });}
+
+function kanjiClick() {let tKi; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
 tousKan=document.getElementsByClassName("kanHakoNaka"); v=0, vx=tousKan.length; while(v<vx){
 tousKan[v].addEventListener('click', function(event) {
   tKi=Array.from(document.getElementsByClassName("kanHakoNaka"));
@@ -233,26 +271,7 @@ else{
     document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
   }
 while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
-fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
-    .then(response => response.text())
-    .then(svgData => {
-      svgData=svgData.slice(svgData.search("<svg"));
-      document.getElementById('desKan').innerHTML = svgData;
-      listeDeTraits=document.getElementsByTagName('path');
-      console.log(listeDeTraits)
-      iter=0; longeur=[];
-      // listeDeTraits[0].style.display="none"
-      // listeDeTraits[0].style.animation="dash 5s linear;"
-    for (v of listeDeTraits){longeur.push(v.getTotalLength());
-        v.addEventListener('animationend', () => {console.log('Animation completed');
-            if (iter<listeDeTraits.length){délai(iter);}  }   );    }
-  délai(iter); 
-    })
-    .catch(error => {
-      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
-      console.log(error);
-      // Gérez les erreurs de requête ici
-    });
+dessinerLekanji();
 }); v++;}}
 
 document.addEventListener('keydown', (event) => {if (event.code==="Escape"){fermerPopUps()}});
