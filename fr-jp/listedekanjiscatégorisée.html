@@ -1,321 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://sariwangtilapya.github.io/Liste%20de%20kanjis%20categoris%C3%A9e.png">
-    <link rel="stylesheet" href="/fr-jp/listedekanjiscatégorisée.css">
-    <title>漢字一覧表</title>
-</head>
-<body>
-    <!-- <div id="ménuRoulante">Ménu<br>Roulante</div>
-    <div id="insBoî">
-    <div id="ins">
-    <div id="boutonFermer">Info<button onclick="fermerI()">×</button></div><p>Les lectures s'affichent en passant la souris sur le kanji.<br>Cliquer le kanji ouvre la page fr.wikipedia sur le même kanji.</p>
-    </div>
-    </div> -->
-    <div id="boîCach">
-      <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
-      <div id="vocab"></div>
-    </div>
-    <div id="classement">Classement : 
-    <input type="radio" id="nvSc"   name="classement" onclick="nvSc()" checked>
-      <label for="nvSc">Nv. Scolaire</label>
-    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">
-      <label for="nvJLPT">Nv. JLPT</label>
-    <input type="radio" id="SKIP"   name="classement" onclick="SKIP()">
-      <label for="SKIP">SKIP</label>
-    <input type="radio" id="tousLesKanjis"   name="classement" onclick="tousLesKanjis()">
-      <label for="tousLesKanjis">Tous</label>
-    <input type="radio" id="traits" name="classement" onclick="traits()">Traits - hors service
-    </div>
-    <div id="étage2"></div>
-    <div id="ordre">Ordre : 
-    </div>
 
-<div id="compteHako"></div>
-<hr><hr>
-<div id="flexEnBas">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://sariwangtilapya.github.io/Liste%20de%20kanjis%20categoris%C3%A9e.png">
+  <link rel="stylesheet" href="/fr-jp/listedekanjiscatégorisée.css">
+  <title>漢字一覧表</title>
+</head>
+
+<body>
+  <div id="boîCach">
+    <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
+    <div id="vocab"></div>
+  </div>
+  <div id="classement">Classement :
+    <input type="radio" id="nvSc" name="classement" onclick="nvSc()" checked>
+    <label for="nvSc">Nv. Scolaire</label>
+    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">
+    <label for="nvJLPT">Nv. JLPT</label>
+    <input type="radio" id="SKIP" name="classement" onclick="SKIP()">
+    <label for="SKIP">SKIP</label>
+    <input type="radio" id="tousLesKanjis" name="classement" onclick="tousLesKanjis()">
+    <label for="tousLesKanjis">Tous</label>
+    <input type="radio" id="traits" name="classement" onclick="traits()">Traits - hors service
+  </div>
+  <div id="étage2"></div>
+  <div id="ordre">Ordre :
+  </div>
+
+  <div id="compteHako"></div>
+  <hr>
+  <hr>
+  <div id="flexEnBas">
     <div id="gauche">
-        <div id="prevuHako" style="display: none;">一</div>
-        <div id="kanjiHako">Chargement en cours...</div>
+      <div id="prevuHako" style="display: none;">一</div>
+      <div id="kanjiHako">Chargement en cours...</div>
     </div>
     <div id="détailsHako">
-        <div>
-          <span id="kanjiTitre">一</span>
+      <div>
+        <span id="kanjiTitre">一</span>
         <input type="button" onclick="vocabAff(kanAct)" value='Mots avec ce kanji'>
-        </div>
-        <div>
-            訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
-            音読み : <span id="Onyomi">イチ イツ</span>
-            <div id="Signification">un,radical un (no. 1)</div>
-            <div id="Liens"></div>
-        </div>
-        <!-- <form oninput="x.value=parseInt(vitesseDeTraçage.value)"> -->
-          <input type="range" id="vitesseDeTraçage" min="0" max="10" value="4">
-          <!-- <output name="x" for="vitesseDeTraçage"></output>
-            
-        </form> -->
-        <button id="autoTraçage" onclick="autoTraçageInt()">Auto : off</button>
-        <div id="desKan"></div>
+      </div>
+      <div>
+        訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
+        音読み : <span id="Onyomi">イチ イツ</span>
+        <div id="Signification">un,radical un (no. 1)</div>
+        <div id="Liens"></div>
+      </div>
+      <input type="range" id="vitesseDeTraçage" min="0" max="10" value="4">
+      <button id="autoTraçage" onclick="autoTraçageInt()">Auto : off</button>
+      <div id="desKan"></div>
     </div>
-</div>
-<div id="optionsBouton"><input type="button" value="Options" onclick="optionsAff()"></div>
-<div class="overlay" id="overlay">
-  <div id="optionsFenêtre">
-    <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
-    <div></div>
-    <div><a href="/index.html">Revenir à la page d'accueil</a></div>
-    <div>Suivez-nous sur <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank" rel="noopener noreferrer">Facebook</a> || <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a>  || <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a> </div>
   </div>
-</div>
-<script>
-  var kanjidic_french;
-  let kanAct="一";
-const systèmesDOrdination=["kanji_in_context","heisig6","freq","tutt_cards","heisig","sh_desc","sh_kk","sh_kk2","gakken","deroo","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","henshall","jf_cards","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names"];
-let vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
-let autoTraçage=0;
-function autoTraçageInt(){
-  // document.getElementById("autoTraçage").value
-  autoTraçage=(autoTraçage+1)%2;
-  document.getElementById("autoTraçage").innerText=`Auto : ${["off","on"][autoTraçage]}`
-}
+  <div id="optionsBouton"><input type="button" value="Options" onclick="optionsAff()"></div>
+  <div class="overlay" id="overlay" onclick="fermerPopUps()">
+    <div id="optionsFenêtre">
+      <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
+      <div><a href="/index.html">Revenir à la page d'accueil</a></div>
+      <div>Suivez-nous sur
+        <a href="https://twitter.com/sariwangtilapya" target="_blank" rel="noopener noreferrer">Twitter</a> ||
+        <a href="https://www.facebook.com/Sariwang-Tilapya-Apprendre-le-japonais-114046221279112" target="_blank"
+          rel="noopener noreferrer">Facebook</a> ||
+        <a href="https://www.instagram.com/sariwangtilapya/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    var kanjidic_french;
+    let kanAct = "一";
+    const systèmesDOrdination = ["kanji_in_context", "heisig6", "freq", "tutt_cards", "heisig", "sh_desc", "sh_kk", "sh_kk2", "gakken", "deroo", "halpern_kkd", "halpern_kkld", "halpern_kkld_2ed", "halpern_njecd", "henshall", "jf_cards", "kodansha_compact", "maniette", "moro", "nelson_c", "nelson_n", "oneill_kk", "oneill_names"];
+    let vitesseDeTraçage = document.getElementById("vitesseDeTraçage").value;
+    let autoTraçage = 0;
+    function autoTraçageInt() {
+      // document.getElementById("autoTraçage").value
+      autoTraçage = (autoTraçage + 1) % 2;
+      document.getElementById("autoTraçage").innerText = `Auto : ${["off", "on"][autoTraçage]}`
+    }
 
-let SdO="kanji_in_context";
-let v=0; let vx=systèmesDOrdination.length;
-while (v<vx){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","ordre");
-c.setAttribute("id",`${systèmesDOrdination[v]}`); c.setAttribute("onClick","réordonner(this.id)");
-document.getElementById("ordre").appendChild(c); if (systèmesDOrdination[v]==SdO){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`${systèmesDOrdination[v]}`); l.innerHTML=`${systèmesDOrdination[v]}`;
-document.getElementById("ordre").appendChild(l);
-v++;}
+    function fermerPopUps() { document.getElementById("boîCach").style.display = "none"; document.getElementById("overlay").style.display = "none" }
 
-let étatActuel=[nvSc,nvJLPT,SKIP,tousLesKanjis,traits];
-let étatActuel_i=0;
-let étatActuel_ii=[1,4,4,1];
+    function optionsAff() { document.getElementById("overlay").style.display = "flex"; }
 
-function dup(vl){document.getElementById("kanjiHako").innerText=""; v=0; vx=groupements[vl-1].length
-while (v<vx){let naka=document.createElement("span"); naka.setAttribute("class","kanHakoNaka"); 
-naka.innerText=groupements[vl-1][v][0];
-document.getElementById("kanjiHako").appendChild(naka);
-  //+=`${groupements[vl-1][v][0]}　`; 
-  v++;}
-  kanjiClick();
-//document.getElementById("kanjiHako").innerText=wxw;
-document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;
-}
+    document.addEventListener('keydown', (event) => { if (event.code === "Escape") { fermerPopUps() } });
 
-function nvSc_ii(vl){étatActuel_ii[0]=vl;dup(vl);}
-function nvJLPT_ii(vl){étatActuel_ii[1]=vl;dup(vl);}
-function SKIP_ii(vl){étatActuel_ii[2]=vl;dup(vl);}
-function tousLesKanjis_ii(vl){étatActuel_ii[3]=vl; a=vl*3700;
-  if (a>kanjidic_french.length){a=kanjidic_french.length;}
-
-  document.getElementById("kanjiHako").innerText=""; v=0; vx=kanjidic_french.length;
-while (v<vx){let naka=document.createElement("span"); naka.setAttribute("class","kanHakoNaka"); 
-naka.innerText=kanjidic_french[v][0];
-document.getElementById("kanjiHako").appendChild(naka);
-  //+=`${groupements[vl-1][v][0]}　`; 
-  v++;}
-  kanjiClick();
-//   wxw=""; i=(vl-1)*3700; while (i<a){wxw+=`${kanjidic_french[i][0]}　`; i++;}
-//   document.getElementById("kanjiHako").innerText=wxw;
-  document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;
-}
-
-  function nvSc(){étatActuel_i=0; groupements=[]; document.getElementById("étage2").innerText="";
-for (i=1; i<=10; i++){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","nvSc"); c.setAttribute("id",`nvSc${i}`);
-c.setAttribute("value",`${i}`); c.setAttribute("onClick","nvSc_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[0]){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`nvSc${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);
-if (i==6){i++;}}
-v=0; vx=kanjidic_french.length;
-while (v<vx){if (groupements[parseInt(kanjidic_french[v][5].grade)-1]==undefined){groupements[parseInt(kanjidic_french[v][5].grade)-1]=new Array;}
-groupements[parseInt(kanjidic_french[v][5].grade)-1].push(kanjidic_french[v]); v++;}
-nvSc_ii(étatActuel_ii[0]);
-}
-
-function nvJLPT(){étatActuel_i=1; groupements=[]; document.getElementById("étage2").innerText="";
-for (i=4; i>0; i--){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","nvJLPT"); c.setAttribute("id",`nvJLPT${i}`);
-c.setAttribute("value",`${i}`); c.setAttribute("onClick","nvJLPT_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[1]){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`nvJLPT${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);}
-for (v of kanjidic_french){if (groupements[parseInt(v[5].jlpt)-1]==undefined){groupements[parseInt(v[5].jlpt)-1]=new Array;}
-groupements[parseInt(v[5].jlpt)-1].push(v)}
-nvJLPT_ii(étatActuel_ii[1]);
-}
-
-function SKIP(){étatActuel_i=2; groupements=[]; document.getElementById("étage2").innerText="";
-for (i=4; i>0; i--){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","SKIP"); c.setAttribute("id",`SKIP${i}`);
-c.setAttribute("value",`${i}`); c.setAttribute("onClick","SKIP_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==étatActuel_ii[2]){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`SKIP${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);}
-for (v of kanjidic_french){if (groupements[parseInt(v[5].skip)-1]==undefined){groupements[parseInt(v[5].skip)-1]=new Array;}
-groupements[parseInt(v[5].skip)-1].push(v)}
-SKIP_ii(étatActuel_ii[2]);
-}
-
-function tousLesKanjis(){étatActuel_i=3; document.getElementById("étage2").innerText="page : ";
-i=1; while (i<=3){c=document.createElement("INPUT");
-c.setAttribute("type","radio"); c.setAttribute("name","tousLesKanjis"); c.setAttribute("id",`tousLesKanjis${i}`);
-c.setAttribute("value",`${i}`); c.setAttribute("onClick","tousLesKanjis_ii(this.value)");
-document.getElementById("étage2").appendChild(c); if (i==1){c.setAttribute("checked",1)}
-l=document.createElement("LABEL"); l.setAttribute("for",`tousLesKanjis${i}`); l.innerHTML=`${i}`;
-document.getElementById("étage2").appendChild(l);
-i++;}
-tousLesKanjis_ii(étatActuel_ii[3])
-}
-
-function traits(){groupements=[];
-étage2.innerHTML=`<input type="checkbox" name="Niveau Scolaire" onclick="nvS1()">1<input type="checkbox" name="Niveau Scolaire" onclick="nvS2()">2`
-for (v of kanjidic_french){if (groupements[parseInt(v[5].strokes)-1]==undefined){groupements[parseInt(v[5].strokes)-1]=new Array;}
-groupements[parseInt(v[5].strokes)-1].push(v)}
-wxw="";
-for (v of groupements){if (v!=undefined){
-for (w of v){wxw+=w[0]+"　";}
-}wxw+="\n";}
-document.getElementById("kanjiHako").innerText=wxw;}
-
-// if (document.getElementById("nvSc").checked==1){nvSc();}
-
-function pOrd(sSdO){SdO=sSdO;
-let sorter=[]; let uSorter=[];
-v=0; vx=kanjidic_french.length;
-while (v<vx){if (eval(`kanjidic_french[v][5].${sSdO}`)!=undefined){sorter.push(kanjidic_french[v]);} else {uSorter.push(kanjidic_french[v]);}v++;}
-sorter.sort(function(a,b) {return parseInt(eval(`a[5].${sSdO}`),10)-parseInt(eval(`b[5].${sSdO}`),10);});
-kanjidic_french=sorter.concat(uSorter);
-}
-
-function réordonner(id){
-    pOrd(id); étatActuel[étatActuel_i]();
-}
-function fermerI(){
-    document.getElementById("insBoî").remove();
-}
-
-let vocListe=[];
-function vocabAff(kA){vocListe=[]; document.getElementById("vocab").innerHTML="";
-  v=0; vx=jmdict_fr.length;
-    while (v<vx){if (jmdict_fr[v][0].includes(kA)){
-      // wxw+=`${jmdict_fr[v]}\n`;}v++;
-      vocBoî=document.createElement("div"); vocBoî.innerText=jmdict_fr[v];
-      document.getElementById("vocab").appendChild(vocBoî);}
-    // document.getElementById("vocab").innerText=wxw;
-    v++;}
-    document.getElementById("boîCach").style.display="block";
-}
-
-function fermerPopUps(){document.getElementById("boîCach").style.display="none"; document.getElementById("overlay").style.display="none"}
-
-function optionsAff(){document.getElementById("overlay").style.display="flex";}
-
-function délai(a){
-    listeDeTraits[a].style.display="block";
-    listeDeTraits[a].style.animation= `dash ${longueur[a]/(50+vitesseDeTraçage*25)}s linear`;
-    iter++;
-}
-function toDélai(){iter=0; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
-document.getElementsByTagName("svg")[0].style.border="1px transparent solid";
-    for (v of listeDeTraits){
-    v.style.display="none";
-}
-setTimeout(()=>délai(iter),0);}
-
-function dessinerLeKanjiCurry(){dessinerLekanji();}
-function dessinerLekanji(){fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
-    .then(response => response.text())
-    .then(svgData => {longueur=[]; iter=0;
-      svgData=svgData.slice(svgData.search("<svg"));
-      document.getElementById('desKan').innerHTML = svgData;
-      listeDeTraits=document.getElementsByTagName('path');
-    for (v of listeDeTraits){longueur.push(v.getTotalLength());
-        v.addEventListener('animationend', () => {
-            if (iter<listeDeTraits.length){délai(iter);}
-            else{document.getElementsByTagName("svg")[0].style.border="1px black solid";}
-          });    }
-  if (autoTraçage==1)        
-  {toDélai(); }
-  desKanBout=document.createElement("button"); desKanBout.innerText="Tracer";
-  desKanBout.setAttribute("onclick","toDélai()"); document.getElementById("desKan").appendChild(desKanBout);
-    })
-    .catch(error => {
-      document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
-  desKanBout=document.createElement("button"); desKanBout.innerText="Recharger";
-  desKanBout.setAttribute("onclick","dessinerLeKanjiCurry()"); document.getElementById("desKan").appendChild(desKanBout);
-    });}
-
-function kanjiClick() {let tKi; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
-tousKan=document.getElementsByClassName("kanHakoNaka"); v=0, vx=tousKan.length; while(v<vx){
-tousKan[v].addEventListener('click', function(event) {
-  tKi=Array.from(document.getElementsByClassName("kanHakoNaka"));
-  //range = document.caretRangeFromPoint(event.clientX, event.clientY);
-  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
-  // if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
-  // if (range.startOffset<targetDiv.innerText.length){
-if (étatActuel_i==3){
-  console.log(tKi.indexOf(event.target));
-  document.getElementById("kanjiTitre").innerText=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
-  document.getElementById('Onyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][1];
-  document.getElementById('Kunyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][2];
-  document.getElementById('Signification').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][4];
-  kanjiCode=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
-  kanAct=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
-    document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
-}
-else{
-  document.getElementById("kanjiTitre").innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
-  document.getElementById('Onyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][1];
-  document.getElementById('Kunyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][2];
-  document.getElementById('Signification').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][4];
-  kanjiCode=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
-  kanAct=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
-    document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
-  }
-while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
-dessinerLekanji();
-}); v++;}}
-
-document.addEventListener('keydown', (event) => {if (event.code==="Escape"){fermerPopUps()}});
-
-let dicos=["kanjidic_french/kanji_bank_1.json","jmdict_fr.json"];
-
-const requests = dicos.map((dico) => {
-  const url = `/dictionnaires/${dico}`;
-  return fetch(url).then(response => response.json()); //json ou text
-});
-
-Promise.all(requests)
-.then(json=>{kanjidic_french=json[0]; jmdict_fr=json[1];
-
-pOrd("heisig");
-nvSc();
-
-var hovIdx; var range;
-//characteer hover
-var targetDiv = document.getElementById('kanjiHako');
-let bksp=0;
-targetDiv.addEventListener('mousemove', function(event) {
-  range = document.caretRangeFromPoint(event.clientX, event.clientY);
-  //var hoveredCharacter = range.startContainer.textContent.charAt(range.startOffset);
-  if (range.startOffset%2==1){hovIdx=range.startOffset-1;} else {hovIdx=range.startOffset;}
-  if (range.startOffset<targetDiv.innerText.length)
-  {document.getElementById("prevuHako").innerText=range.startContainer.textContent.charAt(hovIdx);}
- // console.log(hovIdx)
-});
-
-})
-.catch(error => {
-      console.log(error);
-      // Gérez les erreurs de requête ici
-    });
-</script>
+  </script>
+  <script src="listedekanjiscatégorisée triage.js"></script>
+  <script src="listedekanjiscatégorisée kanjis.js"></script>
+  <script src="listedekanjiscatégorisée mobile.js"></script>
 </body>
+
 </html>
