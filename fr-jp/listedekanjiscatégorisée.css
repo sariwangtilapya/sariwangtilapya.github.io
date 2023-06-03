@@ -159,7 +159,7 @@ body {
     svg path {
       stroke-dasharray: 320;
       stroke-dashoffset: 0;
-      display: none;
+      /* display: none; */
       stroke: #93a1a1;
       /* animation: dash 1s linear; */
     }

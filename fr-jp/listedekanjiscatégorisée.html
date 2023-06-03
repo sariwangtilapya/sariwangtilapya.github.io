@@ -55,7 +55,9 @@
         <!-- <form oninput="x.value=parseInt(vitesseDeTraçage.value)"> -->
           <input type="range" id="vitesseDeTraçage" min="0" max="10" value="4">
           <!-- <output name="x" for="vitesseDeTraçage"></output>
+            
         </form> -->
+        <button id="autoTraçage" onclick="autoTraçageInt()">Auto : off</button>
         <div id="desKan"></div>
     </div>
 </div>
@@ -73,6 +75,12 @@
   let kanAct="一";
 const systèmesDOrdination=["kanji_in_context","heisig6","freq","tutt_cards","heisig","sh_desc","sh_kk","sh_kk2","gakken","deroo","halpern_kkd","halpern_kkld","halpern_kkld_2ed","halpern_njecd","henshall","jf_cards","kodansha_compact","maniette","moro","nelson_c","nelson_n","oneill_kk","oneill_names"];
 let vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
+let autoTraçage=0;
+function autoTraçageInt(){
+  // document.getElementById("autoTraçage").value
+  autoTraçage=(autoTraçage+1)%2;
+  document.getElementById("autoTraçage").innerText=`Auto : ${["off","on"][autoTraçage]}`
+}
 
 let SdO="kanji_in_context";
 let v=0; let vx=systèmesDOrdination.length;
@@ -193,20 +201,25 @@ function fermerI(){
     document.getElementById("insBoî").remove();
 }
 
-function vocabAff(kA){
-  v=0; vx=jmdict_fr.length; wxw="";
-    while (v<vx){if (jmdict_fr[v][0].includes(kA)){wxw+=`${jmdict_fr[v]}\n`;}v++;}
-    document.getElementById("vocab").innerText=wxw;
+let vocListe=[];
+function vocabAff(kA){vocListe=[]; document.getElementById("vocab").innerHTML="";
+  v=0; vx=jmdict_fr.length;
+    while (v<vx){if (jmdict_fr[v][0].includes(kA)){
+      // wxw+=`${jmdict_fr[v]}\n`;}v++;
+      vocBoî=document.createElement("div"); vocBoî.innerText=jmdict_fr[v];
+      document.getElementById("vocab").appendChild(vocBoî);}
+    // document.getElementById("vocab").innerText=wxw;
+    v++;}
     document.getElementById("boîCach").style.display="block";
 }
+
 function fermerPopUps(){document.getElementById("boîCach").style.display="none"; document.getElementById("overlay").style.display="none"}
 
 function optionsAff(){document.getElementById("overlay").style.display="flex";}
 
 function délai(a){
     listeDeTraits[a].style.display="block";
-    listeDeTraits[a].style.animation= `dash ${longeur[a]/(50+vitesseDeTraçage*25)}s linear`;
-    console.log(longeur[a]);
+    listeDeTraits[a].style.animation= `dash ${longueur[a]/(50+vitesseDeTraçage*25)}s linear`;
     iter++;
 }
 function toDélai(){iter=0; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
@@ -219,20 +232,17 @@ setTimeout(()=>délai(iter),0);}
 function dessinerLeKanjiCurry(){dessinerLekanji();}
 function dessinerLekanji(){fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
     .then(response => response.text())
-    .then(svgData => {
+    .then(svgData => {longueur=[]; iter=0;
       svgData=svgData.slice(svgData.search("<svg"));
       document.getElementById('desKan').innerHTML = svgData;
       listeDeTraits=document.getElementsByTagName('path');
-      console.log(listeDeTraits)
-      iter=0; longeur=[];
-      // listeDeTraits[0].style.display="none"
-      // listeDeTraits[0].style.animation="dash 5s linear;"
-    for (v of listeDeTraits){longeur.push(v.getTotalLength());
-        v.addEventListener('animationend', () => {console.log('Animation completed');
+    for (v of listeDeTraits){longueur.push(v.getTotalLength());
+        v.addEventListener('animationend', () => {
             if (iter<listeDeTraits.length){délai(iter);}
             else{document.getElementsByTagName("svg")[0].style.border="1px black solid";}
-          }   );    }
-  délai(iter); 
+          });    }
+  if (autoTraçage==1)        
+  {toDélai(); }
   desKanBout=document.createElement("button"); desKanBout.innerText="Tracer";
   desKanBout.setAttribute("onclick","toDélai()"); document.getElementById("desKan").appendChild(desKanBout);
     })
@@ -240,7 +250,6 @@ function dessinerLekanji(){fetch(`https://raw.githubusercontent.com/KanjiVG/kanj
       document.getElementById("desKan").innerText="Une erreur s'est produite. Veuillez réessayer."
   desKanBout=document.createElement("button"); desKanBout.innerText="Recharger";
   desKanBout.setAttribute("onclick","dessinerLeKanjiCurry()"); document.getElementById("desKan").appendChild(desKanBout);
-      // Gérez les erreurs de requête ici
     });}
 
 function kanjiClick() {let tKi; vitesseDeTraçage=document.getElementById("vitesseDeTraçage").value;
