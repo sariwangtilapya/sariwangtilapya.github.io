@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let dicos=["kanjidic_french/kanji_bank_1.json","jmdict_fr.json"];
+let desKan;
+fetch("/dictionnaires/kanjidic_french/kanji_bank_1.json").then(response => response.json()) //json ou text
+.then(json=>{kanjidic_french=json;
+// document.write(JSON.stringify(kanjidic_french[0][5]))
+leKanjiMême=kanjidic_french[8][0];
+kanjiCode=leKanjiMême.charCodeAt(0).toString(16);
+// kanjiCode="立".charCodeAt(0).toString(16);
+while (kanjiCode.length<5){kanjiCode="0"+kanjiCode;}
+
+fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${kanjiCode}.svg`)
+    .then(response => response.text())
+    .then(svgData => { svgData=svgData.slice(svgData.search("<svg"));
+    desKan=document.createElement("div");
+      desKan.innerHTML = svgData;
+      // console.log(desKan.getElementsByTagName("path")[0].parentNode);
+      // document.body.innerText+=desKan.getElementsByTagName("path")[0].parentNode==desKan.getElementsByTagName("path")[1].parentNode
+      document.body.innerText+=desKan.getElementsByTagName("path")[0].parentNode.getAttribute('kvg:element');
+      i=1; ix=desKan.getElementsByTagName("path").length;
+      while (i<ix){
+      if (desKan.getElementsByTagName("path")[i].parentNode==desKan.getElementsByTagName("path")[i-1].parentNode){
+        document.body.innerText+="0";  
+      }
+      else
+      {document.body.innerText+=desKan.getElementsByTagName("path")[i].parentNode.getAttribute('kvg:element');}
+      i++;
+      }
+        // document.body.innerText=svgData;
+      document.body.innerText+=`\n${svgData}`
+    })
+    .catch(error => {
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
+
+})
+.catch(error => {
+      console.log(error);
+      // Gérez les erreurs de requête ici
+    });
+    </script>
+</body>
+</html>

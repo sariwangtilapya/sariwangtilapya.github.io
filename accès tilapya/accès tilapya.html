@@ -103,8 +103,8 @@ Promise.all(requests)
         vérifPous.push([w.value,v.time]); somme+=parseFloat(w.value); //console.log(somme, accès)
       }}}}
       //console.log(vérifPous); console.log(somme);
-      if (somme!=0){
-      if (somme/0.000035<10){nvTil=Math.floor(somme/0.000035)+1;} else {nvTil=11;}
+      if (somme>0){
+      if (somme/0.000035<11){nvTil=Math.floor(somme/0.000035)+1;} else {nvTil=11;}
       }else{nvTil=0;}
 
       if (accès>10*24*60*60*1000){
