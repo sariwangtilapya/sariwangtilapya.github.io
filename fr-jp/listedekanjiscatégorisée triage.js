@@ -21,6 +21,7 @@ document.getElementById("kanjiHako").appendChild(naka);
   kanjiClick();
 //document.getElementById("kanjiHako").innerText=wxw;
 document.getElementById("compteHako").innerText=`Il y a ${groupements[vl-1].length} kanjis dans cette liste.`;
+orientationSet();
 }
 
 function nvSc_ii(vl){étatActuel_ii[0]=vl;dup(vl);}
@@ -39,6 +40,7 @@ document.getElementById("kanjiHako").appendChild(naka);
 //   wxw=""; i=(vl-1)*3700; while (i<a){wxw+=`${kanjidic_french[i][0]}　`; i++;}
 //   document.getElementById("kanjiHako").innerText=wxw;
   document.getElementById("compteHako").innerText=`Kanjis no. ${(vl-1)*3700+1} à ${a}`;
+  orientationSet();
 }
 
   function nvSc(){étatActuel_i=0; groupements=[]; document.getElementById("étage2").innerText="";
@@ -105,8 +107,8 @@ document.getElementById("kanjiHako").innerText=wxw;}
 function pOrd(sSdO){SdO=sSdO;
 let sorter=[]; let uSorter=[];
 v=0; vx=kanjidic_french.length;
-while (v<vx){if (eval(`kanjidic_french[v][5].${sSdO}`)!=undefined){sorter.push(kanjidic_french[v]);} else {uSorter.push(kanjidic_french[v]);}v++;}
-sorter.sort(function(a,b) {return parseInt(eval(`a[5].${sSdO}`),10)-parseInt(eval(`b[5].${sSdO}`),10);});
+while (v<vx){if (kanjidic_french[v][5][sSdO]!=undefined){sorter.push(kanjidic_french[v]);} else {uSorter.push(kanjidic_french[v]);}v++;}
+sorter.sort(function(a,b) {return parseInt(a[5][sSdO],10)-parseInt(b[5][sSdO],10);});
 kanjidic_french=sorter.concat(uSorter);
 }
 

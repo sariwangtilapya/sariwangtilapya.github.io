@@ -44,8 +44,19 @@ if (étatActuel_i==3){
   console.log(tKi.indexOf(event.target));
   document.getElementById("kanjiTitre").innerText=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
   document.getElementById('Onyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][1];
-  document.getElementById('Kunyomi').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][2];
-  document.getElementById('Signification').innerText = kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][4];
+    j=0, jx=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][2]; okuriganaCom=false;
+    wxw="";
+    while (j<jx.length){
+      if (jx[j]=="."){okuriganaCom=true; wxw+='<span class="okurigana">';}
+      else if(okuriganaCom&&(jx[j]==" "||j==jx.length)){okuriganaCom=false; wxw+='</span>';}
+      else {wxw+=jx[j];}
+      if(jx[j]==" "){wxw+=', '}
+      j++;
+    }
+    document.getElementById('Kunyomi').innerHTML =wxw;
+  document.getElementById('Signification').innerText="";
+  for (v of kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][4]){
+  document.getElementById('Signification').innerText += v+"\n";}
   kanjiCode=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
   kanAct=kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0];
     document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${kanjidic_french[(étatActuel_ii[3]-1)*3700+tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;
@@ -53,8 +64,19 @@ if (étatActuel_i==3){
 else{
   document.getElementById("kanjiTitre").innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
   document.getElementById('Onyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][1];
-  document.getElementById('Kunyomi').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][2];
-  document.getElementById('Signification').innerText=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][4];
+  j=0, jx=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][2]; okuriganaCom=false;
+    wxw="";
+    while (j<jx.length){
+      if (jx[j]=="."){okuriganaCom=true; wxw+='<span class="okurigana">';}
+      else if(okuriganaCom&&(jx[j]==" "||j==jx.length)){okuriganaCom=false; wxw+='</span>';}
+      else {wxw+=jx[j];}
+      if(jx[j]==" "){wxw+=', '}
+      j++;
+    }
+    document.getElementById('Kunyomi').innerHTML =wxw;
+  document.getElementById('Signification').innerText="";
+  for (v of groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][4]){
+  document.getElementById('Signification').innerText += v+"\n";}
   kanjiCode=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0].charCodeAt(0).toString(16);
   kanAct=groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0];
     document.getElementById('desKan').innerText = `Chargement de l'ordre de traits de ${groupements[étatActuel_ii[étatActuel_i]-1][tKi.indexOf(event.target)][0]}\nLes images SVG grace à KanjiVG`;

@@ -12,50 +12,50 @@
 </head>
 
 <body>
-  <div id="boîCach">
-    <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
-    <div id="vocab"></div>
-  </div>
-  <div id="classement">Classement :
-    <input type="radio" id="nvSc" name="classement" onclick="nvSc()" checked>
-    <label for="nvSc">Nv. Scolaire</label>
-    <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">
-    <label for="nvJLPT">Nv. JLPT</label>
-    <input type="radio" id="SKIP" name="classement" onclick="SKIP()">
-    <label for="SKIP">SKIP</label>
-    <input type="radio" id="tousLesKanjis" name="classement" onclick="tousLesKanjis()">
-    <label for="tousLesKanjis">Tous</label>
-    <input type="radio" id="traits" name="classement" onclick="traits()">Traits - hors service
-  </div>
-  <div id="étage2"></div>
-  <div id="ordre">Ordre :
-  </div>
-
-  <div id="compteHako"></div>
-  <hr>
-  <hr>
-  <div id="flexEnBas">
-    <div id="gauche">
-      <div id="prevuHako" style="display: none;">一</div>
-      <div id="kanjiHako">Chargement en cours...</div>
+  <div id="header">
+    <div id="classement">Classement :
+      <input type="radio" id="nvSc" name="classement" onclick="nvSc()" checked>
+      <label for="nvSc">Nv. Scolaire</label>
+      <input type="radio" id="nvJLPT" name="classement" onclick="nvJLPT()">
+      <label for="nvJLPT">Nv. JLPT</label>
+      <input type="radio" id="SKIP" name="classement" onclick="SKIP()">
+      <label for="SKIP">SKIP</label>
+      <input type="radio" id="tousLesKanjis" name="classement" onclick="tousLesKanjis()">
+      <label for="tousLesKanjis">Tous</label>
+      <input type="radio" id="traits" name="classement" onclick="traits()">Traits - hors service
     </div>
-    <div id="détailsHako">
+    <div id="étage2"></div>
+    <div id="ordrePrnt">Ordre :
+      <div id="optionsBouton"><input type="button" value="Options" onclick="optionsAff()"></div>
+      <span id="ordre">
+      </span>
+    </div>
+    <div id="compteHako"></div>
+  </div>
+    <div id="kanjiHako">Chargement en cours...</div>
+  <div id="détailsHako">
+    <div id="DHGauche">
       <div>
         <span id="kanjiTitre">一</span>
         <input type="button" onclick="vocabAff(kanAct)" value='Mots avec ce kanji'>
       </div>
       <div>
-        訓読み : <span id="Kunyomi">ひと- ひと.つ</span><br>
+        訓読み : <span id="Kunyomi">ひと-、ひと<span class="okurigana">つ</span></span><br>
         音読み : <span id="Onyomi">イチ イツ</span>
         <div id="Signification">un,radical un (no. 1)</div>
         <div id="Liens"></div>
       </div>
       <input type="range" id="vitesseDeTraçage" min="0" max="10" value="4">
       <button id="autoTraçage" onclick="autoTraçageInt()">Auto : off</button>
+    </div>
+    <div id="DHDroite">
       <div id="desKan"></div>
     </div>
   </div>
-  <div id="optionsBouton"><input type="button" value="Options" onclick="optionsAff()"></div>
+  <div id="boîCach">
+    <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
+    <div id="vocab"></div>
+  </div>
   <div class="overlay" id="overlay" onclick="fermerPopUps()">
     <div id="optionsFenêtre">
       <div><input type="button" value="Fermer" onclick="fermerPopUps()"></div>
